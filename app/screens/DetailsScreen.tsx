@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, View, Image, useWindowDimensions } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  View,
+  Image,
+  useWindowDimensions,
+} from "react-native";
 import Title from "../composants/text/Title";
 import Subtitle from "../composants/text/Subtitle";
-import GameList from "../composants/list/GameList";
+import { getRatingBig } from "../utils/Rating";
 import Colors from "../constants/Colors";
 
 import mockGameList from "../mock";
@@ -21,7 +27,7 @@ export default function HomeScreen({ route }) {
   if (!details) return null;
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Image
         source={{
           uri: `https://img.opencritic.com/${details.images.square.og}`,
@@ -40,8 +46,25 @@ export default function HomeScreen({ route }) {
         {/* <Subtitle text={Date(details.firstReleaseDate)} /> */}
         <Subtitle text={details.Companies.map(({ name }) => name).join(", ")} />
         <Subtitle text={details.Platforms.map(({ name }) => name).join(", ")} />
+        <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+          <View style={styles.scroreContainer}>
+            <Image
+              style={{ width: 79, height: 74 }}
+              source={{ uri: getRatingBig(details.medianScore) }}
+            />
+            <Subtitle textAlign="center" text="OpenCritic Rating" />
+          </View>
+          <View style={styles.scroreContainer}>
+            <Title text={details.topCriticScore.toFixed()} />
+            <Subtitle textAlign="center" text="Top Critic Average" />
+          </View>
+          <View style={styles.scroreContainer}>
+            <Title text={details.percentRecommended.toFixed()} />
+            <Subtitle textAlign="center" text="Critics Recommend" />
+          </View>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -49,5 +72,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.background,
+  },
+  scroreContainer: {
+    flex: 1,
+    paddingHorizontal: 8,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

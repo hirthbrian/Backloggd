@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 import Colors from "./app/constants/Colors";
 import HomeScreen from "./app/screens/HomeScreen";
@@ -35,7 +34,13 @@ export default function App() {
           }}
         >
           <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Details" component={DetailsScreen} />
+          <Stack.Screen
+            name="Details"
+            component={DetailsScreen}
+            options={({ route }) => ({
+              title: route?.params?.name,
+            })}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </View>

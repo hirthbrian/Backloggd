@@ -25,10 +25,11 @@ type GameListProps = {
 export default function GameList({ data }: GameListProps) {
   const navigation = useNavigation();
 
-  const onPress = () => navigation.navigate("Details", { id: 42 });
+  const onPress = (id: number, name: string) =>
+    navigation.navigate("Details", { id, name });
 
   const renderItem = ({ item }: { item: GameType }) => (
-    <Pressable onPress={onPress}>
+    <Pressable onPress={() => onPress(item.id, item.name)}>
       <View style={{ paddingHorizontal: 8 }}>
         <Image
           source={{ uri: `https://img.opencritic.com/${item.images.box.sm}` }}
@@ -45,7 +46,7 @@ export default function GameList({ data }: GameListProps) {
             source={{ uri: getRatingSmall(item.topCriticScore) }}
             style={styles.smallManIcon}
           />
-          <ScoreSmall text={Math.floor(item.topCriticScore).toString()} />
+          <ScoreSmall text={item.topCriticScore.toFixed()} />
         </View>
         <PosterTitle text={item.name} />
       </View>

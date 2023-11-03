@@ -3,10 +3,11 @@ import Colors from "../../constants/Colors";
 
 type SubtitleProps = {
   text: string;
+  textAlign?: "left" | "auto" | "center" | "right" | "justify";
 };
 
-export default function Subtitle({ text }: SubtitleProps) {
-  return <Text style={styles.container}>{text}</Text>;
+export default function Subtitle({ text, textAlign = "left" }: SubtitleProps) {
+  return <Text style={{ ...styles.container, textAlign }}>{text}</Text>;
 }
 
 const styles = StyleSheet.create({
