@@ -1,12 +1,11 @@
 import { StyleSheet, View } from "react-native";
-import Colors from "../constants/Colors";
 import Title from "../composants/text/Title";
 import Subtitle from "../composants/text/Subtitle";
 import GameList from "../composants/list/GameList";
 
 import mockGameList from "../mock";
 
-export default function Main() {
+export default function HomeScreen() {
   return (
     <View>
       <View style={styles.titles}>

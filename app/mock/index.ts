@@ -565,6 +565,166 @@ const values = {
       id: 14860,
     },
   ],
+  game: {
+    images: {
+      box: {
+        og: "game/15022/o/kHYzMvMB.jpg",
+        sm: "game/15022/zTqlEF4q.jpg",
+      },
+      square: {
+        og: "game/15022/o/QV5bVTA6.jpg",
+        xs: "game/15022/qo4O3QWI.jpg",
+        sm: "game/15022/fFEvfDYp.jpg",
+        lg: "game/15022/ENusLhjz.jpg",
+      },
+      masthead: {
+        og: "game/15022/o/dVfEy3iW.jpg",
+        xs: "game/15022/TOKIkwWa.jpg",
+        sm: "game/15022/upLu3AM8.jpg",
+        md: "game/15022/Xwgw9Rre.jpg",
+        lg: "game/15022/jic7ju1w.jpg",
+        xl: "game/15022/aiUEVMJd.jpg",
+      },
+      banner: {
+        og: "game/15022/o/6jfipRMY.jpg",
+        sm: "game/15022/2wUOHa49.jpg",
+      },
+      logo: {
+        og: "game/15022/o/tSBXa22N.jpg",
+      },
+      screenshots: [
+        {
+          _id: "6478f3242c9a124150125338",
+          og: "game/15022/o/nHXVhvlB.jpg",
+          sm: "game/15022/0FFv9EoY.jpg",
+        },
+        {
+          _id: "6478f3242c9a124150125339",
+          og: "game/15022/o/kSzhPFrY.jpg",
+          sm: "game/15022/J6RN4M9k.jpg",
+        },
+        {
+          _id: "6478f3242c9a12415012533a",
+          og: "game/15022/o/Ks9h5il7.jpg",
+          sm: "game/15022/3eVwiVtK.jpg",
+        },
+      ],
+    },
+    mainChannel: {
+      channelId: "UC5Qk8mWBwtMyEj7iQQYRk1A",
+      channelTitle: "Epic Games",
+      description:
+        "Epic Games Store is a curated digital storefront for PC and Mac, designed with both players and creators in mind. Focusing on ...",
+      title: "Epic Games",
+      image:
+        "https://yt3.ggpht.com/79RGo28D20UBapho73I8hmohAMxd6RmikDPm7Zk6smayyXajipFAb1G-W71I9MR91zk-ceqW3g=s88-c-k-c0xffffffff-no-rj-mo",
+      externalUrl: "https://www.youtube.com/channel/UC5Qk8mWBwtMyEj7iQQYRk1A",
+    },
+    Rating: {
+      value: "M",
+    },
+    imageMigrationComplete: false,
+    hasLootBoxes: false,
+    percentRecommended: 92.07920792079209,
+    numReviews: 107,
+    numTopCriticReviews: 79,
+    medianScore: 90,
+    topCriticScore: 88.84722222222223,
+    percentile: 98,
+    tier: "Mighty",
+    name: "Alan Wake 2",
+    trailers: [
+      {
+        isOpenCritic: false,
+        isSpecial: "NO",
+        publishedDate: "2023-05-24T00:00:00.000Z",
+        title: "Alan Wake 2 | Gameplay Reveal Trailer",
+        videoId: "KEcozTSL04Q",
+        externalUrl: "https://www.youtube.com/watch?v=KEcozTSL04Q",
+        channelTitle: "Epic Games",
+        channelId: "UC5Qk8mWBwtMyEj7iQQYRk1A",
+        description:
+          "In a horror story there are only victims and monsters. Take control of FBI agent Saga Anderson and Alan Wake as they fight their ...",
+      },
+      {
+        isOpenCritic: false,
+        isSpecial: "NO",
+        publishedDate: "2021-12-10T00:00:00.000Z",
+        title: "Alan Wake 2 | Reveal Trailer",
+        videoId: "SZU2vRsi0aA",
+        externalUrl: "https://www.youtube.com/watch?v=SZU2vRsi0aA",
+        channelTitle: "Epic Games",
+        channelId: "UC5Qk8mWBwtMyEj7iQQYRk1A",
+        description:
+          "Alan Wake 2, the long awaited-sequel to Remedy Entertainment's award-winning 2021 psychological thriller will be available in ...",
+      },
+    ],
+    Companies: [
+      {
+        name: "Epic Games",
+        type: "PUBLISHER",
+      },
+      {
+        name: "Remedy Entertainment",
+        type: "DEVELOPER",
+      },
+    ],
+    Platforms: [
+      {
+        id: 3,
+        name: "PlayStation 5",
+        shortName: "PS5",
+        releaseDate: "2023-10-27T00:00:00.000Z",
+        displayRelease: "",
+      },
+      {
+        id: 2,
+        name: "Xbox Series X/S",
+        shortName: "XBXS",
+        imageSrc: "https://c.opencritic.com/images/platforms/xbxs.png",
+        releaseDate: "2023-10-27T00:00:00.000Z",
+        displayRelease: "",
+      },
+      {
+        id: 27,
+        name: "PC",
+        shortName: "PC",
+        imageSrc: "https://c.opencritic.com/images/platforms/pc.png",
+        releaseDate: "2023-10-27T00:00:00.000Z",
+        displayRelease: "",
+      },
+    ],
+    Genres: [
+      {
+        id: 95,
+        name: "Horror",
+      },
+      {
+        id: 100,
+        name: "Survival",
+      },
+      {
+        id: 76,
+        name: "Adventure",
+      },
+      {
+        id: 27,
+        name: "Action",
+      },
+    ],
+    id: 15022,
+    firstReleaseDate: "2023-10-27T00:00:00.000Z",
+    createdAt: "2023-06-01T16:42:45.069Z",
+    updatedAt: "2023-11-03T19:32:41.673Z",
+    description:
+      "A string of ritualistic murders threatens Bright Falls, a small-town community surrounded by Pacific Northwest wilderness. Saga Anderson, an accomplished FBI agent with a reputation for solving impossible cases arrives to investigate the murders. Anderson’s case spirals into a nightmare when she discovers pages of a horror story that starts to come true around her.\n\nAlan Wake, a lost writer trapped in a nightmare beyond our world, writes a dark story in an attempt to shape the reality around him and escape his prison. With a dark horror hunting him, Wake is trying to retain his sanity and beat the devil at his own game. \n\nAnderson and Wake are two heroes on two desperate journeys in two separate realities, connected at heart in ways neither of them can understand: reflecting each other, echoing each other, and      affecting the worlds around them. \n\nFueled by the horror story, supernatural darkness invades Bright Falls, corrupting the locals and threatening the loved ones of both Anderson and Wake. Light is their weapon—and their safe haven — against the darkness they face. Trapped in a sinister horror story where there are only victims and monsters, can they break out to be the heroes they need to be? \n\nSolve a Deadly Mystery \nWhat begins as a small-town murder investigation rapidly spirals into a nightmare journey. Uncover the source of the supernatural darkness in this psychological horror story filled with intense suspense and unexpected twists. \n\nPlay As Two Characters \nExperience both Alan Wake’s and Saga Anderson’s stories and see events unfold from different perspectives. Switch between Anderson’s life-or-death race to solve the case and Wake’s desperate attempts to rewrite his reality to escape the depths of the Dark Place. \n \nExplore Two Worlds \nExperience two beautiful yet terrifying worlds, each with its own rich cast of characters and deadly threats. Discover majestic landscapes of Cauldron Lake in the Pacific Northwest and the idyllic towns of Bright Falls and Watery. Contrasting sharply, attempt to escape the nightmarish cityscape of the Dark Place. \n \nSurvive With Light \nWith limited resources, take on powerful supernatural enemies in desperate close-combat situations. It takes more than just a gun to survive: light is the ultimate weapon in the fight against the darkness and will be your refuge when enemies threaten to overwhelm you.",
+    firstReviewDate: "2023-10-26T00:00:00.000Z",
+    latestReviewDate: "2023-11-30T00:00:00.000Z",
+    biggestDiscountDollars: 0,
+    biggestDiscountPercentage: 0,
+    criticalReviewDate: "2023-10-26T13:13:46.176Z",
+    url: "https://opencritic.com/game/15022/alan-wake-2",
+  },
 };
 
 export default values;
