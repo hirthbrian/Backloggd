@@ -1,77 +1,83 @@
-import { View, StyleSheet, FlatList, Image, Pressable } from "react-native";
-import { getRatingSmall } from "../../utils/Rating";
-import Colors from "../../constants/Colors";
-import ScoreSmall from "../../composants/text/ScoreSmall";
-import PosterTitle from "../../composants/text/PosterTitle";
-import { useNavigation } from "@react-navigation/native";
+import React from 'react';
+import { View, StyleSheet, FlatList } from 'react-native';
+import { BigLight, NormalRegular } from '../../composants/Texts';
+import GamePoster from '../GamePoster';
+import { useNavigation } from '@react-navigation/native';
 
 type GameType = {
-  images: {
-    box: {
-      og: string;
-      sm: string;
-    };
-  };
-  topCriticScore: number;
-  tier: string;
-  name: string;
-  id: number;
+	images: {
+		box: {
+			og: string;
+			sm: string;
+		};
+	};
+	topCriticScore: number;
+	tier: string;
+	name: string;
+	id: number;
 };
 
 type GameListProps = {
-  data: Array<GameType>;
+	title?: string;
+	subtitle?: string;
+	data: Array<GameType>;
 };
+function GameList({ title, subtitle, data }: GameListProps) {
+	const navigation = useNavigation();
 
-export default function GameList({ data }: GameListProps) {
-  const navigation = useNavigation();
+	const onPress = (id: number, name: string) =>
+		navigation.navigate('Details', { id, name });
 
-  const onPress = (id: number, name: string) =>
-    navigation.navigate("Details", { id, name });
+	const renderItem = ({ item }: { item: GameType }) => (
+		<GamePoster
+			name={item.name}
+			score={item.topCriticScore}
+			uri={`https://img.opencritic.com/${item.images.box.og}`}
+			onPress={() => onPress(item.id, item.name)}
+		/>
+	);
 
-  const renderItem = ({ item }: { item: GameType }) => (
-    <Pressable onPress={() => onPress(item.id, item.name)}>
-      <View style={{ paddingHorizontal: 8 }}>
-        <Image
-          source={{ uri: `https://img.opencritic.com/${item.images.box.sm}` }}
-          style={styles.poster}
-        />
-        <View
-          style={{
-            paddingVertical: 4,
-            alignItems: "center",
-            flexDirection: "row",
-          }}
-        >
-          <Image
-            source={{ uri: getRatingSmall(item.topCriticScore) }}
-            style={styles.smallManIcon}
-          />
-          <ScoreSmall text={item.topCriticScore.toFixed()} />
-        </View>
-        <PosterTitle text={item.name} />
-      </View>
-    </Pressable>
-  );
+	return (
+		<View>
+			<View style={styles.titles}>
+				{title && (
+					<View
+						style={{
+							paddingTop: 24,
+							paddingBottom: 8,
+						}}
+					>
+						<BigLight lineHeight={38.4}>{title}</BigLight>
+					</View>
+				)}
 
-  return (
-    <FlatList
-      horizontal
-      data={data}
-      renderItem={renderItem}
-      showsHorizontalScrollIndicator={false}
-      keyExtractor={({ id }) => id.toString()}
-    />
-  );
+				{title && (
+					<View
+						style={{
+							paddingBottom: 16,
+						}}
+					>
+						<NormalRegular lineHeight={24}>{subtitle}</NormalRegular>
+					</View>
+				)}
+			</View>
+			<FlatList
+				horizontal
+				data={data}
+				contentContainerStyle={{ paddingHorizontal: 15 }}
+				ItemSeparatorComponent={() => <View style={{ width: 8 }} />}
+				renderItem={renderItem}
+				showsHorizontalScrollIndicator={false}
+				keyExtractor={({ id }) => id.toString()}
+			/>
+		</View>
+	);
 }
 
 const styles = StyleSheet.create({
-  poster: {
-    width: 142,
-    height: 213,
-    borderRadius: 4,
-  },
-  smallManIcon: {
-    width: 13,
-    height: 16,
-  },
+	titles: {
+		paddingHorizontal: 15,
+	},
 });
+
+export default GameList;

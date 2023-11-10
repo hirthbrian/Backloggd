@@ -1,24 +1,25 @@
-import { StyleSheet, View } from "react-native";
-import Title from "../composants/text/Title";
-import Subtitle from "../composants/text/Subtitle";
-import GameList from "../composants/list/GameList";
+import React from 'react';
+import { ScrollView, StyleSheet } from 'react-native';
+import GameList from '../composants/list/GameList';
+import GameSmallList from '../composants/list/GameSmallList';
 
-import mockGameList from "../mock";
+import mockGameList from '../mock';
 
 export default function HomeScreen() {
-  return (
-    <View>
-      <View style={styles.titles}>
-        <Title text="Popular Games" />
-        <Subtitle text="Don't miss the most popular games on OpenCritic today" />
-      </View>
-      <GameList data={mockGameList.popular} />
-    </View>
-  );
+	return (
+		<ScrollView>
+			<GameList
+				title="Popular Games"
+				subtitle="Don't miss the most popular games on OpenCritic today"
+				data={mockGameList.popular}
+			/>
+			<GameSmallList title="Recently Released" data={mockGameList.popular} />
+		</ScrollView>
+	);
 }
 
 const styles = StyleSheet.create({
-  titles: {
-    paddingHorizontal: 15,
-  },
+	titles: {
+		paddingHorizontal: 15,
+	},
 });
