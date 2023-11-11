@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, StyleSheet, FlatList } from 'react-native';
-import { BigLight, NormalRegular } from '../../composants/Texts';
-import GamePoster from '../GamePoster';
+import { FlatList, StyleSheet, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
+import GamePoster from '../GamePoster';
+import { BigLight, NormalRegular } from '../Texts';
 
 type GameType = {
 	images: {

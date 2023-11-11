@@ -1,22 +1,21 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
-	ScrollView,
-	StyleSheet,
-	View,
+	FlatList,
 	Image,
 	ImageBackground,
-	FlatList,
+	ScrollView,
+	StyleSheet,
 	useWindowDimensions,
+	View,
 } from 'react-native';
 import dayjs from 'dayjs';
-import { NormalRegular, BiggerRegular, NormalBold } from '../composants/Texts';
-import { getRatingBig } from '../utils/Rating';
-import Colors from '../constants/Colors';
-import GameUserStatus from '../composants/GameUserStatus';
 
+import GameUserStatus from '../components/GameUserStatus';
+import { BiggerRegular, NormalBold, NormalRegular } from '../components/Texts';
+import Colors from '../constants/Colors';
+import type { GameDetails } from '../constants/Types';
 import mockGameList from '../mock';
-import { GameDetails } from '../constants/Types';
+import { getRatingBig } from '../utils/Rating';
 
 export default function HomeScreen({ route }) {
 	const id = route?.params?.id;

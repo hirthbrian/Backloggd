@@ -1,8 +1,10 @@
 import React from 'react';
-import { Image, Pressable, StyleSheet } from 'react-native';
+import { Image, Pressable, StyleSheet, View } from 'react-native';
 
-import { NormalBold, NormalLight } from '../composants/Texts';
+import Colors from '../constants/Colors';
 import { getRatingSmall } from '../utils/Rating';
+
+import { NormalBold, NormalLight } from './Texts';
 
 type GamePosterProps = {
 	uri: string;
@@ -28,6 +30,7 @@ function GamePoster({
 						width,
 						height: width * (3 / 2),
 						borderRadius: 4,
+						backgroundColor: Colors.lightGrey,
 					}}
 				/>
 				<View

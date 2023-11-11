@@ -1,8 +1,8 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import GameList from '../composants/list/GameList';
-import GameSmallList from '../composants/list/GameSmallList';
 
+import GameList from '../components/list/GameList';
+import GameSmallList from '../components/list/GameSmallList';
 import mockGameList from '../mock';
 
 export default function HomeScreen() {

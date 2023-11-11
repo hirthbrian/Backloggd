@@ -1,13 +1,14 @@
-import React from 'react';
-import { useState } from 'react';
-import { Pressable, View } from 'react-native';
+import React, { useState } from 'react';
+import { Pressable, StyleSheet, View } from 'react-native';
 import { BlurView } from 'expo-blur';
-import { NormalRegular } from '../composants/Texts';
+
 import Colors from '../constants/Colors';
-import CheckIcon from '../composants/icons/CheckIcon';
-import HeartIcon from '../composants/icons/HeartIcon';
-import PlusIcon from '../composants/icons/PlusIcon';
 import { StatusEnum } from '../constants/Enums';
+
+import CheckIcon from './icons/CheckIcon';
+import HeartIcon from './icons/HeartIcon';
+import PlusIcon from './icons/PlusIcon';
+import { NormalRegular } from './Texts';
 
 function GameUserStatus() {
 	const [status, setStatus] = useState<StatusEnum>(StatusEnum.NONE);
@@ -15,7 +16,6 @@ function GameUserStatus() {
 
 	const renderSubStatus = (
 		text: string,
-		color: string,
 		backgroundColor: string,
 		Icon: React.JSX.Element,
 		currentStatus,
@@ -34,9 +34,13 @@ function GameUserStatus() {
 						}}
 					>
 						<View style={{ paddingBottom: 5 }}>
-							<Icon color={color} />
+							<Icon color={currentStatus ? Colors.background : Colors.text} />
 						</View>
-						<NormalRegular color={color}>{text}</NormalRegular>
+						<NormalRegular
+							color={currentStatus ? Colors.background : Colors.text}
+						>
+							{text}
+						</NormalRegular>
 					</View>
 				)}
 			</Pressable>
@@ -59,7 +63,11 @@ function GameUserStatus() {
 
 	const renderStatusSeparator = () => (
 		<View
-			style={{ width: 1, backgroundColor: Colors.lightGrey, opacity: 0.2 }}
+			style={{
+				width: StyleSheet.hairlineWidth,
+				backgroundColor: Colors.background,
+				opacity: 0.2,
+			}}
 		/>
 	);
 
@@ -77,7 +85,6 @@ function GameUserStatus() {
 		>
 			{renderSubStatus(
 				'Want',
-				Colors.text,
 				Colors.purple,
 				PlusIcon,
 				status === StatusEnum.WANT,
@@ -86,7 +93,6 @@ function GameUserStatus() {
 			{renderStatusSeparator()}
 			{renderSubStatus(
 				'Played',
-				Colors.text,
 				Colors.primary,
 				CheckIcon,
 				status === StatusEnum.PLAYED,
@@ -95,7 +101,6 @@ function GameUserStatus() {
 			{renderStatusSeparator()}
 			{renderSubStatus(
 				'Favorite',
-				Colors.text,
 				Colors.red,
 				HeartIcon,
 				isFavorite,

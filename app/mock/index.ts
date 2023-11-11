@@ -565,6 +565,1752 @@ const values = {
 			id: 14860,
 		},
 	],
+	want: [
+		{
+			name: 'Okami HD',
+			id: 5112,
+			firstReleaseDate: '2017-12-12T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/5112/o/iknJbrDf.jpg',
+					sm: 'game/5112/CJIuQL4I.jpg',
+				},
+				box: {
+					og: 'game/5112/o/BSMgvplS.jpg',
+					sm: 'game/5112/GwEDwpx7.jpg',
+				},
+				square: {
+					og: 'game/5112/o/wCORMIl1.jpg',
+					xs: 'game/5112/9Ug52pq6.jpg',
+					sm: 'game/5112/ZOqBCHst.jpg',
+					lg: 'game/5112/6d8nU6IE.jpg',
+				},
+			},
+			numReviews: 111,
+			topCriticScore: 87.24418604651163,
+			percentRecommended: 94.4954128440367,
+		},
+		{
+			name: 'Yakuza: Like a Dragon',
+			id: 8628,
+			firstReleaseDate: '2020-11-10T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				box: {
+					og: 'game/8628/o/2w5fEUjN.jpg',
+					sm: 'game/8628/djtTfK0E.jpg',
+				},
+				square: {
+					og: 'game/8628/o/pbdSbygJ.jpg',
+					xs: 'game/8628/Ija7YPrI.jpg',
+					sm: 'game/8628/vmnlA1le.jpg',
+					lg: 'game/8628/754vfXlZ.jpg',
+				},
+				banner: {
+					og: 'game/8628/o/lNbtLB2O.jpg',
+					sm: 'game/8628/WMmRSfCl.jpg',
+				},
+			},
+			numReviews: 153,
+			topCriticScore: 85.76767676767676,
+			percentRecommended: 91.2751677852349,
+		},
+		{
+			name: 'Resident Evil 4',
+			id: 3227,
+			firstReleaseDate: '2016-08-30T00:00:00.000Z',
+			tier: 'Strong',
+			images: {
+				box: {
+					og: 'game/3227/o/qTqonhaY.jpg',
+					sm: 'game/3227/JrRaj7Fk.jpg',
+				},
+				square: {
+					og: 'game/3227/o/PbyxZ5FH.jpg',
+					xs: 'game/3227/BvQt1KUi.jpg',
+					sm: 'game/3227/uHVHia9v.jpg',
+					lg: 'game/3227/W6yQgxHi.jpg',
+				},
+				banner: {
+					og: 'game/3227/o/EWUj7PSs.jpg',
+					sm: 'game/3227/Vnw5Pa6a.jpg',
+				},
+			},
+			numReviews: 45,
+			topCriticScore: 82.275,
+			percentRecommended: 77.77777777777779,
+		},
+		{
+			name: 'Persona 5 Royal',
+			id: 8785,
+			firstReleaseDate: '2020-03-31T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/8785/o/0XSU6AMY.jpg',
+					sm: 'game/8785/3qki8ot5.jpg',
+				},
+				box: {
+					og: 'game/8785/o/BvYjSQnX.jpg',
+					sm: 'game/8785/SLq4krAW.jpg',
+				},
+				square: {
+					og: 'game/8785/o/YWqfGaQw.jpg',
+					xs: 'game/8785/f8DAWytt.jpg',
+					sm: 'game/8785/4fKXKMf3.jpg',
+					lg: 'game/8785/iTOuyVzS.jpg',
+				},
+			},
+			numReviews: 167,
+			topCriticScore: 94.11650485436893,
+			percentRecommended: 97.57575757575758,
+		},
+		{
+			name: 'Rayman Legends',
+			id: 288,
+			firstReleaseDate: '2013-09-03T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/288/o/Ad5UlpWj.jpg',
+					sm: 'game/288/6gsKDPve.jpg',
+				},
+				box: {
+					og: 'game/288/o/osImzDCM.jpg',
+					sm: 'game/288/FozHZswS.jpg',
+				},
+				square: {
+					og: 'game/288/o/fLB2wS5o.jpg',
+					xs: 'game/288/x4U3RQwW.jpg',
+					sm: 'game/288/rNO29pGB.jpg',
+					lg: 'game/288/38qaht9D.jpg',
+				},
+			},
+			numReviews: 76,
+			topCriticScore: 90.16197183098592,
+			percentRecommended: 94.66666666666667,
+		},
+		{
+			name: "Hellblade: Senua's Sacrifice",
+			id: 4516,
+			firstReleaseDate: '2017-08-08T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/4516/o/Yz2fcAn6.jpg',
+					sm: 'game/4516/uQrYCgHm.jpg',
+				},
+				square: {
+					og: 'game/4516/o/Vi4rk5Gk.jpg',
+					xs: 'game/4516/Gmt9uIYt.jpg',
+					sm: 'game/4516/vPfsAKJH.jpg',
+					lg: 'game/4516/sdRDQ30k.jpg',
+				},
+				box: {
+					og: 'game/4516/o/V1jWiqSY.jpg',
+					sm: 'game/4516/qQwJgFms.jpg',
+				},
+			},
+			numReviews: 150,
+			topCriticScore: 83.57943925233644,
+			percentRecommended: 80.6896551724138,
+		},
+		{
+			name: 'Halo: The Master Chief Collection',
+			id: 838,
+			firstReleaseDate: '2014-11-11T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/838/o/CBRvMvyc.jpg',
+					sm: 'game/838/7EUXuqbx.jpg',
+				},
+				box: {
+					og: 'game/838/o/rIxZFFf9.jpg',
+					sm: 'game/838/pfs8DOtQ.jpg',
+				},
+				square: {
+					og: 'game/838/o/sZPEhm43.jpg',
+					xs: 'game/838/ydQeS0Ez.jpg',
+					sm: 'game/838/LVAInRCd.jpg',
+					lg: 'game/838/fBzbna06.jpg',
+				},
+			},
+			numReviews: 86,
+			topCriticScore: 86.9342105263158,
+			percentRecommended: 88.09523809523809,
+		},
+		{
+			name: 'Pikmin 3 Deluxe',
+			id: 10251,
+			firstReleaseDate: '2020-10-30T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/10251/o/tC1lmbpA.jpg',
+					sm: 'game/10251/nlKa5WDL.jpg',
+				},
+				box: {
+					og: 'game/10251/o/FD6R8Jr8.jpg',
+					sm: 'game/10251/y5utKuZK.jpg',
+				},
+				square: {
+					og: 'game/10251/o/ZeLKuES6.jpg',
+					xs: 'game/10251/pWfUnGxW.jpg',
+					sm: 'game/10251/prUZkwkZ.jpg',
+					lg: 'game/10251/Kv2PS8GK.jpg',
+				},
+			},
+			numReviews: 86,
+			topCriticScore: 84.85964912280701,
+			percentRecommended: 98.82352941176471,
+		},
+		{
+			name: 'Dave the Diver',
+			id: 15151,
+			firstReleaseDate: '2023-06-28T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				box: {
+					og: 'game/15151/o/oTx3MsfE.jpg',
+					sm: 'game/15151/tedB2pMS.jpg',
+				},
+				square: {
+					og: 'game/15151/o/gAXiMxvs.jpg',
+					xs: 'game/15151/QjEbdotZ.jpg',
+					sm: 'game/15151/BATGCN0A.jpg',
+					lg: 'game/15151/bRVfLrSB.jpg',
+				},
+				banner: {
+					og: 'game/15151/o/rgLKEJci.jpg',
+					sm: 'game/15151/hAWnAnlp.jpg',
+				},
+			},
+			numReviews: 56,
+			topCriticScore: 89.78333333333333,
+			percentRecommended: 100,
+		},
+		{
+			name: 'The Witcher 3: Wild Hunt',
+			id: 463,
+			firstReleaseDate: '2015-05-19T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/463/o/NcQS6Nk8.jpg',
+					sm: 'game/463/6uNBtFmg.jpg',
+				},
+				box: {
+					og: 'game/463/o/M0VUcLa8.jpg',
+					sm: 'game/463/rB1hHRUz.jpg',
+				},
+				square: {
+					og: 'game/463/o/OVsgXNo2.jpg',
+					xs: 'game/463/6bOIfnaJ.jpg',
+					sm: 'game/463/GG8JCUkL.jpg',
+					lg: 'game/463/oTjgRCNz.jpg',
+				},
+			},
+			numReviews: 177,
+			topCriticScore: 92.57246376811594,
+			percentRecommended: 95.20958083832335,
+		},
+		{
+			name: 'Pikmin 4',
+			id: 14514,
+			firstReleaseDate: '2023-07-21T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				box: {
+					og: 'game/14514/o/w4ypzOBb.jpg',
+					sm: 'game/14514/zJ8O1xim.jpg',
+				},
+				square: {
+					og: 'game/undefined/o/IpjbDSPA.jpg',
+					xs: 'game/undefined/zawpVfWm.jpg',
+					sm: 'game/undefined/EoHvSIfC.jpg',
+					lg: 'game/undefined/w4f7i21Z.jpg',
+				},
+				banner: {
+					og: 'game/undefined/o/G7WF5Y6T.jpg',
+					sm: 'game/undefined/c1hqsMQz.jpg',
+				},
+			},
+			numReviews: 102,
+			topCriticScore: 87.7536231884058,
+			percentRecommended: 98,
+		},
+		{
+			name: "Baldur's Gate 3",
+			id: 9136,
+			firstReleaseDate: '2023-08-03T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				box: {
+					og: 'game/9136/o/MPo6LRsJ.jpg',
+					sm: 'game/9136/dFqN1tTL.jpg',
+				},
+				square: {
+					og: 'game/9136/o/ZLeSAfy9.jpg',
+					xs: 'game/9136/czlP9j2U.jpg',
+					sm: 'game/9136/C2wxkx4H.jpg',
+					lg: 'game/9136/DUGVdGuo.jpg',
+				},
+				banner: {
+					og: 'game/9136/o/wKeeGyFm.jpg',
+					sm: 'game/9136/jyllbygC.jpg',
+				},
+			},
+			numReviews: 133,
+			topCriticScore: 95.89010989010988,
+			percentRecommended: 99.20634920634922,
+		},
+		{
+			name: 'The Legend of Zelda: Skyward Sword HD',
+			id: 11317,
+			firstReleaseDate: '2021-07-16T00:00:00.000Z',
+			tier: 'Strong',
+			images: {
+				box: {
+					og: 'game/11317/o/R5lrLq3v.jpg',
+					sm: 'game/11317/mRneUXBD.jpg',
+				},
+				square: {
+					og: 'game/11317/o/U0W55Cvb.jpg',
+					xs: 'game/11317/2pkmpt1i.jpg',
+					sm: 'game/11317/UCHH2Xhd.jpg',
+					lg: 'game/11317/fDyewDuJ.jpg',
+				},
+				banner: {
+					og: 'game/11317/o/tMlhM4yd.jpg',
+					sm: 'game/11317/mtmPiQNs.jpg',
+				},
+			},
+			numReviews: 106,
+			topCriticScore: 82.25,
+			percentRecommended: 81.1881188118812,
+		},
+		{
+			name: 'Alan Wake 2',
+			id: 15022,
+			firstReleaseDate: '2023-10-27T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				box: {
+					og: 'game/15022/o/kHYzMvMB.jpg',
+					sm: 'game/15022/zTqlEF4q.jpg',
+				},
+				square: {
+					og: 'game/15022/o/QV5bVTA6.jpg',
+					xs: 'game/15022/qo4O3QWI.jpg',
+					sm: 'game/15022/fFEvfDYp.jpg',
+					lg: 'game/15022/ENusLhjz.jpg',
+				},
+				banner: {
+					og: 'game/15022/o/6jfipRMY.jpg',
+					sm: 'game/15022/2wUOHa49.jpg',
+				},
+			},
+			numReviews: 128,
+			topCriticScore: 88.94047619047619,
+			percentRecommended: 92.62295081967213,
+		},
+		{
+			name: 'Super Mario Bros. Wonder',
+			id: 15123,
+			firstReleaseDate: '2023-10-20T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				box: {
+					og: 'game/undefined/o/Mh0RuxrM.jpg',
+					sm: 'game/undefined/yJxY9Zik.jpg',
+				},
+				square: {
+					og: 'game/undefined/o/yEEa0oBb.jpg',
+					xs: 'game/undefined/SGuVwrQt.jpg',
+					sm: 'game/undefined/M6UU271y.jpg',
+					lg: 'game/undefined/oqJ97toZ.jpg',
+				},
+				banner: {
+					og: 'game/15123/o/pYQdJSpc.jpg',
+					sm: 'game/15123/JsVEa0TK.jpg',
+				},
+			},
+			numReviews: 110,
+			topCriticScore: 91.20138888888889,
+			percentRecommended: 98.1651376146789,
+		},
+	],
+	played: [
+		{
+			name: 'The Legend of Zelda: Tears of the Kingdom',
+			id: 14343,
+			firstReleaseDate: '2023-05-12T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				box: {
+					og: 'game/14343/o/swtw3peI.jpg',
+					sm: 'game/14343/Tfahlmf0.jpg',
+				},
+				square: {
+					og: 'game/14343/o/8sWU9p1p.jpg',
+					xs: 'game/14343/rXIMdXx1.jpg',
+					sm: 'game/14343/UK1B7XYW.jpg',
+					lg: 'game/14343/rQKFPQ6G.jpg',
+				},
+				banner: {
+					og: 'game/14343/o/f5AsxHjY.jpg',
+					sm: 'game/14343/ZpFE5hYe.jpg',
+				},
+			},
+			numReviews: 151,
+			topCriticScore: 95.84065934065934,
+			percentRecommended: 97.2027972027972,
+		},
+		{
+			name: 'The Last of Us Part I',
+			id: 13283,
+			firstReleaseDate: '2022-09-02T00:00:00.000Z',
+			tier: 'Strong',
+			images: {
+				box: {
+					og: 'game/13283/o/SOoHaKrl.jpg',
+					sm: 'game/13283/nDrvMvGA.jpg',
+				},
+				square: {
+					og: 'game/13283/o/RcqVTQYT.jpg',
+					xs: 'game/13283/fnaJ0P4P.jpg',
+					sm: 'game/13283/ULuh4yMR.jpg',
+					lg: 'game/13283/ARGv45v2.jpg',
+				},
+				banner: {
+					og: 'game/13283/o/BSXNu60r.jpg',
+					sm: 'game/13283/slSSq2ty.jpg',
+				},
+			},
+			numReviews: 170,
+			topCriticScore: 81.79047619047618,
+			percentRecommended: 75.92592592592592,
+		},
+		{
+			name: 'Deathloop',
+			id: 10993,
+			firstReleaseDate: '2021-09-14T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/10993/o/hXQ2gcTE.jpg',
+					sm: 'game/10993/IyuIZ23a.jpg',
+				},
+				box: {
+					og: 'game/10993/o/ARr0KgY2.jpg',
+					sm: 'game/10993/EHImWzB5.jpg',
+				},
+				square: {
+					og: 'game/10993/o/Sw917e6B.jpg',
+					xs: 'game/10993/dUX73daw.jpg',
+					sm: 'game/10993/UJMM6jV6.jpg',
+					lg: 'game/10993/XciHacsy.jpg',
+				},
+			},
+			numReviews: 206,
+			topCriticScore: 87.61607142857143,
+			percentRecommended: 91.91919191919192,
+		},
+		{
+			name: 'The Legend of Zelda: Breath of the Wild',
+			id: 1548,
+			firstReleaseDate: '2017-03-03T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				box: {
+					og: 'game/1548/o/4ZYuacsQ.jpg',
+					sm: 'game/1548/TZoIVnWB.jpg',
+				},
+				square: {
+					og: 'game/1548/o/XbxPPM3U.jpg',
+					xs: 'game/1548/hfOsv4i6.jpg',
+					sm: 'game/1548/rsxVCzEC.jpg',
+					lg: 'game/1548/ibluQ0nG.jpg',
+				},
+				banner: {
+					og: 'game/1548/o/Yk9QzAsx.jpg',
+					sm: 'game/1548/KBgUnP4E.jpg',
+				},
+			},
+			numReviews: 172,
+			topCriticScore: 95.9047619047619,
+			percentRecommended: 95.83333333333334,
+		},
+		{
+			name: 'Red Dead Redemption 2',
+			id: 3717,
+			firstReleaseDate: '2018-10-26T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/3717/o/jYpBWkk3.jpg',
+					sm: 'game/3717/hKdIKxC8.jpg',
+				},
+				box: {
+					og: 'game/3717/o/326GZofI.jpg',
+					sm: 'game/3717/krY1RnC7.jpg',
+				},
+				square: {
+					og: 'game/3717/o/6jpIyHFc.jpg',
+					xs: 'game/3717/MxApKMyp.jpg',
+					sm: 'game/3717/h37sXaHG.jpg',
+					lg: 'game/3717/QUxM4CO5.jpg',
+				},
+			},
+			numReviews: 218,
+			topCriticScore: 95.50617283950618,
+			percentRecommended: 93.8388625592417,
+		},
+		{
+			name: 'Elden Ring',
+			id: 12090,
+			firstReleaseDate: '2022-02-25T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				box: {
+					og: 'game/12090/o/5BXKr5S1.jpg',
+					sm: 'game/12090/7YWqBEm4.jpg',
+				},
+				square: {
+					og: 'game/12090/o/1i4Y1WHv.jpg',
+					xs: 'game/12090/YGb3hRFW.jpg',
+					sm: 'game/12090/eGJS5XuA.jpg',
+					lg: 'game/12090/Vru11MQp.jpg',
+				},
+				banner: {
+					og: 'game/12090/o/MfLAp5NH.jpg',
+					sm: 'game/12090/EPNeMwHz.jpg',
+				},
+			},
+			numReviews: 204,
+			topCriticScore: 95.15573770491804,
+			percentRecommended: 97.9381443298969,
+		},
+		{
+			name: 'God of War',
+			id: 5434,
+			firstReleaseDate: '2018-04-20T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/5434/o/Fh0I8juh.jpg',
+					sm: 'game/5434/5U0XgUmr.jpg',
+				},
+				box: {
+					og: 'game/5434/o/GgrEmAH3.jpg',
+					sm: 'game/5434/fkRW5zvf.jpg',
+				},
+				square: {
+					og: 'game/5434/o/Knyd4oAT.jpg',
+					xs: 'game/5434/46l36jWZ.jpg',
+					sm: 'game/5434/fciyH66q.jpg',
+					lg: 'game/5434/9GAPx6hQ.jpg',
+				},
+			},
+			numReviews: 253,
+			topCriticScore: 94.30285714285715,
+			percentRecommended: 97.55102040816327,
+		},
+		{
+			name: 'Metroid Prime Remastered',
+			id: 14280,
+			firstReleaseDate: '2023-02-08T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				box: {
+					og: 'game/14280/o/zxZyivCU.jpg',
+					sm: 'game/14280/KU23dw1i.jpg',
+				},
+				square: {
+					og: 'game/14280/o/eWwsC80M.jpg',
+					xs: 'game/14280/HGvUuf0i.jpg',
+					sm: 'game/14280/zUYFqucC.jpg',
+					lg: 'game/14280/4SPPa0GN.jpg',
+				},
+				banner: {
+					og: 'game/14280/o/ZewtO2PX.jpg',
+					sm: 'game/14280/tE6yo1QW.jpg',
+				},
+			},
+			numReviews: 95,
+			topCriticScore: 94,
+			percentRecommended: 100,
+		},
+		{
+			name: 'Hades',
+			id: 10181,
+			firstReleaseDate: '2020-09-17T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/10181/o/2Bd7R7jf.jpg',
+					sm: 'game/10181/366tz0vW.jpg',
+				},
+				box: {
+					og: 'game/10181/o/TWDQjeHl.jpg',
+					sm: 'game/10181/yNGCQv6U.jpg',
+				},
+				square: {
+					og: 'game/10181/o/B4GeKJAC.jpg',
+					xs: 'game/10181/9CH0ZTHu.jpg',
+					sm: 'game/10181/enc240mw.jpg',
+					lg: 'game/10181/kHOrITF8.jpg',
+				},
+			},
+			numReviews: 184,
+			topCriticScore: 93.91228070175438,
+			percentRecommended: 99.44444444444444,
+		},
+		{
+			name: 'Undertale',
+			id: 1907,
+			firstReleaseDate: '2015-09-15T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/1907/o/2QJt4OKT.jpg',
+					sm: 'game/1907/dd9nVa7D.jpg',
+				},
+				box: {
+					og: 'game/1907/o/QV3l4Zn4.jpg',
+					sm: 'game/1907/tO25AtxG.jpg',
+				},
+				square: {
+					og: 'game/1907/o/vxpzvakT.jpg',
+					xs: 'game/1907/T6Bmtl8y.jpg',
+					sm: 'game/1907/E8XmSiam.jpg',
+					lg: 'game/1907/tvfHaf20.jpg',
+				},
+			},
+			numReviews: 75,
+			topCriticScore: 93.33898305084746,
+			percentRecommended: 97.26027397260275,
+		},
+		{
+			name: 'Her Story',
+			id: 585,
+			firstReleaseDate: '2015-06-24T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/585/o/aymtoX6C.jpg',
+					sm: 'game/585/dLCZVjAI.jpg',
+				},
+				box: {
+					og: 'game/585/o/TOvcaIeD.jpg',
+					sm: 'game/585/DVrI2y4E.jpg',
+				},
+				square: {
+					og: 'game/585/o/qwC7QLDO.jpg',
+					xs: 'game/585/p8DQiHQ5.jpg',
+					sm: 'game/585/WuLyzneJ.jpg',
+					lg: 'game/585/zS5lplSh.jpg',
+				},
+			},
+			numReviews: 48,
+			topCriticScore: 84.71794871794872,
+			percentRecommended: 88.63636363636364,
+		},
+		{
+			name: 'Cult of the Lamb',
+			id: 13509,
+			firstReleaseDate: '2022-08-11T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				box: {
+					og: 'game/13509/o/KW0nVeXe.jpg',
+					sm: 'game/13509/A7166nJ8.jpg',
+				},
+				square: {
+					og: 'game/13509/o/Fx7grelu.jpg',
+					xs: 'game/13509/waX9V7qZ.jpg',
+					sm: 'game/13509/AQX5eYXK.jpg',
+					lg: 'game/13509/uLYFKUIg.jpg',
+				},
+				banner: {
+					og: 'game/13509/o/MVD4uDwi.jpg',
+					sm: 'game/13509/rijrv8fu.jpg',
+				},
+			},
+			numReviews: 131,
+			topCriticScore: 84.27027027027027,
+			percentRecommended: 89.68253968253968,
+		},
+		{
+			name: 'Tunic',
+			id: 12888,
+			firstReleaseDate: '2022-03-16T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				box: {
+					og: 'game/12888/o/Be0vSz9w.jpg',
+					sm: 'game/12888/KKKEeWQq.jpg',
+				},
+				banner: {
+					og: 'game/12888/o/Qdt3T9oa.jpg',
+					sm: 'game/12888/PJgdMTX1.jpg',
+				},
+				square: {
+					og: 'game/12888/o/3PGA9V9m.jpg',
+					xs: 'game/12888/zRwiUJ2R.jpg',
+					sm: 'game/12888/tGDXQ4SQ.jpg',
+					lg: 'game/12888/jBbY4PuD.jpg',
+				},
+			},
+			numReviews: 113,
+			topCriticScore: 85.44852941176471,
+			percentRecommended: 92.66055045871559,
+		},
+		{
+			name: 'Halo Infinite',
+			id: 12088,
+			firstReleaseDate: '2021-12-08T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				box: {
+					og: 'game/12088/o/AcyojAVM.jpg',
+					sm: 'game/12088/RGhuaWZk.jpg',
+				},
+				banner: {
+					og: 'game/12088/o/iMKDkuX1.jpg',
+					sm: 'game/12088/GYMasgqn.jpg',
+				},
+				square: {
+					og: 'game/12088/o/m00qdArX.jpg',
+					xs: 'game/12088/FqPmIp11.jpg',
+					sm: 'game/12088/qTvJ3lTj.jpg',
+					lg: 'game/12088/YmY5Kb7G.jpg',
+				},
+			},
+			numReviews: 172,
+			topCriticScore: 86.48598130841121,
+			percentRecommended: 95.03105590062113,
+		},
+		{
+			name: 'Metroid Dread',
+			id: 11621,
+			firstReleaseDate: '2021-10-08T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				box: {
+					og: 'game/11621/o/sDPXHxrS.jpg',
+					sm: 'game/11621/G3AdF6Tl.jpg',
+				},
+				banner: {
+					og: 'game/11621/o/YYYbMO6G.jpg',
+					sm: 'game/11621/AWbWwRwi.jpg',
+				},
+				square: {
+					og: 'game/11621/o/1Imr5joP.jpg',
+					xs: 'game/11621/VfgACLrA.jpg',
+					sm: 'game/11621/jllQhCvi.jpg',
+					lg: 'game/11621/XTgcE2wF.jpg',
+				},
+			},
+			numReviews: 150,
+			topCriticScore: 87.43023255813954,
+			percentRecommended: 95.17241379310344,
+		},
+		{
+			name: 'Metro Exodus',
+			id: 6847,
+			firstReleaseDate: '2019-02-15T00:00:00.000Z',
+			tier: 'Strong',
+			images: {
+				banner: {
+					og: 'game/6847/o/5llht4Z0.jpg',
+					sm: 'game/6847/E2RLXTxf.jpg',
+				},
+				box: {
+					og: 'game/6847/o/hZ66DejQ.jpg',
+					sm: 'game/6847/KaracorD.jpg',
+				},
+				square: {
+					og: 'game/6847/o/57hPu3lW.jpg',
+					xs: 'game/6847/syYARviQ.jpg',
+					sm: 'game/6847/DQIK5NoT.jpg',
+					lg: 'game/6847/TGWbKvCJ.jpg',
+				},
+			},
+			numReviews: 170,
+			topCriticScore: 82.78703703703704,
+			percentRecommended: 82.82208588957054,
+		},
+		{
+			name: 'Psychonauts 2',
+			id: 7404,
+			firstReleaseDate: '2021-08-25T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/7404/o/atpf5KVT.jpg',
+					sm: 'game/7404/6vkjBwWO.jpg',
+				},
+				box: {
+					og: 'game/7404/o/IbehMIIq.jpg',
+					sm: 'game/7404/VwVWaunq.jpg',
+				},
+				square: {
+					og: 'game/7404/o/tzu6lK8d.jpg',
+					xs: 'game/7404/DT0HkPZu.jpg',
+					sm: 'game/7404/cBHxM5KY.jpg',
+					lg: 'game/7404/fJZyYvCT.jpg',
+				},
+			},
+			numReviews: 163,
+			topCriticScore: 88.64,
+			percentRecommended: 97.43589743589743,
+		},
+		{
+			name: 'Superliminal',
+			id: 8533,
+			firstReleaseDate: '2020-12-31T00:00:00.000Z',
+			tier: 'Strong',
+			images: {
+				banner: {
+					og: 'game/8533/o/Z9Og8jZl.jpg',
+					sm: 'game/8533/pixQc5q1.jpg',
+				},
+				box: {
+					og: 'game/8533/o/3uCHvAhg.jpg',
+					sm: 'game/8533/qmotChpS.jpg',
+				},
+				square: {
+					og: 'game/8533/o/pwCDyxfZ.jpg',
+					xs: 'game/8533/wkCGz2YI.jpg',
+					sm: 'game/8533/kXCaDs6R.jpg',
+					lg: 'game/8533/jDVzU1f5.jpg',
+				},
+			},
+			numReviews: 69,
+			topCriticScore: 74.9,
+			percentRecommended: 67.16417910447761,
+		},
+		{
+			name: 'Deltarune: Chapter 1 & 2',
+			id: 12005,
+			firstReleaseDate: '2019-02-23T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/12005/o/lOnHRmBG.jpg',
+					sm: 'game/12005/Xg2r7jPW.jpg',
+				},
+				box: {
+					og: 'game/12005/o/6Grz2rL7.jpg',
+					sm: 'game/12005/yUo1ZYRg.jpg',
+				},
+				square: {
+					og: 'game/12005/o/j2mlaNc4.jpg',
+					xs: 'game/12005/Si0dLsWI.jpg',
+					sm: 'game/12005/n6kwLbjw.jpg',
+					lg: 'game/12005/PHwjkbZn.jpg',
+				},
+			},
+			numReviews: 12,
+			topCriticScore: 84,
+			percentRecommended: 77.77777777777779,
+		},
+		{
+			name: 'Axiom Verge',
+			id: 53,
+			firstReleaseDate: '2015-03-30T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/53/o/Uk4T7VZR.jpg',
+					sm: 'game/53/eY1TcSS4.jpg',
+				},
+				square: {
+					og: 'game/53/o/pkG4aUFR.jpg',
+					xs: 'game/53/ZJoK1W5L.jpg',
+					sm: 'game/53/3GmBl46J.jpg',
+					lg: 'game/53/pHr6EJh3.jpg',
+				},
+				box: {
+					og: 'game/53/o/x33e57bB.jpg',
+					sm: 'game/53/d7kObK6k.jpg',
+				},
+			},
+			numReviews: 90,
+			topCriticScore: 84.79452054794521,
+			percentRecommended: 83.14606741573034,
+		},
+		{
+			name: 'Cruelty Squad',
+			id: 11633,
+			firstReleaseDate: '2021-06-16T00:00:00.000Z',
+			tier: '',
+			images: {
+				banner: {
+					og: 'game/11633/o/3wlx3C5o.jpg',
+					sm: 'game/11633/4CYi4BJt.jpg',
+				},
+			},
+			numReviews: 2,
+			topCriticScore: -1,
+			percentRecommended: -1,
+		},
+		{
+			name: 'Paper Mario: The Origami King',
+			id: 9585,
+			firstReleaseDate: '2020-07-17T00:00:00.000Z',
+			tier: 'Strong',
+			images: {
+				banner: {
+					og: 'game/9585/o/lnZ9PErr.jpg',
+					sm: 'game/9585/Uq2M0pMr.jpg',
+				},
+				box: {
+					og: 'game/9585/o/I8h2HEjP.jpg',
+					sm: 'game/9585/Z6DIe45F.jpg',
+				},
+				square: {
+					og: 'game/9585/o/q304AKeU.jpg',
+					xs: 'game/9585/KAg7hCSS.jpg',
+					sm: 'game/9585/8HTELZON.jpg',
+					lg: 'game/9585/XrUp8jan.jpg',
+				},
+			},
+			numReviews: 137,
+			topCriticScore: 77.65060240963855,
+			percentRecommended: 64.92537313432835,
+		},
+		{
+			name: 'Black Mesa',
+			id: 9106,
+			firstReleaseDate: '2020-03-05T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/9106/o/K3tJqdDv.jpg',
+					sm: 'game/9106/mWFGNimD.jpg',
+				},
+				box: {
+					og: 'game/9106/o/sNP5Bi89.jpg',
+					sm: 'game/9106/shXEiywZ.jpg',
+				},
+				square: {
+					og: 'game/9106/o/EH4ixqij.jpg',
+					xs: 'game/9106/xtcAG4Kl.jpg',
+					sm: 'game/9106/6YhhPyXs.jpg',
+					lg: 'game/9106/n86mnTC3.jpg',
+				},
+			},
+			numReviews: 15,
+			topCriticScore: 84.5,
+			percentRecommended: 92.85714285714286,
+		},
+		{
+			name: "Super Mario 3D World + Bowser's Fury",
+			id: 10643,
+			firstReleaseDate: '2021-02-12T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				box: {
+					og: 'game/10643/o/3TERbZ2f.jpg',
+					sm: 'game/10643/wA9ezshl.jpg',
+				},
+				square: {
+					og: 'game/10643/o/5HuWje3H.jpg',
+					xs: 'game/10643/dxAFBcqx.jpg',
+					sm: 'game/10643/1wFSooSs.jpg',
+					lg: 'game/10643/Gz1mUJ0y.jpg',
+				},
+				banner: {
+					og: 'game/10643/o/xmL1VOP3.jpg',
+					sm: 'game/10643/oVpTTxFQ.jpg',
+				},
+			},
+			numReviews: 135,
+			topCriticScore: 89.4090909090909,
+			percentRecommended: 94.61538461538461,
+		},
+		{
+			name: 'Before Your Eyes',
+			id: 11176,
+			firstReleaseDate: '2021-04-08T00:00:00.000Z',
+			tier: 'Strong',
+			images: {
+				box: {
+					og: 'game/11176/o/2IGGMX2j.jpg',
+					sm: 'game/11176/2R8KMCmb.jpg',
+				},
+				square: {
+					og: 'game/11176/o/dPbgqxS9.jpg',
+					xs: 'game/11176/aOgHOnb2.jpg',
+					sm: 'game/11176/lyOyvBCF.jpg',
+					lg: 'game/11176/cq6WstMa.jpg',
+				},
+				banner: {
+					og: 'game/11176/o/6ZiiOCLi.jpg',
+					sm: 'game/11176/h58x9eBu.jpg',
+				},
+			},
+			numReviews: 39,
+			topCriticScore: 82.88461538461539,
+			percentRecommended: 78.94736842105263,
+		},
+		{
+			name: 'Batman: Arkham Knight',
+			id: 1383,
+			firstReleaseDate: '2015-06-23T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/1383/o/CTfjVGct.jpg',
+					sm: 'game/1383/FBfgT5k9.jpg',
+				},
+				box: {
+					og: 'game/1383/o/BnUaQriN.jpg',
+					sm: 'game/1383/B0q2okg2.jpg',
+				},
+				square: {
+					og: 'game/1383/o/34fOzgSu.jpg',
+					xs: 'game/1383/SSDAuFNm.jpg',
+					sm: 'game/1383/IrdWUYsb.jpg',
+					lg: 'game/1383/SPPmAYvp.jpg',
+				},
+			},
+			numReviews: 117,
+			topCriticScore: 86.26,
+			percentRecommended: 83.03571428571429,
+		},
+		{
+			name: 'Chicory: A Colorful Tale',
+			id: 11524,
+			firstReleaseDate: '2021-06-10T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/11524/o/E3LuGyas.jpg',
+					sm: 'game/11524/c7z5Xa4e.jpg',
+				},
+				box: {
+					og: 'game/11524/o/F4qML8ha.jpg',
+					sm: 'game/11524/6rDY37Zs.jpg',
+				},
+				square: {
+					og: 'game/11524/o/rtGq3dLp.jpg',
+					xs: 'game/11524/wDUM5Vqa.jpg',
+					sm: 'game/11524/97YMAO0T.jpg',
+					lg: 'game/11524/MwYcr9oX.jpg',
+				},
+			},
+			numReviews: 55,
+			topCriticScore: 87.51724137931035,
+			percentRecommended: 96.15384615384616,
+		},
+		{
+			name: 'Stray',
+			id: 13386,
+			firstReleaseDate: '2022-07-19T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/13386/o/gtr1jxXv.jpg',
+					sm: 'game/13386/1rIySpB2.jpg',
+				},
+				box: {
+					og: 'game/13386/o/S3tnyfm8.jpg',
+					sm: 'game/13386/hhoYOMQD.jpg',
+				},
+				square: {
+					og: 'game/13386/o/EWlQ2rnp.jpg',
+					xs: 'game/13386/P0StM0S9.jpg',
+					sm: 'game/13386/6P1O6vkn.jpg',
+					lg: 'game/13386/XeXYynhv.jpg',
+				},
+			},
+			numReviews: 177,
+			topCriticScore: 83.65420560747664,
+			percentRecommended: 86.98224852071006,
+		},
+		{
+			name: 'Metal Gear Rising: Revengeance',
+			id: 1014,
+			firstReleaseDate: '2014-01-09T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/1014/o/FqcJIs7x.jpg',
+					sm: 'game/1014/5vRjigyf.jpg',
+				},
+				square: {
+					og: 'game/1014/o/yDl0Js8E.jpg',
+					xs: 'game/1014/YR3M1272.jpg',
+					sm: 'game/1014/XBT5Wbht.jpg',
+					lg: 'game/1014/P0Ko5IwP.jpg',
+				},
+				box: {
+					og: 'game/1014/o/V7eDHGRO.jpg',
+					sm: 'game/1014/fqgyNU49.jpg',
+				},
+			},
+			numReviews: 19,
+			topCriticScore: 83.8125,
+			percentRecommended: 94.11764705882352,
+		},
+		{
+			name: "Death Stranding Director's Cut",
+			id: 12011,
+			firstReleaseDate: '2021-09-24T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/12011/o/EJHUSsWU.jpg',
+					sm: 'game/12011/9rtBLWj3.jpg',
+				},
+				box: {
+					og: 'game/12011/o/cR5ol0Sk.jpg',
+					sm: 'game/12011/iho8SrCX.jpg',
+				},
+				square: {
+					og: 'game/12011/o/2hSAqcze.jpg',
+					xs: 'game/12011/dgC2ywrG.jpg',
+					sm: 'game/12011/iuqvGPGQ.jpg',
+					lg: 'game/12011/Gqylea4R.jpg',
+				},
+			},
+			numReviews: 97,
+			topCriticScore: 85.35087719298245,
+			percentRecommended: 92.04545454545455,
+		},
+		{
+			name: 'A Plague Tale: Innocence',
+			id: 7547,
+			firstReleaseDate: '2019-05-14T00:00:00.000Z',
+			tier: 'Strong',
+			images: {
+				box: {
+					og: 'game/7547/o/HrRrZfV0.jpg',
+					sm: 'game/7547/Ck3U7dQC.jpg',
+				},
+				square: {
+					og: 'game/7547/o/j9uyd2Cl.jpg',
+					xs: 'game/7547/3XscLKnn.jpg',
+					sm: 'game/7547/jOJbaBqI.jpg',
+					lg: 'game/7547/fZSYaP10.jpg',
+				},
+				banner: {
+					og: 'game/7547/o/OHS8BGqD.jpg',
+					sm: 'game/7547/lVhea2a9.jpg',
+				},
+			},
+			numReviews: 167,
+			topCriticScore: 81.45283018867924,
+			percentRecommended: 81.48148148148148,
+		},
+		{
+			name: 'World of Warcraft: Dragonflight',
+			id: 14061,
+			firstReleaseDate: '2022-11-28T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				box: {
+					og: 'game/14061/o/XePLetTv.jpg',
+					sm: 'game/14061/9J1HBUnu.jpg',
+				},
+				square: {
+					og: 'game/14061/o/CULF4EIT.jpg',
+					xs: 'game/14061/qUVCUV3r.jpg',
+					sm: 'game/14061/nz9csYKl.jpg',
+					lg: 'game/14061/cN9oKlpd.jpg',
+				},
+				banner: {
+					og: 'game/14061/o/tesGMCz8.jpg',
+					sm: 'game/14061/m4sjWO8m.jpg',
+				},
+			},
+			numReviews: 23,
+			topCriticScore: 83.88235294117646,
+			percentRecommended: 100,
+		},
+		{
+			name: 'Unravel Two',
+			id: 6194,
+			firstReleaseDate: '2018-06-09T00:00:00.000Z',
+			tier: 'Strong',
+			images: {
+				banner: {
+					og: 'game/6194/o/wFbmTpkJ.jpg',
+					sm: 'game/6194/7MpiR97t.jpg',
+				},
+				box: {
+					og: 'game/6194/o/Rr7ErwKm.jpg',
+					sm: 'game/6194/bWb9WiXg.jpg',
+				},
+				square: {
+					og: 'game/6194/o/UltkMbYP.jpg',
+					xs: 'game/6194/RFbcBi85.jpg',
+					sm: 'game/6194/wQceJ2j9.jpg',
+					lg: 'game/6194/FDSskZfr.jpg',
+				},
+			},
+			numReviews: 84,
+			topCriticScore: 80.453125,
+			percentRecommended: 79.26829268292683,
+		},
+		{
+			name: "Marvel's Spider-Man: Miles Morales",
+			id: 10480,
+			firstReleaseDate: '2020-11-12T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				box: {
+					og: 'game/10480/o/BEG6N8NI.jpg',
+					sm: 'game/10480/WH0rd1cA.jpg',
+				},
+				square: {
+					og: 'game/10480/o/ImbaxEDU.jpg',
+					xs: 'game/10480/n8uivIcv.jpg',
+					sm: 'game/10480/mOleW84h.jpg',
+					lg: 'game/10480/SrA18KXn.jpg',
+				},
+				banner: {
+					og: 'game/10480/o/nu74h94F.jpg',
+					sm: 'game/10480/j4dBzTiY.jpg',
+				},
+			},
+			numReviews: 206,
+			topCriticScore: 85.2258064516129,
+			percentRecommended: 93.46733668341709,
+		},
+		{
+			name: 'Uncharted: The Lost Legacy',
+			id: 4216,
+			firstReleaseDate: '2017-08-22T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/4216/o/TZp2GyGc.jpg',
+					sm: 'game/4216/gWrJd4cu.jpg',
+				},
+				box: {
+					og: 'game/4216/o/w2q876cy.jpg',
+					sm: 'game/4216/plz8wTlp.jpg',
+				},
+				square: {
+					og: 'game/4216/o/ICTfu9ud.jpg',
+					xs: 'game/4216/sszyfLhN.jpg',
+					sm: 'game/4216/e438f47I.jpg',
+					lg: 'game/4216/jwNTFinZ.jpg',
+				},
+			},
+			numReviews: 142,
+			topCriticScore: 85.01063829787235,
+			percentRecommended: 91.30434782608695,
+		},
+		{
+			name: "Uncharted 4: A Thief's End",
+			id: 1538,
+			firstReleaseDate: '2016-05-10T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/1538/o/4G7o0v8W.jpg',
+					sm: 'game/1538/fbG3Xz3y.jpg',
+				},
+				box: {
+					og: 'game/1538/o/8gaAuE2Z.jpg',
+					sm: 'game/1538/JdtHYZBS.jpg',
+				},
+				square: {
+					og: 'game/1538/o/LQ5me6CD.jpg',
+					xs: 'game/1538/vZRxmpVu.jpg',
+					sm: 'game/1538/MITVF2de.jpg',
+					lg: 'game/1538/AkMGPvvL.jpg',
+				},
+			},
+			numReviews: 147,
+			topCriticScore: 92.7,
+			percentRecommended: 97.16312056737588,
+		},
+		{
+			name: 'Cuphead: The Delicious Last Course',
+			id: 13323,
+			firstReleaseDate: '2022-06-30T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/13323/o/pzcP2EA3.jpg',
+					sm: 'game/13323/LToIOunH.jpg',
+				},
+				box: {
+					og: 'game/13323/o/25IKbh1E.jpg',
+					sm: 'game/13323/iArqVmEQ.jpg',
+				},
+				square: {
+					og: 'game/13323/o/iTRrbjj7.jpg',
+					xs: 'game/13323/rXZTKdSC.jpg',
+					sm: 'game/13323/3SnqMiu1.jpg',
+					lg: 'game/13323/Vvu6ONTP.jpg',
+				},
+			},
+			numReviews: 76,
+			topCriticScore: 88.01,
+			percentRecommended: 100,
+		},
+		{
+			name: 'Cuphead',
+			id: 1792,
+			firstReleaseDate: '2017-09-29T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/1792/o/DKoZooOZ.jpg',
+					sm: 'game/1792/9XKGRN5L.jpg',
+				},
+				box: {
+					og: 'game/1792/o/KLMbskL7.jpg',
+					sm: 'game/1792/bJCJHMyq.jpg',
+				},
+				square: {
+					og: 'game/1792/o/MeEXQNIk.jpg',
+					xs: 'game/1792/ZmhcCc7H.jpg',
+					sm: 'game/1792/ZSIiKUBB.jpg',
+					lg: 'game/1792/Vj1hq41f.jpg',
+				},
+			},
+			numReviews: 212,
+			topCriticScore: 87.84172661870504,
+			percentRecommended: 91.21951219512195,
+		},
+		{
+			name: 'Sea of Thieves',
+			id: 5412,
+			firstReleaseDate: '2018-03-20T00:00:00.000Z',
+			tier: 'Fair',
+			images: {
+				banner: {
+					og: 'game/5412/o/BzSMfrrs.jpg',
+					sm: 'game/5412/DunC1VKn.jpg',
+				},
+				box: {
+					og: 'game/5412/o/Z9OL1zyL.jpg',
+					sm: 'game/5412/c7qpckPm.jpg',
+				},
+				square: {
+					og: 'game/5412/o/S2minJNg.jpg',
+					xs: 'game/5412/Q4tm1S6r.jpg',
+					sm: 'game/5412/W8fvhijo.jpg',
+					lg: 'game/5412/Ao4dRNho.jpg',
+				},
+			},
+			numReviews: 132,
+			topCriticScore: 67.28571428571429,
+			percentRecommended: 30.46875,
+		},
+		{
+			name: 'DOOM Eternal',
+			id: 7410,
+			firstReleaseDate: '2020-03-20T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/7410/o/sRpxCbxO.jpg',
+					sm: 'game/7410/tLd2Ql5G.jpg',
+				},
+				box: {
+					og: 'game/7410/o/YRi5kAee.jpg',
+					sm: 'game/7410/tP2DM6mb.jpg',
+				},
+				square: {
+					og: 'game/7410/o/3eSMqn3W.jpg',
+					xs: 'game/7410/OW4Tp3bI.jpg',
+					sm: 'game/7410/PUOtOsGb.jpg',
+					lg: 'game/7410/9BuYci5E.jpg',
+				},
+			},
+			numReviews: 204,
+			topCriticScore: 89.176,
+			percentRecommended: 95.97989949748744,
+		},
+		{
+			name: 'Cyberpunk 2077',
+			id: 8525,
+			firstReleaseDate: '2020-12-10T00:00:00.000Z',
+			tier: 'Strong',
+			images: {
+				banner: {
+					og: 'game/8525/o/A6v9hAdp.jpg',
+					sm: 'game/8525/SAzYTIe9.jpg',
+				},
+				box: {
+					og: 'game/8525/o/vjJILI2N.jpg',
+					sm: 'game/8525/mDW7h2zB.jpg',
+				},
+				square: {
+					og: 'game/8525/o/1fLGE0NS.jpg',
+					xs: 'game/8525/g3LxeXdZ.jpg',
+					sm: 'game/8525/QDc9kXGf.jpg',
+					lg: 'game/8525/e0s3Wffi.jpg',
+				},
+			},
+			numReviews: 211,
+			topCriticScore: 76.08984375,
+			percentRecommended: 64.17910447761194,
+		},
+		{
+			name: 'It Takes Two',
+			id: 10974,
+			firstReleaseDate: '2021-03-26T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/10974/o/kbmyRd2A.jpg',
+					sm: 'game/10974/UE4N83p4.jpg',
+				},
+				box: {
+					og: 'game/10974/o/mIiblERP.jpg',
+					sm: 'game/10974/hiTF7EB2.jpg',
+				},
+				square: {
+					og: 'game/10974/o/Q54dcF4V.jpg',
+					xs: 'game/10974/14UHI92X.jpg',
+					sm: 'game/10974/2RKSnIan.jpg',
+					lg: 'game/10974/sDP65njK.jpg',
+				},
+			},
+			numReviews: 147,
+			topCriticScore: 87.63265306122449,
+			percentRecommended: 93.10344827586206,
+		},
+		{
+			name: 'Dredge',
+			id: 14348,
+			firstReleaseDate: '2023-03-30T00:00:00.000Z',
+			tier: 'Strong',
+			images: {
+				box: {
+					og: 'game/14348/o/Lf8jHnhY.jpg',
+					sm: 'game/14348/SSvGIKWg.jpg',
+				},
+				square: {
+					og: 'game/14348/o/Ev6TfO4F.jpg',
+					xs: 'game/14348/7BYREV5W.jpg',
+					sm: 'game/14348/q1XCHaTO.jpg',
+					lg: 'game/14348/tHcWjkrB.jpg',
+				},
+				banner: {
+					og: 'game/14348/o/n4brirFi.jpg',
+					sm: 'game/14348/7INCVujs.jpg',
+				},
+			},
+			numReviews: 89,
+			topCriticScore: 82.34615384615384,
+			percentRecommended: 89.41176470588236,
+		},
+		{
+			name: 'Disco Elysium: The Final Cut',
+			id: 11148,
+			firstReleaseDate: '2021-01-01T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/11148/o/MNz5HEyZ.jpg',
+					sm: 'game/11148/rcYkhRSy.jpg',
+				},
+				box: {
+					og: 'game/11148/o/zQpxdjaK.jpg',
+					sm: 'game/11148/2iSi0mCe.jpg',
+				},
+				square: {
+					og: 'game/11148/o/EbKr6i7S.jpg',
+					xs: 'game/11148/lRzIVVCc.jpg',
+					sm: 'game/11148/WqlZcPKf.jpg',
+					lg: 'game/11148/hvE04nFQ.jpg',
+				},
+			},
+			numReviews: 72,
+			topCriticScore: 89.23529411764706,
+			percentRecommended: 94.28571428571428,
+		},
+		{
+			name: 'INSIDE',
+			id: 2848,
+			firstReleaseDate: '2016-06-29T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				box: {
+					og: 'game/2848/o/HIaiBPp2.jpg',
+					sm: 'game/2848/KxF6CbE9.jpg',
+				},
+				square: {
+					og: 'game/2848/o/SBSL0xEM.jpg',
+					xs: 'game/2848/0KTwoQBK.jpg',
+					sm: 'game/2848/AFwloboh.jpg',
+					lg: 'game/2848/xOVxGJ6W.jpg',
+				},
+				banner: {
+					og: 'game/2848/o/AcXwIQOO.jpg',
+					sm: 'game/2848/Wy3FCkZn.jpg',
+				},
+			},
+			numReviews: 168,
+			topCriticScore: 91.01639344262296,
+			percentRecommended: 94.47852760736197,
+		},
+		{
+			name: 'Ori and the Blind Forest',
+			id: 829,
+			firstReleaseDate: '2015-03-11T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/829/o/Uc1GMw7E.jpg',
+					sm: 'game/829/K2J443iA.jpg',
+				},
+				box: {
+					og: 'game/829/o/TmixB3ed.jpg',
+					sm: 'game/829/OXyq7fpo.jpg',
+				},
+				square: {
+					og: 'game/829/o/49IhgdVj.jpg',
+					xs: 'game/829/VspbLcJQ.jpg',
+					sm: 'game/829/3WZfHmeC.jpg',
+					lg: 'game/829/oBUKGQy8.jpg',
+				},
+			},
+			numReviews: 96,
+			topCriticScore: 90,
+			percentRecommended: 95.74468085106383,
+		},
+		{
+			name: 'Sekiro: Shadows Die Twice',
+			id: 6630,
+			firstReleaseDate: '2019-03-22T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/6630/o/shlyjcXO.jpg',
+					sm: 'game/6630/CvSBIvCt.jpg',
+				},
+				box: {
+					og: 'game/6630/o/4mnJpimd.jpg',
+					sm: 'game/6630/yTIcSIMk.jpg',
+				},
+				square: {
+					og: 'game/6630/o/RLtxC2Hf.jpg',
+					xs: 'game/6630/O0h0kRn2.jpg',
+					sm: 'game/6630/ZuxOxWxt.jpg',
+					lg: 'game/6630/8elxtHzs.jpg',
+				},
+			},
+			numReviews: 175,
+			topCriticScore: 89.82905982905983,
+			percentRecommended: 95.85798816568047,
+		},
+		{
+			name: 'Dark Souls III',
+			id: 1520,
+			firstReleaseDate: '2016-04-12T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/1520/o/KFnaZEmx.jpg',
+					sm: 'game/1520/5mOPNzW1.jpg',
+				},
+				box: {
+					og: 'game/1520/o/Ou3L6Tb3.jpg',
+					sm: 'game/1520/tyJpJHYw.jpg',
+				},
+				square: {
+					og: 'game/1520/o/wItBZxZq.jpg',
+					xs: 'game/1520/Mk4iukdR.jpg',
+					sm: 'game/1520/fscQ7iC0.jpg',
+					lg: 'game/1520/FDW3fYHC.jpg',
+				},
+			},
+			numReviews: 165,
+			topCriticScore: 89.64963503649635,
+			percentRecommended: 93.67088607594937,
+		},
+		{
+			name: 'Hollow Knight',
+			id: 4002,
+			firstReleaseDate: '2017-02-24T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/4002/o/F7I02fQd.jpg',
+					sm: 'game/4002/Xcjz43Bf.jpg',
+				},
+				box: {
+					og: 'game/4002/o/yOUcKC1p.jpg',
+					sm: 'game/4002/zjLtEhva.jpg',
+				},
+				square: {
+					og: 'game/4002/o/5JLHcDeD.jpg',
+					xs: 'game/4002/hCEeVCFU.jpg',
+					sm: 'game/4002/bbeTXDZD.jpg',
+					lg: 'game/4002/3AoxeQc1.jpg',
+				},
+			},
+			numReviews: 68,
+			topCriticScore: 89.60526315789474,
+			percentRecommended: 98.48484848484848,
+		},
+		{
+			name: 'Return of the Obra Dinn',
+			id: 1726,
+			firstReleaseDate: '2018-10-18T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/1726/o/piBZwccc.jpg',
+					sm: 'game/1726/xBBhbs9B.jpg',
+				},
+				box: {
+					og: 'game/1726/o/0PeNFip3.jpg',
+					sm: 'game/1726/NWrdWOH2.jpg',
+				},
+				square: {
+					og: 'game/1726/o/ZrvbN3ML.jpg',
+					xs: 'game/1726/BTssIwhA.jpg',
+					sm: 'game/1726/lkh6oZAe.jpg',
+					lg: 'game/1726/lXvtM94X.jpg',
+				},
+			},
+			numReviews: 55,
+			topCriticScore: 89.38235294117646,
+			percentRecommended: 96.07843137254902,
+		},
+		{
+			name: 'Slay The Spire',
+			id: 7207,
+			firstReleaseDate: '2019-01-23T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/7207/o/j4JJvCQG.jpg',
+					sm: 'game/7207/5rTZH6Fw.jpg',
+				},
+				box: {
+					og: 'game/7207/o/HWVLRxe9.jpg',
+					sm: 'game/7207/AXkAx5B6.jpg',
+				},
+				square: {
+					og: 'game/7207/o/aZB16vZn.jpg',
+					xs: 'game/7207/kxgGzjWY.jpg',
+					sm: 'game/7207/js6uijrA.jpg',
+					lg: 'game/7207/wWLSbCbu.jpg',
+				},
+			},
+			numReviews: 53,
+			topCriticScore: 89.3529411764706,
+			percentRecommended: 100,
+		},
+		{
+			name: 'Viewfinder',
+			id: 15228,
+			firstReleaseDate: '2023-07-18T00:00:00.000Z',
+			tier: 'Strong',
+			images: {
+				box: {
+					og: 'game/15228/o/FuaG57cs.jpg',
+					sm: 'game/15228/Fre2kMOu.jpg',
+				},
+				square: {
+					og: 'game/15228/o/6rdRMYRO.jpg',
+					xs: 'game/15228/72wcuSoZ.jpg',
+					sm: 'game/15228/UmcRBCS0.jpg',
+					lg: 'game/15228/ICdyy0NM.jpg',
+				},
+				banner: {
+					og: 'game/15228/o/uNhw5WqQ.jpg',
+					sm: 'game/15228/GG5m27h1.jpg',
+				},
+			},
+			numReviews: 69,
+			topCriticScore: 82.76829268292683,
+			percentRecommended: 93.93939393939394,
+		},
+		{
+			name: 'Citizen Sleeper',
+			id: 13101,
+			firstReleaseDate: '2022-05-05T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				banner: {
+					og: 'game/13101/o/vOkMXj4p.jpg',
+					sm: 'game/13101/wbE7BVLd.jpg',
+				},
+				box: {
+					og: 'game/13101/o/XwzE1s9i.jpg',
+					sm: 'game/13101/Nofrq1FN.jpg',
+				},
+				square: {
+					og: 'game/13101/o/KlgnYcMR.jpg',
+					xs: 'game/13101/X7520na4.jpg',
+					sm: 'game/13101/aJ3AiJXE.jpg',
+					lg: 'game/13101/eCTAhcUF.jpg',
+				},
+			},
+			numReviews: 45,
+			topCriticScore: 83.74074074074075,
+			percentRecommended: 97.61904761904762,
+		},
+	],
+	favorited: [
+		{
+			name: 'The Last of Us Part I',
+			id: 13283,
+			firstReleaseDate: '2022-09-02T00:00:00.000Z',
+			tier: 'Strong',
+			images: {
+				box: {
+					og: 'game/13283/o/SOoHaKrl.jpg',
+					sm: 'game/13283/nDrvMvGA.jpg',
+				},
+				square: {
+					og: 'game/13283/o/RcqVTQYT.jpg',
+					xs: 'game/13283/fnaJ0P4P.jpg',
+					sm: 'game/13283/ULuh4yMR.jpg',
+					lg: 'game/13283/ARGv45v2.jpg',
+				},
+				banner: {
+					og: 'game/13283/o/BSXNu60r.jpg',
+					sm: 'game/13283/slSSq2ty.jpg',
+				},
+			},
+			numReviews: 170,
+			topCriticScore: 81.79047619047618,
+			percentRecommended: 75.92592592592592,
+		},
+		{
+			name: 'Tunic',
+			id: 12888,
+			firstReleaseDate: '2022-03-16T00:00:00.000Z',
+			tier: 'Mighty',
+			images: {
+				box: {
+					og: 'game/12888/o/Be0vSz9w.jpg',
+					sm: 'game/12888/KKKEeWQq.jpg',
+				},
+				banner: {
+					og: 'game/12888/o/Qdt3T9oa.jpg',
+					sm: 'game/12888/PJgdMTX1.jpg',
+				},
+				square: {
+					og: 'game/12888/o/3PGA9V9m.jpg',
+					xs: 'game/12888/zRwiUJ2R.jpg',
+					sm: 'game/12888/tGDXQ4SQ.jpg',
+					lg: 'game/12888/jBbY4PuD.jpg',
+				},
+			},
+			numReviews: 113,
+			topCriticScore: 85.44852941176471,
+			percentRecommended: 92.66055045871559,
+		},
+	],
 	game: {
 		15022: {
 			images: {
