@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import Svg, { SvgProps, Path } from 'react-native-svg';
 
 const ListIcon = ({ width = 24, height = 24, color }: SvgProps) => (

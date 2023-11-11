@@ -1,18 +1,17 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import Colors from './app/constants/Colors';
-import { StatusBar } from 'expo-status-bar';
-import HomeScreen from './app/screens/HomeScreen';
-import DetailsScreen from './app/screens/DetailsScreen';
-import UserListScreen from './app/screens/UserListScreen';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StatusBar, StyleSheet, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import HomeIcon from './app/composants/icons/HomeIcon.tsx';
-import ListIcon from './app/composants/icons/ListIcon.tsx';
-
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts } from 'expo-font';
+
+import HomeIcon from './app/composants/icons/HomeIcon';
+import ListIcon from './app/composants/icons/ListIcon';
+import Colors from './app/constants/Colors';
+import DetailsScreen from './app/screens/DetailsScreen';
+import HomeScreen from './app/screens/HomeScreen';
+import UserListScreen from './app/screens/UserListScreen';
 
 const Stack = createNativeStackNavigator();
 const TopTab = createMaterialTopTabNavigator();
@@ -76,7 +75,7 @@ export default function App() {
 
 	return (
 		<View style={styles.container}>
-			<StatusBar style="light" />
+			<StatusBar barStyle="light-content" />
 			<NavigationContainer>
 				<Tab.Navigator
 					screenOptions={{

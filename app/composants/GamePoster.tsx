@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, Image, Pressable } from 'react-native';
-import { getRatingSmall } from '../utils/Rating';
+import { Image, Pressable, StyleSheet } from 'react-native';
+
 import { NormalBold, NormalLight } from '../composants/Texts';
+import { getRatingSmall } from '../utils/Rating';
 
 type GamePosterProps = {
 	uri: string;
