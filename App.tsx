@@ -1,17 +1,29 @@
+// @flow
 import React from 'react';
-import { StatusBar, StyleSheet, View } from 'react-native';
+import {
+	Alert,
+	Button,
+	Pressable,
+	StatusBar,
+	StyleSheet,
+	View,
+} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { NavigationContainer } from '@react-navigation/native';
+import type { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import type { HeaderButtonProps } from '@react-navigation/native-stack/lib/typescript/src/types';
 import { useFonts } from 'expo-font';
 
+import CheckIcon from './app/components/icons/CheckIcon';
 import HomeIcon from './app/components/icons/HomeIcon';
 import ListIcon from './app/components/icons/ListIcon';
 import Colors from './app/constants/Colors';
 import { StatusEnum } from './app/constants/Enums';
 import DetailsScreen from './app/screens/DetailsScreen';
 import HomeScreen from './app/screens/HomeScreen';
+import SearchScreen from './app/screens/SearchScreen';
 import UserListScreen from './app/screens/UserListScreen';
 
 const Stack = createNativeStackNavigator();
@@ -21,6 +33,26 @@ const BottomTab = createBottomTabNavigator();
 const RobotoRegular = require('./assets/fonts/Roboto-Regular.ttf');
 const RobotoLight = require('./assets/fonts/Roboto-Light.ttf');
 const RobotoBold = require('./assets/fonts/Roboto-Bold.ttf');
+
+const headerConfig: NativeStackNavigationOptions = {
+	headerStyle: { backgroundColor: Colors.header },
+	headerTintColor: Colors.white,
+	headerTitleStyle: {
+		fontWeight: '300',
+		fontFamily: 'Roboto-Light',
+	},
+};
+
+const defaultScreens = [
+	<Stack.Screen
+		key="detail"
+		name="Details"
+		component={DetailsScreen}
+		options={({ route }) => ({
+			title: route?.params?.name,
+		})}
+	/>,
+];
 
 function TopTabStack() {
 	return (
@@ -56,48 +88,44 @@ function TopTabStack() {
 
 function ListStack() {
 	return (
-		<Stack.Navigator
-			screenOptions={{
-				headerStyle: { backgroundColor: Colors.header },
-				headerTintColor: Colors.white,
-				headerTitleStyle: {
-					fontWeight: '300',
-					fontFamily: 'Roboto-Light',
-				},
-			}}
-		>
+		<Stack.Navigator screenOptions={headerConfig}>
 			<Stack.Screen name="User List" component={TopTabStack} />
-			<Stack.Screen
-				name="Details"
-				component={DetailsScreen}
-				options={({ route }) => ({
-					title: route?.params?.name,
-				})}
-			/>
+			{defaultScreens}
 		</Stack.Navigator>
 	);
 }
 
 function HomeStack() {
+	const renderSearchButton = (navigation) => (
+		<Button
+			title="Search"
+			color={Colors.primary}
+			onPress={() => navigation.navigate('Search')}
+		/>
+	);
+
+	const renderCloseButton = (navigation) => (
+		<Button title="Close" color={Colors.primary} onPress={navigation.goBack} />
+	);
+
 	return (
-		<Stack.Navigator
-			screenOptions={{
-				headerStyle: { backgroundColor: Colors.header },
-				headerTintColor: Colors.white,
-				headerTitleStyle: {
-					fontWeight: '300',
-					fontFamily: 'Roboto-Light',
-				},
-			}}
-		>
-			<Stack.Screen name="Home" component={HomeScreen} />
+		<Stack.Navigator screenOptions={headerConfig}>
 			<Stack.Screen
-				name="Details"
-				component={DetailsScreen}
-				options={({ route }) => ({
-					title: route?.params?.name,
+				name="Home"
+				component={HomeScreen}
+				options={({ navigation }) => ({
+					headerRight: () => renderSearchButton(navigation),
 				})}
 			/>
+			<Stack.Screen
+				name="Search"
+				component={SearchScreen}
+				options={({ navigation }) => ({
+					presentation: 'modal',
+					headerLeft: () => renderCloseButton(navigation),
+				})}
+			/>
+			{defaultScreens}
 		</Stack.Navigator>
 	);
 }
@@ -109,9 +137,7 @@ export default function App() {
 		'Roboto-Bold': RobotoBold,
 	});
 
-	if (!fontsLoaded) {
-		return null;
-	}
+	if (!fontsLoaded) return null;
 
 	return (
 		<View style={styles.container}>
@@ -138,25 +164,6 @@ export default function App() {
 						options={{ tabBarIcon: ListIcon }}
 					/>
 				</BottomTab.Navigator>
-				{/* <Stack.Navigator
-					screenOptions={{
-						headerStyle: { backgroundColor: Colors.header },
-						headerTintColor: Colors.white,
-						headerTitleStyle: {
-							fontWeight: '300',
-							fontFamily: 'Roboto-Light',
-						},
-					}}
-				>
-					<Stack.Screen name="Home" component={BottomTabStack} />
-					<Stack.Screen
-						name="Details"
-						component={DetailsScreen}
-						options={({ route }) => ({
-							title: route?.params?.name,
-						})}
-					/>
-				</Stack.Navigator> */}
 			</NavigationContainer>
 		</View>
 	);

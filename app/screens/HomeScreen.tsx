@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 
+import getPopular from '../api';
 import GameList from '../components/list/GameList';
 import GameSmallList from '../components/list/GameSmallList';
 import mockGameList from '../mock';
 
 export default function HomeScreen() {
+	// const [popularGames, setPopularGames] = useState([]);
+
+	// useEffect(() => {
+	// 	getPopular().then(setPopularGames);
+	// }, []);
+
 	return (
 		<ScrollView>
 			<GameList

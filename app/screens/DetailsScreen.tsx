@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import dayjs from 'dayjs';
 
+import { getGameDetails } from '../api';
 import GameUserStatus from '../components/GameUserStatus';
 import { BiggerRegular, NormalBold, NormalRegular } from '../components/Texts';
 import Colors from '../constants/Colors';
@@ -24,7 +25,8 @@ export default function HomeScreen({ route }) {
 	const [details, setDetails] = useState<GameDetails>();
 
 	useEffect(() => {
-		if (mockGameList.game[id]) setDetails(mockGameList.game[id]);
+		getGameDetails(id).then(setDetails);
+		// if (mockGameList.game[id]) setDetails(mockGameList.game[id]);
 	}, [id]);
 
 	if (!details) return null;

@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+
 import Colors from '../constants/Colors';
 
 interface TextProps {
@@ -6,6 +7,17 @@ interface TextProps {
 	textAlign?: string;
 	lineHeight?: number;
 }
+
+export const TextInput = styled.TextInput`
+	margin: 12px;
+	border-width: 1px;
+	padding: 10px;
+	border-radius: 4px;
+	border-color: ${Colors.lightGrey};
+	font-size: 18px;
+	font-weight: 400;
+	font-family: 'Roboto-Regular';
+`;
 
 const TextBase = styled.Text<TextProps>`
 	color: ${(props: TextProps) => props.color || Colors.text};
