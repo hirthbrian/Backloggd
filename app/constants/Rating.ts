@@ -1,13 +1,22 @@
+import fairHead from '../components/images/fair-head.webp';
+import fairMan from '../components/images/fair-man.webp';
+import mightyHead from '../components/images/mighty-head.webp';
+import mightyMan from '../components/images/mighty-man.webp';
+import strongHead from '../components/images/strong-head.webp';
+import strongMan from '../components/images/strong-man.webp';
+import weakHead from '../components/images/weak-head.webp';
+import weakMan from '../components/images/weak-man.webp';
+
 export const RatingSmall = {
-	mighty: 'https://img.opencritic.com/mighty-man/mighty-head.png',
-	strong: 'https://img.opencritic.com/mighty-man/strong-head.png',
-	fair: 'https://img.opencritic.com/mighty-man/fair-head.png',
-	weak: 'https://img.opencritic.com/mighty-man/weak-head.png',
+	mighty: mightyHead,
+	strong: strongHead,
+	fair: fairHead,
+	weak: weakHead,
 };
 
 export const RatingBig = {
-	mighty: 'https://img.opencritic.com/mighty-man/mighty-man.png',
-	strong: 'https://img.opencritic.com/mighty-man/strong-man.png',
-	fair: 'https://img.opencritic.com/mighty-man/fair-man.png',
-	weak: 'https://img.opencritic.com/mighty-man/weak-man.png',
+	mighty: mightyMan,
+	strong: strongMan,
+	fair: fairMan,
+	weak: weakMan,
 };

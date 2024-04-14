@@ -1,6 +1,6 @@
+// @flow
 import React, { useEffect, useState } from 'react';
 import {
-	FlatList,
 	Image,
 	ImageBackground,
 	ScrollView,
@@ -14,9 +14,10 @@ import { getGameDetails } from '../api';
 import GameUserStatus from '../components/GameUserStatus';
 import { BiggerRegular, NormalBold, NormalRegular } from '../components/Texts';
 import Colors from '../constants/Colors';
+import { RatingBig } from '../constants/Rating';
 import type { GameDetails } from '../constants/Types';
 import mockGameList from '../mock';
-import { getRatingBig } from '../utils/Rating';
+import getRating from '../utils/Rating';
 
 export default function HomeScreen({ route }) {
 	const id = route?.params?.id;
@@ -79,7 +80,7 @@ export default function HomeScreen({ route }) {
 					<View style={styles.scroreContainer}>
 						<Image
 							style={{ width: 79, height: 74 }}
-							source={{ uri: getRatingBig(details.medianScore) }}
+							source={{ uri: getRating(details.medianScore, RatingBig) }}
 						/>
 						<NormalRegular textAlign="center">OpenCritic Rating</NormalRegular>
 					</View>

@@ -9,6 +9,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 
 import { search } from '../api';
+import SearchIcon from '../components/icons/SearchIcon';
 import { NormalRegular, TextInput } from '../components/Texts';
 import Colors from '../constants/Colors';
 
@@ -66,13 +67,24 @@ export default function SearchScreen() {
 	};
 
 	return (
-		<SafeAreaView style={{ flex: 1, backgroundColor: Colors.white }}>
-			<TextInput
-				autoFocus
-				enterKeyHint="search"
-				placeholder="Search..."
-				onSubmitEditing={onSearch}
-			/>
+		<SafeAreaView style={{ flex: 1 }}>
+			<View
+				style={{
+					padding: 10,
+					marginHorizontal: 15,
+					flexDirection: 'row',
+					alignItems: 'center',
+					borderBottomWidth: 1,
+					borderColor: Colors.lightGrey,
+				}}
+			>
+				<SearchIcon color={Colors.lightGrey} />
+				<TextInput
+					enterKeyHint="search"
+					placeholder="Search for a game"
+					onSubmitEditing={onSearch}
+				/>
+			</View>
 			{isLoading ? (
 				renderLoading()
 			) : (

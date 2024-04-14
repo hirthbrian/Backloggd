@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { FlatList, useWindowDimensions, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 
 import GamePoster from '../components/GamePoster';
+import FilterBanner from '../components/list/FilterBanner';
 import { StatusEnum } from '../constants/Enums';
 import mockGameList from '../mock';
 
-const mock = {};
-mock[StatusEnum.WANT] = mockGameList.want;
-mock[StatusEnum.PLAYED] = mockGameList.played;
-mock[StatusEnum.FAVORITED] = mockGameList.favorited;
+const filters = [
+	{ id: StatusEnum.WANT, data: mockGameList.want, label: 'Want to Play' },
+	{ id: StatusEnum.PLAYED, data: mockGameList.played, label: 'Played' },
+	{
+		id: StatusEnum.FAVORITED,
+		data: mockGameList.favorited,
+		label: 'Favorited',
+	},
+];
 
 type GameType = {
 	images: {
@@ -24,12 +31,21 @@ type GameType = {
 	id: number;
 };
 
-function UserListScreen({ route }) {
-	const type = route?.params?.type;
+function UserListScreen() {
 	const { width } = useWindowDimensions();
 	const navigation = useNavigation();
+	const [selectedFilter, setSelectedFilter] = useState(StatusEnum.WANT);
+	const insets = useSafeAreaInsets();
+
 	const onPress = (id: number, name: string) =>
 		navigation.navigate('Details', { id, name });
+
+	const data = useMemo(
+		() => filters.find((f) => f.id === selectedFilter)?.data,
+		[selectedFilter],
+	);
+
+	const onFilterSelected = (filter: string) => setSelectedFilter(filter);
 
 	const renderSeparator = () => <View style={{ height: 15 }} />;
 
@@ -46,13 +62,17 @@ function UserListScreen({ route }) {
 	);
 
 	return (
-		<View>
+		<View style={{ paddingTop: insets.top }}>
+			<FilterBanner
+				filters={filters}
+				onFilterSelected={onFilterSelected}
+				highlightedFilter={selectedFilter}
+			/>
 			<FlatList
+				data={data}
 				numColumns={3}
-				data={mock[type]}
 				renderItem={renderItem}
 				ItemSeparatorComponent={renderSeparator}
-				contentContainerStyle={{ paddingVertical: 10 }}
 			/>
 		</View>
 	);

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Image, Pressable, StyleSheet, View } from 'react-native';
 
 import Colors from '../constants/Colors';
-import { getRatingSmall } from '../utils/Rating';
+import { RatingSmall } from '../constants/Rating';
+import getRating from '../utils/Rating';
 
 import { NormalBold, NormalLight } from './Texts';
 
@@ -22,7 +23,6 @@ function GamePoster({
 }: GamePosterProps) {
 	return (
 		<Pressable onPress={onPress}>
-			{/* <View style={{ paddingHorizontal: 8 }}> */}
 			<View>
 				<Image
 					source={{ uri }}
@@ -40,7 +40,7 @@ function GamePoster({
 					}}
 				>
 					<Image
-						source={{ uri: getRatingSmall(score) }}
+						source={getRating(score, RatingSmall)}
 						style={styles.smallManIcon}
 					/>
 					<View style={{ paddingLeft: 8 }}>

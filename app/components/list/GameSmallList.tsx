@@ -1,9 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, FlatList, Image, Pressable } from 'react-native';
-import { getRatingSmall } from '../../utils/Rating';
-import Colors from '../../constants/Colors';
-import { NormalBold, LargeRegular, NormalRegular, NormalLight } from '../Texts';
+import { FlatList, Image, Pressable, StyleSheet, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
+import Colors from '../../constants/Colors';
+import { RatingSmall } from '../../constants/Rating';
+import getRating from '../../utils/Rating';
+import { LargeRegular, NormalBold, NormalLight, NormalRegular } from '../Texts';
 
 type GameType = {
 	images: {
@@ -65,7 +67,7 @@ export default function GameList({ title, data }: GameListProps) {
 				}}
 			>
 				<Image
-					source={{ uri: getRatingSmall(item.topCriticScore) }}
+					source={getRating(item.topCriticScore, RatingSmall)}
 					style={styles.smallManIcon}
 				/>
 				<View style={{ paddingLeft: 5, paddingRight: 8 }}>

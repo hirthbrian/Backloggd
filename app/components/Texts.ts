@@ -9,11 +9,8 @@ interface TextProps {
 }
 
 export const TextInput = styled.TextInput`
-	margin: 12px;
-	border-width: 1px;
-	padding: 10px;
-	border-radius: 4px;
-	border-color: ${Colors.lightGrey};
+	flex: 1;
+	padding: 0px 10px;
 	font-size: 18px;
 	font-weight: 400;
 	font-family: 'Roboto-Regular';
