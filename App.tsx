@@ -4,8 +4,8 @@ import { StyleSheet, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { useFonts } from 'expo-font';
 
+// import { useFonts } from 'expo-font';
 import HomeIcon from './app/components/icons/HomeIcon';
 import ListIcon from './app/components/icons/ListIcon';
 import SearchIcon from './app/components/icons/SearchIcon';
@@ -66,13 +66,13 @@ function BottomTabStack() {
 }
 
 export default function App() {
-	const [fontsLoaded] = useFonts({
-		'Roboto-Regular': RobotoRegular,
-		'Roboto-Light': RobotoLight,
-		'Roboto-Bold': RobotoBold,
-	});
+	// const [fontsLoaded] = useFonts({
+	// 	'Roboto-Regular': RobotoRegular,
+	// 	'Roboto-Light': RobotoLight,
+	// 	'Roboto-Bold': RobotoBold,
+	// });
 
-	if (!fontsLoaded) return null;
+	// if (!fontsLoaded) return null;
 
 	return (
 		<View style={styles.container}>

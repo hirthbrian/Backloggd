@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
-import { BlurView } from 'expo-blur';
 
 import Colors from '../constants/Colors';
 import { StatusEnum } from '../constants/Enums';
@@ -72,9 +71,7 @@ function GameUserStatus() {
 	);
 
 	return (
-		<BlurView
-			intensity={50}
-			tint="light"
+		<View
 			style={{
 				borderRadius: 4,
 				marginHorizontal: 10,
@@ -106,7 +103,7 @@ function GameUserStatus() {
 				isFavorite,
 				onFavoritePress,
 			)}
-		</BlurView>
+		</View>
 	);
 }
 
