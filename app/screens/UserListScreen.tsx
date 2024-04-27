@@ -62,20 +62,24 @@ function UserListScreen() {
 	);
 
 	return (
-		<View style={{ flex: 1, paddingTop: insets.top }}>
-			<FilterBanner
-				filters={filters}
-				onFilterSelected={onFilterSelected}
-				highlightedFilter={selectedFilter}
-			/>
-			<FlatList
-				data={data}
-				numColumns={3}
-				renderItem={renderItem}
-				ItemSeparatorComponent={renderSeparator}
-				contentContainerStyle={{ paddingVertical: 10 }}
-			/>
-		</View>
+		<FlatList
+			data={data}
+			numColumns={3}
+			renderItem={renderItem}
+			stickyHeaderIndices={[0]}
+			ListHeaderComponent={
+				<FilterBanner
+					filters={filters}
+					onFilterSelected={onFilterSelected}
+					highlightedFilter={selectedFilter}
+				/>
+			}
+			ItemSeparatorComponent={renderSeparator}
+			style={{ flex: 1 }}
+			contentContainerStyle={{
+				paddingBottom: 10,
+			}}
+		/>
 	);
 }
 

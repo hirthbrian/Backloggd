@@ -5,10 +5,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-// import { useFonts } from 'expo-font';
 import HomeIcon from './app/components/icons/HomeIcon';
 import ListIcon from './app/components/icons/ListIcon';
 import SearchIcon from './app/components/icons/SearchIcon';
+import { NormalBold } from './app/components/Texts';
 import Colors from './app/constants/Colors';
 import DetailsScreen from './app/screens/DetailsScreen';
 import HomeScreen from './app/screens/HomeScreen';
@@ -17,10 +17,6 @@ import UserListScreen from './app/screens/UserListScreen';
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
-
-// const RobotoRegular = require('./assets/fonts/Roboto-Regular.ttf');
-// const RobotoLight = require('./assets/fonts/Roboto-Light.ttf');
-// const RobotoBold = require('./assets/fonts/Roboto-Bold.ttf');
 
 const otherScreenGroup = () => {
 	return (
@@ -66,19 +62,17 @@ function BottomTabStack() {
 }
 
 export default function App() {
-	// const [fontsLoaded] = useFonts({
-	// 	'Roboto-Regular': RobotoRegular,
-	// 	'Roboto-Light': RobotoLight,
-	// 	'Roboto-Bold': RobotoBold,
-	// });
-
-	// if (!fontsLoaded) return null;
-
 	return (
 		<View style={styles.container}>
 			<NavigationContainer>
-				<Stack.Navigator screenOptions={{ headerShown: false }}>
-					<Stack.Screen name="Main" component={BottomTabStack} />
+				<Stack.Navigator>
+					<Stack.Screen
+						name="Main"
+						component={BottomTabStack}
+						options={{
+							headerTitle: () => <NormalBold>OpenCritic</NormalBold>,
+						}}
+					/>
 					{otherScreenGroup()}
 				</Stack.Navigator>
 			</NavigationContainer>

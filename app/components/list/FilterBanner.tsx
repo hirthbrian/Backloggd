@@ -53,6 +53,7 @@ export function FilterBanner({
 			horizontal
 			data={filters}
 			renderItem={renderItem}
+			style={{ backgroundColor: Colors.background }}
 			contentContainerStyle={styles.container}
 			ItemSeparatorComponent={renderSeparator}
 		/>
@@ -61,8 +62,7 @@ export function FilterBanner({
 
 export const styles = StyleSheet.create({
 	container: {
-		paddingHorizontal: 10,
-		paddingBottom: 10,
+		padding: 10,
 	},
 	pill: {
 		backgroundColor: Colors.lightGrey,

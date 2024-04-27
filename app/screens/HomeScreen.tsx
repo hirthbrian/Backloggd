@@ -20,8 +20,7 @@ export default function HomeScreen() {
 	return (
 		<ScrollView
 			contentContainerStyle={{
-				paddingTop: insets.top,
-				paddingBottom: insets.bottom,
+				paddingBottom: 20,
 			}}
 		>
 			{/* <SearchScreen /> */}
