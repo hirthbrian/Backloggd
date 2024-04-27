@@ -80,6 +80,7 @@ export default function SearchScreen() {
 			>
 				<SearchIcon color={Colors.lightGrey} />
 				<TextInput
+					autoFocus
 					enterKeyHint="search"
 					placeholder="Search for a game"
 					onSubmitEditing={onSearch}

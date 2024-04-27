@@ -62,7 +62,7 @@ function UserListScreen() {
 	);
 
 	return (
-		<View style={{ paddingTop: insets.top }}>
+		<View style={{ flex: 1, paddingTop: insets.top }}>
 			<FilterBanner
 				filters={filters}
 				onFilterSelected={onFilterSelected}
@@ -73,6 +73,7 @@ function UserListScreen() {
 				numColumns={3}
 				renderItem={renderItem}
 				ItemSeparatorComponent={renderSeparator}
+				contentContainerStyle={{ paddingVertical: 10 }}
 			/>
 		</View>
 	);
