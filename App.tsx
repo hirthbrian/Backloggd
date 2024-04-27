@@ -18,9 +18,9 @@ import UserListScreen from './app/screens/UserListScreen';
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
 
-const RobotoRegular = require('./assets/fonts/Roboto-Regular.ttf');
-const RobotoLight = require('./assets/fonts/Roboto-Light.ttf');
-const RobotoBold = require('./assets/fonts/Roboto-Bold.ttf');
+// const RobotoRegular = require('./assets/fonts/Roboto-Regular.ttf');
+// const RobotoLight = require('./assets/fonts/Roboto-Light.ttf');
+// const RobotoBold = require('./assets/fonts/Roboto-Bold.ttf');
 
 const otherScreenGroup = () => {
 	return (
