@@ -1,8 +1,8 @@
 import React from 'react';
 import { FlatList, Pressable, StyleSheet, View } from 'react-native';
+import { useTheme } from '@react-navigation/native';
 import styled from 'styled-components/native';
 
-import Colors from '../../constants/Colors';
 import { NormalLight, NormalRegular } from '../Texts';
 
 interface Filters {
@@ -16,9 +16,9 @@ interface FilterBannerProps {
 	onFilterSelected: (id: string) => void;
 }
 
+/* background-color: ${({ isHighlighted }) => */
+/* isHighlighted ? colors.primary : colors.lightGrey}; */
 const FilterPillContainer = styled.View<{ isHighlighted: boolean }>`
-	background-color: ${({ isHighlighted }) =>
-		isHighlighted ? Colors.primary : Colors.lightGrey};
 	justify-content: center;
 	border-radius: 20px;
 	padding: 8px 16px;
@@ -30,6 +30,8 @@ export function FilterBanner({
 	highlightedFilter,
 	onFilterSelected,
 }: FilterBannerProps) {
+	const { colors } = useTheme();
+
 	const renderItem = ({ item }: { item: Filters }) => {
 		const { id, label } = item;
 		const isHighlighted = highlightedFilter === id;
@@ -37,7 +39,7 @@ export function FilterBanner({
 			<Pressable key={item.id} onPress={() => onFilterSelected(id)}>
 				<FilterPillContainer isHighlighted={isHighlighted}>
 					{isHighlighted ? (
-						<NormalRegular color={Colors.background}>{label}</NormalRegular>
+						<NormalRegular color={colors.background}>{label}</NormalRegular>
 					) : (
 						<NormalLight>{label}</NormalLight>
 					)}
@@ -53,7 +55,7 @@ export function FilterBanner({
 			horizontal
 			data={filters}
 			renderItem={renderItem}
-			style={{ backgroundColor: Colors.background }}
+			style={{ backgroundColor: colors.background }}
 			contentContainerStyle={styles.container}
 			ItemSeparatorComponent={renderSeparator}
 		/>
@@ -63,12 +65,6 @@ export function FilterBanner({
 export const styles = StyleSheet.create({
 	container: {
 		padding: 10,
-	},
-	pill: {
-		backgroundColor: Colors.lightGrey,
-		borderRadius: 20,
-		paddingVertical: 8,
-		paddingHorizontal: 16,
 	},
 });
 

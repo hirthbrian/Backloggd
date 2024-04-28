@@ -6,17 +6,17 @@ import {
 	SafeAreaView,
 	View,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useTheme } from '@react-navigation/native';
 
 import { search } from '../api';
 import SearchIcon from '../components/icons/SearchIcon';
 import { NormalRegular, TextInput } from '../components/Texts';
-import Colors from '../constants/Colors';
 
 export default function SearchScreen() {
 	const navigation = useNavigation();
 	const [results, setResults] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
+	const { colors } = useTheme();
 
 	const renderSeparator = () => (
 		<View
@@ -24,7 +24,7 @@ export default function SearchScreen() {
 				height: 1,
 				opacity: 0.5,
 				marginHorizontal: 15,
-				backgroundColor: Colors.lightGrey,
+				backgroundColor: colors.lightGrey,
 			}}
 		/>
 	);
@@ -40,7 +40,7 @@ export default function SearchScreen() {
 			style={({ pressed }) => ({
 				paddingHorizontal: 15,
 				paddingVertical: 10,
-				backgroundColor: pressed ? Colors.primary : Colors.white,
+				backgroundColor: pressed ? colors.primary : colors.background,
 			})}
 		>
 			<NormalRegular key={item.id}>{item.name}</NormalRegular>
@@ -67,7 +67,7 @@ export default function SearchScreen() {
 	};
 
 	return (
-		<SafeAreaView style={{ flex: 1 }}>
+		<SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}>
 			<View
 				style={{
 					padding: 10,
@@ -75,10 +75,10 @@ export default function SearchScreen() {
 					flexDirection: 'row',
 					alignItems: 'center',
 					borderBottomWidth: 1,
-					borderColor: Colors.lightGrey,
+					borderColor: colors.lightGrey,
 				}}
 			>
-				<SearchIcon color={Colors.lightGrey} />
+				<SearchIcon color={colors.lightGrey} />
 				<TextInput
 					autoFocus
 					enterKeyHint="search"

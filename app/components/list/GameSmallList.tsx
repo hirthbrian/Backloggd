@@ -1,8 +1,7 @@
 import React from 'react';
 import { FlatList, Image, Pressable, StyleSheet, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useTheme } from '@react-navigation/native';
 
-import Colors from '../../constants/Colors';
 import { RatingSmall } from '../../constants/Rating';
 import getRating from '../../utils/Rating';
 import { LargeRegular, NormalBold, NormalLight, NormalRegular } from '../Texts';
@@ -28,6 +27,7 @@ type GameListProps = {
 
 export default function GameList({ title, data }: GameListProps) {
 	const navigation = useNavigation();
+	const { colors } = useTheme();
 
 	const onPress = (id: number, name: string) =>
 		navigation.navigate('Details', { id, name });
@@ -38,7 +38,7 @@ export default function GameList({ title, data }: GameListProps) {
 				height: 1,
 				opacity: 0.5,
 				marginHorizontal: 15,
-				backgroundColor: Colors.lightGrey,
+				backgroundColor: colors.lightGrey,
 			}}
 		/>
 	);
@@ -50,7 +50,7 @@ export default function GameList({ title, data }: GameListProps) {
 				justifyContent: 'flex-end',
 			}}
 		>
-			<NormalRegular textAlign="center" color={Colors.blue}>
+			<NormalRegular textAlign="center" color={colors.blue}>
 				View More
 			</NormalRegular>
 		</View>

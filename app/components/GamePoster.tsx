@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Image, Pressable, StyleSheet, View } from 'react-native';
+import { useTheme } from '@react-navigation/native';
 
-import Colors from '../constants/Colors';
 import { RatingSmall } from '../constants/Rating';
 import getRating from '../utils/Rating';
 
@@ -21,6 +21,8 @@ function GamePoster({
 	score,
 	onPress,
 }: GamePosterProps) {
+	const { colors } = useTheme();
+
 	return (
 		<Pressable onPress={onPress}>
 			<View>
@@ -30,7 +32,7 @@ function GamePoster({
 						width,
 						height: width * (3 / 2),
 						borderRadius: 4,
-						backgroundColor: Colors.lightGrey,
+						backgroundColor: colors.lightGrey,
 					}}
 				/>
 				<View

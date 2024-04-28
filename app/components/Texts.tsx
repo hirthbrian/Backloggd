@@ -1,11 +1,13 @@
+import React from 'react';
+import { Text } from 'react-native';
+import { useTheme } from '@react-navigation/native';
 import styled from 'styled-components/native';
-
-import Colors from '../constants/Colors';
 
 interface TextProps {
 	color?: string;
-	textAlign?: string;
 	lineHeight?: number;
+	textAlign?: string;
+	children?: React.ReactNode;
 }
 
 export const TextInput = styled.TextInput`
@@ -16,12 +18,23 @@ export const TextInput = styled.TextInput`
 	font-family: 'Roboto-Regular';
 `;
 
-const TextBase = styled.Text<TextProps>`
-	color: ${(props: TextProps) => props.color || Colors.text};
-	text-align: ${(props: TextProps) => props.textAlign || 'left'};
-	line-height: ${(props: TextProps) =>
-		props.lineHeight ? `${props.lineHeight}px` : 0};
-`;
+function TextBase({ children, ...props }: TextProps) {
+	const { colors } = useTheme();
+
+	return (
+		<Text
+			{...props}
+			style={{
+				...props.style,
+				color: props.color || colors.text,
+				textAlign: props.textAlign || 'left',
+				lineHeight: props.lineHeight || 0,
+			}}
+		>
+			{children}
+		</Text>
+	);
+}
 
 export const NormalLight = styled(TextBase)`
 	font-size: 16px;

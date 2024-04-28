@@ -8,12 +8,12 @@ import {
 	useWindowDimensions,
 	View,
 } from 'react-native';
+import { useTheme } from '@react-navigation/native';
 import dayjs from 'dayjs';
 
 import { getGameDetails } from '../api';
 import GameUserStatus from '../components/GameUserStatus';
 import { BiggerRegular, NormalBold, NormalRegular } from '../components/Texts';
-import Colors from '../constants/Colors';
 import { RatingBig } from '../constants/Rating';
 import type { GameDetails } from '../constants/Types';
 import mockGameList from '../mock';
@@ -22,6 +22,7 @@ import getRating from '../utils/Rating';
 export default function HomeScreen({ route }) {
 	const id = route?.params?.id;
 	const { width } = useWindowDimensions();
+	const { colors } = useTheme();
 
 	const [details, setDetails] = useState<GameDetails>();
 
@@ -34,15 +35,31 @@ export default function HomeScreen({ route }) {
 
 	const renderScore = (score: number, title: string) => (
 		<View style={styles.scroreContainer}>
-			<View style={styles.scroreNumberContainer}>
-				<BiggerRegular color={Colors.white}>{score.toFixed()}</BiggerRegular>
+			<View
+				style={{
+					width: 75,
+					height: 75,
+					borderRadius: 40,
+					borderWidth: 5,
+					borderColor: colors.primary,
+					alignItems: 'center',
+					justifyContent: 'center',
+					// backgroundColor: colors.header,
+				}}
+			>
+				<BiggerRegular color={colors.text}>{score.toFixed()}</BiggerRegular>
 			</View>
 			<NormalRegular textAlign="center">{title}</NormalRegular>
 		</View>
 	);
 
 	return (
-		<ScrollView style={styles.container}>
+		<ScrollView
+			style={{
+				flex: 1,
+				backgroundColor: colors.background,
+			}}
+		>
 			<ImageBackground
 				source={{
 					uri: `https://img.opencritic.com/${details.images.square.og}`,
@@ -62,7 +79,7 @@ export default function HomeScreen({ route }) {
 					marginTop: -5,
 					borderTopLeftRadius: 4,
 					borderTopRightRadius: 4,
-					backgroundColor: Colors.background,
+					backgroundColor: colors.background,
 				}}
 			>
 				<BiggerRegular>{details.name}</BiggerRegular>
@@ -93,24 +110,10 @@ export default function HomeScreen({ route }) {
 }
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: Colors.background,
-	},
 	scroreContainer: {
 		flex: 1,
 		paddingHorizontal: 8,
 		alignItems: 'center',
 		justifyContent: 'center',
-	},
-	scroreNumberContainer: {
-		width: 75,
-		height: 75,
-		borderRadius: 40,
-		borderWidth: 5,
-		borderColor: Colors.primary,
-		alignItems: 'center',
-		justifyContent: 'center',
-		backgroundColor: Colors.header,
 	},
 });

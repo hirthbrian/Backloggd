@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
+import { useTheme } from '@react-navigation/native';
 
-import Colors from '../constants/Colors';
 import { StatusEnum } from '../constants/Enums';
 
 import CheckIcon from './icons/CheckIcon';
@@ -13,6 +13,7 @@ import { NormalRegular } from './Texts';
 function GameUserStatus() {
 	const [status, setStatus] = useState<StatusEnum>(StatusEnum.NONE);
 	const [isFavorite, setIsFavorite] = useState<boolean>(false);
+	const { colors } = useTheme();
 
 	const renderSubStatus = (
 		text: string,
@@ -34,10 +35,10 @@ function GameUserStatus() {
 						}}
 					>
 						<View style={{ paddingBottom: 5 }}>
-							<Icon color={currentStatus ? Colors.background : Colors.text} />
+							<Icon color={currentStatus ? colors.background : colors.text} />
 						</View>
 						<NormalRegular
-							color={currentStatus ? Colors.background : Colors.text}
+							color={currentStatus ? colors.background : colors.text}
 						>
 							{text}
 						</NormalRegular>
@@ -65,7 +66,7 @@ function GameUserStatus() {
 		<View
 			style={{
 				width: StyleSheet.hairlineWidth,
-				backgroundColor: Colors.background,
+				backgroundColor: colors.background,
 				opacity: 0.2,
 			}}
 		/>
@@ -85,7 +86,7 @@ function GameUserStatus() {
 		>
 			{renderSubStatus(
 				'Want',
-				Colors.purple,
+				colors.purple,
 				PlusIcon,
 				status === StatusEnum.WANT,
 				onWantPress,
@@ -93,7 +94,7 @@ function GameUserStatus() {
 			{renderStatusSeparator()}
 			{renderSubStatus(
 				'Played',
-				Colors.primary,
+				colors.primary,
 				CheckIcon,
 				status === StatusEnum.PLAYED,
 				onPlayedPress,
@@ -101,7 +102,7 @@ function GameUserStatus() {
 			{renderStatusSeparator()}
 			{renderSubStatus(
 				'Favorite',
-				Colors.red,
+				colors.red,
 				HeartIcon,
 				isFavorite,
 				onFavoritePress,

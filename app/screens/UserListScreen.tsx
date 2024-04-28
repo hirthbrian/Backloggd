@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { FlatList, useWindowDimensions, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useTheme } from '@react-navigation/native';
 
 import GamePoster from '../components/GamePoster';
 import FilterBanner from '../components/list/FilterBanner';
@@ -35,7 +34,7 @@ function UserListScreen() {
 	const { width } = useWindowDimensions();
 	const navigation = useNavigation();
 	const [selectedFilter, setSelectedFilter] = useState(StatusEnum.WANT);
-	const insets = useSafeAreaInsets();
+	const { colors } = useTheme();
 
 	const onPress = (id: number, name: string) =>
 		navigation.navigate('Details', { id, name });
@@ -78,6 +77,7 @@ function UserListScreen() {
 			style={{ flex: 1 }}
 			contentContainerStyle={{
 				paddingBottom: 10,
+				backgroundColor: colors.background,
 			}}
 		/>
 	);

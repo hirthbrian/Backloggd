@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useTheme } from '@react-navigation/native';
 
 import getPopular from '../api';
 import GameList from '../components/list/GameList';
@@ -11,6 +12,8 @@ import SearchScreen from './SearchScreen';
 
 export default function HomeScreen() {
 	const insets = useSafeAreaInsets();
+	const { colors } = useTheme();
+
 	// const [popularGames, setPopularGames] = useState([]);
 
 	// useEffect(() => {
@@ -21,6 +24,7 @@ export default function HomeScreen() {
 		<ScrollView
 			contentContainerStyle={{
 				paddingBottom: 20,
+				backgroundColor: colors.background,
 			}}
 		>
 			{/* <SearchScreen /> */}
