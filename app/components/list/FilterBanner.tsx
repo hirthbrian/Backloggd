@@ -16,9 +16,11 @@ interface FilterBannerProps {
 	onFilterSelected: (id: string) => void;
 }
 
-/* background-color: ${({ isHighlighted }) => */
-/* isHighlighted ? colors.primary : colors.lightGrey}; */
-const FilterPillContainer = styled.View<{ isHighlighted: boolean }>`
+const FilterPillContainer = styled.View<{
+	isHighlighted: boolean;
+	backgroundColor: string;
+}>`
+	background-color: ${(props) => props.backgroundColor};
 	justify-content: center;
 	border-radius: 20px;
 	padding: 8px 16px;
@@ -37,7 +39,10 @@ export function FilterBanner({
 		const isHighlighted = highlightedFilter === id;
 		return (
 			<Pressable key={item.id} onPress={() => onFilterSelected(id)}>
-				<FilterPillContainer isHighlighted={isHighlighted}>
+				<FilterPillContainer
+					isHighlighted={isHighlighted}
+					backgroundColor={isHighlighted ? colors.primary : colors.border}
+				>
 					{isHighlighted ? (
 						<NormalRegular color={colors.background}>{label}</NormalRegular>
 					) : (

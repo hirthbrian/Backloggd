@@ -24,7 +24,7 @@ export default function SearchScreen() {
 				height: 1,
 				opacity: 0.5,
 				marginHorizontal: 15,
-				backgroundColor: colors.lightGrey,
+				backgroundColor: colors.border,
 			}}
 		/>
 	);
@@ -75,12 +75,16 @@ export default function SearchScreen() {
 					flexDirection: 'row',
 					alignItems: 'center',
 					borderBottomWidth: 1,
-					borderColor: colors.lightGrey,
+					borderColor: colors.textLight,
 				}}
 			>
-				<SearchIcon color={colors.lightGrey} />
+				<SearchIcon color={colors.text} />
 				<TextInput
 					autoFocus
+					style={{
+						color: colors.text,
+					}}
+					placeholderTextColor={colors.textLight}
 					enterKeyHint="search"
 					placeholder="Search for a game"
 					onSubmitEditing={onSearch}

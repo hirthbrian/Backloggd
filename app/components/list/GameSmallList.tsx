@@ -38,7 +38,7 @@ export default function GameList({ title, data }: GameListProps) {
 				height: 1,
 				opacity: 0.5,
 				marginHorizontal: 15,
-				backgroundColor: colors.lightGrey,
+				backgroundColor: colors.border,
 			}}
 		/>
 	);

@@ -32,7 +32,7 @@ function GamePoster({
 						width,
 						height: width * (3 / 2),
 						borderRadius: 4,
-						backgroundColor: colors.lightGrey,
+						backgroundColor: colors.border,
 					}}
 				/>
 				<View
