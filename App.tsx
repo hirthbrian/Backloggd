@@ -5,13 +5,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, useTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import HomeIcon from './app/components/icons/HomeIcon';
-import ListIcon from './app/components/icons/ListIcon';
-import SearchIcon from './app/components/icons/SearchIcon';
-import DetailsScreen from './app/screens/DetailsScreen';
-import HomeScreen from './app/screens/HomeScreen';
-import SearchScreen from './app/screens/SearchScreen';
-import UserListScreen from './app/screens/UserListScreen';
+import HomeIcon from './src/components/icons/HomeIcon';
+import ListIcon from './src/components/icons/ListIcon';
+import SearchIcon from './src/components/icons/SearchIcon';
+import DetailsScreen from './src/screens/DetailsScreen';
+import HomeScreen from './src/screens/HomeScreen';
+import SearchScreen from './src/screens/SearchScreen';
+import UserListScreen from './src/screens/UserListScreen';
 
 const Stack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
