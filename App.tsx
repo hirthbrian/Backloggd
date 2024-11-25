@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { Image, StyleSheet, useColorScheme, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, useTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -8,7 +8,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeIcon from './app/components/icons/HomeIcon';
 import ListIcon from './app/components/icons/ListIcon';
 import SearchIcon from './app/components/icons/SearchIcon';
-import { MyDarkTheme, MyLightTheme } from './app/constants/Theme';
 import DetailsScreen from './app/screens/DetailsScreen';
 import HomeScreen from './app/screens/HomeScreen';
 import SearchScreen from './app/screens/SearchScreen';
@@ -71,13 +70,9 @@ function HeaderTitle() {
 }
 
 export default function App() {
-	const scheme = useColorScheme();
-
 	return (
 		<View style={styles.container}>
-			<NavigationContainer
-				theme={scheme === 'light' ? MyLightTheme : MyDarkTheme}
-			>
+			<NavigationContainer>
 				<Stack.Navigator>
 					<Stack.Screen
 						name="Main"
