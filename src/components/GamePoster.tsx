@@ -4,8 +4,8 @@ import { useTheme } from '@react-navigation/native';
 
 import { RatingSmall } from '../constants/Rating';
 import getRating from '../utils/Rating';
-
-import { NormalBold, NormalLight } from './Texts';
+import NormalBold from '../ui/atoms/Texts/NormalBold';
+import NormalLight from '../ui/atoms/Texts/NormalLight';
 
 type GamePosterProps = {
 	uri: string;

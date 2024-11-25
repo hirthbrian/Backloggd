@@ -13,11 +13,13 @@ import dayjs from 'dayjs';
 
 import { getGameDetails } from '../api';
 import GameUserStatus from '../components/GameUserStatus';
-import { BiggerRegular, NormalBold, NormalRegular } from '../components/Texts';
 import { RatingBig } from '../constants/Rating';
 import type { GameDetails } from '../constants/Types';
 import mockGameList from '../mock';
 import getRating from '../utils/Rating';
+import BiggerRegular from '../ui/atoms/Texts/BiggerRegular';
+import NormalRegular from '../ui/atoms/Texts/NormalRegular';
+import NormalBold from '../ui/atoms/Texts/NormalBold';
 
 export default function HomeScreen({ route }) {
 	const id = route?.params?.id;

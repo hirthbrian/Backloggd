@@ -1,9 +1,8 @@
 import React from 'react';
 import { FlatList, Pressable, StyleSheet, View } from 'react-native';
 import { useTheme } from '@react-navigation/native';
-import styled from 'styled-components/native';
-
-import { NormalLight, NormalRegular } from '../Texts';
+import NormalRegular from '../../ui/atoms/Texts/NormalRegular';
+import NormalLight from '../../ui/atoms/Texts/NormalLight';
 
 interface Filters {
 	id: string;
@@ -16,16 +15,18 @@ interface FilterBannerProps {
 	onFilterSelected: (id: string) => void;
 }
 
-const FilterPillContainer = styled.View<{
-	isHighlighted: boolean;
-	backgroundColor: string;
-}>`
-	background-color: ${(props) => props.backgroundColor};
-	justify-content: center;
-	border-radius: 20px;
-	padding: 8px 16px;
-	height: 32px;
-`;
+export const styles = StyleSheet.create({
+	container: {
+		padding: 10,
+	},
+	pillContainer: {
+		justifyContent: 'center',
+		borderRadius: 20,
+		paddingHorizontal: 16,
+		paddingVertical: 8,
+		height: 32,
+	},
+});
 
 export function FilterBanner({
 	filters,
@@ -39,16 +40,20 @@ export function FilterBanner({
 		const isHighlighted = highlightedFilter === id;
 		return (
 			<Pressable key={item.id} onPress={() => onFilterSelected(id)}>
-				<FilterPillContainer
-					isHighlighted={isHighlighted}
-					backgroundColor={isHighlighted ? colors.primary : colors.border}
+				<View
+					style={[
+						styles.pillContainer,
+						{
+							backgroundColor: isHighlighted ? colors.primary : colors.border,
+						},
+					]}
 				>
 					{isHighlighted ? (
 						<NormalRegular color={colors.background}>{label}</NormalRegular>
 					) : (
 						<NormalLight>{label}</NormalLight>
 					)}
-				</FilterPillContainer>
+				</View>
 			</Pressable>
 		);
 	};
@@ -66,11 +71,5 @@ export function FilterBanner({
 		/>
 	);
 }
-
-export const styles = StyleSheet.create({
-	container: {
-		padding: 10,
-	},
-});
 
 export default FilterBanner;

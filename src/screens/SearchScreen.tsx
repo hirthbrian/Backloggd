@@ -4,13 +4,14 @@ import {
 	FlatList,
 	Pressable,
 	SafeAreaView,
+	TextInput,
 	View,
 } from 'react-native';
 import { useNavigation, useTheme } from '@react-navigation/native';
 
 import { search } from '../api';
 import SearchIcon from '../components/icons/SearchIcon';
-import { NormalRegular, TextInput } from '../components/Texts';
+import NormalRegular from '../ui/atoms/Texts/NormalRegular';
 
 export default function SearchScreen() {
 	const navigation = useNavigation();
@@ -83,6 +84,11 @@ export default function SearchScreen() {
 					autoFocus
 					style={{
 						color: colors.text,
+						flex: 1,
+						paddingVertical: 10,
+						fontSize: 18,
+						fontWeight: '400',
+						fontFamily: 'Roboto-Regular',
 					}}
 					placeholderTextColor={colors.textLight}
 					enterKeyHint="search"

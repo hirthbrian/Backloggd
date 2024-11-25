@@ -8,7 +8,7 @@ import { StatusEnum } from '../constants/Enums';
 import CheckIcon from './icons/CheckIcon';
 import HeartIcon from './icons/HeartIcon';
 import PlusIcon from './icons/PlusIcon';
-import { NormalRegular } from './Texts';
+import NormalRegular from '../ui/atoms/Texts/NormalRegular';
 
 function GameUserStatus() {
 	const [status, setStatus] = useState<StatusEnum>(StatusEnum.NONE);

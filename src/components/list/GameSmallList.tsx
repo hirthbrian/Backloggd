@@ -4,7 +4,10 @@ import { useNavigation, useTheme } from '@react-navigation/native';
 
 import { RatingSmall } from '../../constants/Rating';
 import getRating from '../../utils/Rating';
-import { LargeRegular, NormalBold, NormalLight, NormalRegular } from '../Texts';
+import NormalRegular from '../../ui/atoms/Texts/NormalRegular';
+import NormalLight from '../../ui/atoms/Texts/NormalLight';
+import NormalBold from '../../ui/atoms/Texts/NormalBold';
+import LargeRegular from '../../ui/atoms/Texts/LargeRegular';
 
 type GameType = {
 	images: {

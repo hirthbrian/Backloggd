@@ -3,7 +3,8 @@ import { FlatList, StyleSheet, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import GamePoster from '../GamePoster';
-import { BigLight, NormalRegular } from '../Texts';
+import BigLight from '../../ui/atoms/Texts/BigLight';
+import NormalRegular from '../../ui/atoms/Texts/NormalRegular';
 
 type GameType = {
 	images: {
