@@ -2,9 +2,9 @@ import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import GamePoster from '../GamePoster';
-import BigLight from '../../ui/atoms/Texts/BigLight';
 import NormalRegular from '../../ui/atoms/Texts/NormalRegular';
+import LargeLight from '../../ui/atoms/Texts/LargeLight';
+import GamePoster from '../molecules/GamePoster';
 
 type GameType = {
 	images: {
@@ -49,7 +49,7 @@ function GameList({ title, subtitle, data }: GameListProps) {
 							paddingBottom: 8,
 						}}
 					>
-						<BigLight lineHeight={38.4}>{title}</BigLight>
+						<LargeLight lineHeight={38.4}>{title}</LargeLight>
 					</View>
 				)}
 

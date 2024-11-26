@@ -1,4 +1,3 @@
-// @flow
 import React, { useEffect, useState } from 'react';
 import {
 	Image,
@@ -11,17 +10,16 @@ import {
 import { useTheme } from '@react-navigation/native';
 import dayjs from 'dayjs';
 
-import { getGameDetails } from '../api';
-import GameUserStatus from '../components/GameUserStatus';
-import { RatingBig } from '../constants/Rating';
-import type { GameDetails } from '../constants/Types';
-import mockGameList from '../mock';
-import getRating from '../utils/Rating';
-import BiggerRegular from '../ui/atoms/Texts/BiggerRegular';
-import NormalRegular from '../ui/atoms/Texts/NormalRegular';
-import NormalBold from '../ui/atoms/Texts/NormalBold';
+import LargeRegular from '../atoms/Texts/LargeRegular';
+import NormalRegular from '../atoms/Texts/NormalRegular';
+import getRating from '../../infrastructure/utils/Rating';
+import { GameDetails } from '../../domain/Types';
+import { getGameDetails } from '../../infrastructure/fetch';
+import GameUserStatus from '../molecules/GameUserStatus';
+import NormalBold from '../atoms/Texts/NormalBold';
+import { RatingBig } from '../../domain/Rating';
 
-export default function HomeScreen({ route }) {
+export default function Details({ route }) {
 	const id = route?.params?.id;
 	const { width } = useWindowDimensions();
 	const { colors } = useTheme();
@@ -49,7 +47,7 @@ export default function HomeScreen({ route }) {
 					// backgroundColor: colors.header,
 				}}
 			>
-				<BiggerRegular color={colors.text}>{score.toFixed()}</BiggerRegular>
+				<LargeRegular>{score.toFixed()}</LargeRegular>
 			</View>
 			<NormalRegular textAlign="center">{title}</NormalRegular>
 		</View>
@@ -84,7 +82,7 @@ export default function HomeScreen({ route }) {
 					backgroundColor: colors.background,
 				}}
 			>
-				<BiggerRegular>{details.name}</BiggerRegular>
+				<LargeRegular>{details.name}</LargeRegular>
 				<NormalRegular>
 					{details.Companies.map(({ name }) => name).join(', ')}
 				</NormalRegular>

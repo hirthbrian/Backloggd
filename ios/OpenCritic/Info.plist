@@ -52,6 +52,11 @@
 		<string>Roboto-Bold.ttf</string>
 		<string>Roboto-Light.ttf</string>
 		<string>Roboto-Regular.ttf</string>
+		<string>NotoSans-Bold.ttf</string>
+		<string>NotoSans-Light.ttf</string>
+		<string>NotoSans-Medium.ttf</string>
+		<string>NotoSans-Regular.ttf</string>
+		<string>NotoSans-SemiBold.ttf</string>
 	</array>
 </dict>
 </plist>

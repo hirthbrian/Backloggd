@@ -1,11 +1,10 @@
 import React from 'react';
 import { Image, Pressable, StyleSheet, View } from 'react-native';
 import { useTheme } from '@react-navigation/native';
-
-import { RatingSmall } from '../constants/Rating';
-import getRating from '../utils/Rating';
-import NormalBold from '../ui/atoms/Texts/NormalBold';
-import NormalLight from '../ui/atoms/Texts/NormalLight';
+import getRating from '../../infrastructure/utils/Rating';
+import { RatingSmall } from '../../domain/Rating';
+import NormalBold from '../atoms/Texts/NormalBold';
+import NormalLight from '../atoms/Texts/NormalLight';
 
 type GamePosterProps = {
 	uri: string;

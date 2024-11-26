@@ -11,8 +11,8 @@ export type LargeRegularProps = {
 const styles = StyleSheet.create({
 	text: {
 		fontSize: 32,
-		fontFamily: 'Roboto-Bold',
-		fontWeight: '300',
+		fontFamily: 'Roboto-Regular',
+		fontWeight: '400',
 	},
 });
 

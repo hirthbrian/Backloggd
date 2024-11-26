@@ -4,19 +4,19 @@ import { StyleSheet } from 'react-native';
 import type { TextBaseProps } from './TextBase';
 import TextBase from './TextBase';
 
-export type BiggerRegularProps = {
+export type LargeLightProps = {
 	children: ReactNode;
 } & TextBaseProps;
 
 const styles = StyleSheet.create({
 	text: {
-		fontSize: 40,
-		fontFamily: 'Roboto-Regular',
-		fontWeight: '400',
+		fontSize: 32,
+		fontFamily: 'Roboto-Light',
+		fontWeight: '300',
 	},
 });
 
-function BiggerRegular({ children, ...props }: BiggerRegularProps) {
+function LargeLight({ children, ...props }: LargeLightProps) {
 	return (
 		<TextBase {...props} style={{ ...styles.text, ...props.style }}>
 			{children}
@@ -24,4 +24,4 @@ function BiggerRegular({ children, ...props }: BiggerRegularProps) {
 	);
 }
 
-export default BiggerRegular;
+export default LargeLight;

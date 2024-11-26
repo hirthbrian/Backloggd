@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
 import { useTheme } from '@react-navigation/native';
-
-import { StatusEnum } from '../constants/Enums';
-
-import CheckIcon from './icons/CheckIcon';
-import HeartIcon from './icons/HeartIcon';
-import PlusIcon from './icons/PlusIcon';
-import NormalRegular from '../ui/atoms/Texts/NormalRegular';
+import { StatusEnum } from '../../domain/Enums';
+import PlusIcon from '../atoms/Icons/PlusIcon';
+import CheckIcon from '../atoms/Icons/CheckIcon';
+import HeartIcon from '../atoms/Icons/HeartIcon';
+import NormalRegular from '../atoms/Texts/NormalRegular';
 
 function GameUserStatus() {
 	const [status, setStatus] = useState<StatusEnum>(StatusEnum.NONE);

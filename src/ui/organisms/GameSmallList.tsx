@@ -2,12 +2,12 @@ import React from 'react';
 import { FlatList, Image, Pressable, StyleSheet, View } from 'react-native';
 import { useNavigation, useTheme } from '@react-navigation/native';
 
-import { RatingSmall } from '../../constants/Rating';
-import getRating from '../../utils/Rating';
 import NormalRegular from '../../ui/atoms/Texts/NormalRegular';
 import NormalLight from '../../ui/atoms/Texts/NormalLight';
 import NormalBold from '../../ui/atoms/Texts/NormalBold';
 import LargeRegular from '../../ui/atoms/Texts/LargeRegular';
+import { RatingSmall } from '../../domain/Rating';
+import getRating from '../../infrastructure/utils/Rating';
 
 type GameType = {
 	images: {
@@ -22,13 +22,13 @@ type GameType = {
 	id: number;
 };
 
-type GameListProps = {
+type GameSmallListProps = {
 	title?: string;
 	subtitle?: string;
 	data: Array<GameType>;
 };
 
-export default function GameList({ title, data }: GameListProps) {
+export default function GameSmallList({ title, data }: GameSmallListProps) {
 	const navigation = useNavigation();
 	const { colors } = useTheme();
 

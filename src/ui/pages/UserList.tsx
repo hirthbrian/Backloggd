@@ -2,10 +2,10 @@ import React, { useMemo, useState } from 'react';
 import { FlatList, useWindowDimensions, View } from 'react-native';
 import { useNavigation, useTheme } from '@react-navigation/native';
 
-import GamePoster from '../components/GamePoster';
-import FilterBanner from '../components/list/FilterBanner';
-import { StatusEnum } from '../constants/Enums';
-import mockGameList from '../mock';
+import mockGameList from '../../infrastructure/mock';
+import { StatusEnum } from '../../domain/Enums';
+import GamePoster from '../molecules/GamePoster';
+import FilterBanner from '../organisms/FilterBanner';
 
 const filters = [
 	{ id: StatusEnum.WANT, data: mockGameList.want, label: 'Want to Play' },
@@ -30,7 +30,7 @@ type GameType = {
 	id: number;
 };
 
-function UserListScreen() {
+function UserList() {
 	const { width } = useWindowDimensions();
 	const navigation = useNavigation();
 	const [selectedFilter, setSelectedFilter] = useState(StatusEnum.WANT);
@@ -83,4 +83,4 @@ function UserListScreen() {
 	);
 }
 
-export default UserListScreen;
+export default UserList;

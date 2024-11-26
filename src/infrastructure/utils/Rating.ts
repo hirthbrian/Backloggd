@@ -1,4 +1,3 @@
-// @flow
 import type { RatingBig, RatingSmall } from '../constants/Rating';
 
 export const getRating = (

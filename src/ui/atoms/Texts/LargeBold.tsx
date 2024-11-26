@@ -4,19 +4,19 @@ import { StyleSheet } from 'react-native';
 import type { TextBaseProps } from './TextBase';
 import TextBase from './TextBase';
 
-export type BigLightProps = {
+export type LargeBoldProps = {
 	children: ReactNode;
 } & TextBaseProps;
 
 const styles = StyleSheet.create({
 	text: {
 		fontSize: 32,
-		fontFamily: 'Roboto-Light',
-		fontWeight: '300',
+		fontFamily: 'Roboto-Bold',
+		fontWeight: '700',
 	},
 });
 
-function BigLight({ children, ...props }: BigLightProps) {
+function LargeBold({ children, ...props }: LargeBoldProps) {
 	return (
 		<TextBase {...props} style={{ ...styles.text, ...props.style }}>
 			{children}
@@ -24,4 +24,4 @@ function BigLight({ children, ...props }: BigLightProps) {
 	);
 }
 
-export default BigLight;
+export default LargeBold;

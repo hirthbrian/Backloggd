@@ -2,15 +2,12 @@ import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '@react-navigation/native';
+import GameList from '../organisms/GameList';
+import GameSmallList from '../organisms/GameSmallList';
 
-import getPopular from '../api';
-import GameList from '../components/list/GameList';
-import GameSmallList from '../components/list/GameSmallList';
-import mockGameList from '../mock';
+import mockGameList from '../../infrastructure/mock';
 
-import SearchScreen from './SearchScreen';
-
-export default function HomeScreen() {
+export default function Home() {
 	const insets = useSafeAreaInsets();
 	const { colors } = useTheme();
 

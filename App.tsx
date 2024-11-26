@@ -1,62 +1,17 @@
-// @flow
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, useColorScheme, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer, useTheme } from '@react-navigation/native';
+import { createStaticNavigation, useTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import HomeIcon from './src/components/icons/HomeIcon';
-import ListIcon from './src/components/icons/ListIcon';
-import SearchIcon from './src/components/icons/SearchIcon';
-import DetailsScreen from './src/screens/DetailsScreen';
-import HomeScreen from './src/screens/HomeScreen';
-import SearchScreen from './src/screens/SearchScreen';
-import UserListScreen from './src/screens/UserListScreen';
-
-const Stack = createNativeStackNavigator();
-const BottomTab = createBottomTabNavigator();
-
-function OtherScreenGroup() {
-	return (
-		<Stack.Group>
-			<Stack.Screen
-				key="detail"
-				name="Details"
-				component={DetailsScreen}
-				options={({ route }) => ({
-					title: route?.params?.name,
-				})}
-			/>
-		</Stack.Group>
-	);
-}
-
-function BottomTabStack() {
-	return (
-		<BottomTab.Navigator
-			screenOptions={{
-				headerShown: false,
-				tabBarShowLabel: false,
-			}}
-		>
-			<BottomTab.Screen
-				name="Home"
-				component={HomeScreen}
-				options={{ tabBarIcon: HomeIcon }}
-			/>
-			<BottomTab.Screen
-				name="UserList"
-				component={UserListScreen}
-				options={{ tabBarIcon: ListIcon }}
-			/>
-			<BottomTab.Screen
-				name="Search"
-				component={SearchScreen}
-				options={{ tabBarIcon: SearchIcon }}
-			/>
-		</BottomTab.Navigator>
-	);
-}
+import Details from './src/ui/pages/Details';
+import Home from './src/ui/pages/Home';
+import Search from './src/ui/pages/Search';
+import UserList from './src/ui/pages/UserList';
+import { darkTheme, lightTheme } from './src/ui/themes/colors';
+import HomeIcon from './src/ui/atoms/Icons/HomeIcon';
+import ListIcon from './src/ui/atoms/Icons/ListIcon';
+import SearchIcon from './src/ui/atoms/Icons/SearchIcon';
 
 function HeaderTitle() {
 	const { colors } = useTheme();
@@ -69,19 +24,47 @@ function HeaderTitle() {
 	);
 }
 
+const BottomTabStack = createBottomTabNavigator({
+	screens: {
+		Home: { screen: Home, options: { tabBarIcon: HomeIcon } },
+		UserList: { screen: UserList, options: { tabBarIcon: ListIcon } },
+		Search: { screen: Search, options: { tabBarIcon: SearchIcon } },
+	},
+	screenOptions: {
+		headerShown: false,
+		tabBarShowLabel: false,
+	},
+});
+
+const RootStack = createNativeStackNavigator({
+	screens: {
+		Main: { screen: BottomTabStack, options: { headerTitle: HeaderTitle } },
+		Details: {
+			screen: Details,
+			options: ({ route }) => ({
+				title: route?.params?.name,
+			}),
+		},
+	},
+	screenOptions: () => {
+		const { colors } = useTheme();
+
+		return {
+			headerStyle: {
+				backgroundColor: colors.primary,
+			},
+		};
+	},
+});
+
+const Navigation = createStaticNavigation(RootStack);
+
 export default function App() {
+	const theme = useColorScheme();
+
 	return (
 		<View style={styles.container}>
-			<NavigationContainer>
-				<Stack.Navigator>
-					<Stack.Screen
-						name="Main"
-						component={BottomTabStack}
-						options={{ headerTitle: HeaderTitle }}
-					/>
-					{OtherScreenGroup()}
-				</Stack.Navigator>
-			</NavigationContainer>
+			<Navigation theme={theme === 'dark' ? darkTheme : lightTheme} />
 		</View>
 	);
 }

@@ -8,12 +8,11 @@ import {
 	View,
 } from 'react-native';
 import { useNavigation, useTheme } from '@react-navigation/native';
+import NormalRegular from '../atoms/Texts/NormalRegular';
+import { search } from '../../infrastructure/fetch';
+import SearchIcon from '../atoms/Icons/SearchIcon';
 
-import { search } from '../api';
-import SearchIcon from '../components/icons/SearchIcon';
-import NormalRegular from '../ui/atoms/Texts/NormalRegular';
-
-export default function SearchScreen() {
+export default function Search() {
 	const navigation = useNavigation();
 	const [results, setResults] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
@@ -76,7 +75,7 @@ export default function SearchScreen() {
 					flexDirection: 'row',
 					alignItems: 'center',
 					borderBottomWidth: 1,
-					borderColor: colors.textLight,
+					borderColor: colors.text,
 				}}
 			>
 				<SearchIcon color={colors.text} />
@@ -90,7 +89,7 @@ export default function SearchScreen() {
 						fontWeight: '400',
 						fontFamily: 'Roboto-Regular',
 					}}
-					placeholderTextColor={colors.textLight}
+					placeholderTextColor={colors.text}
 					enterKeyHint="search"
 					placeholder="Search for a game"
 					onSubmitEditing={onSearch}
