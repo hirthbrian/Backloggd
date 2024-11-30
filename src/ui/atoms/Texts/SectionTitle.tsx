@@ -3,20 +3,22 @@ import { StyleSheet } from 'react-native';
 
 import type { TextBaseProps } from './TextBase';
 import TextBase from './TextBase';
+import fonts from '../../themes/fonts';
 
-export type LargeBoldProps = {
+export type Props = {
 	children: ReactNode;
 } & TextBaseProps;
 
 const styles = StyleSheet.create({
 	text: {
-		fontSize: 32,
-		fontFamily: 'Roboto-Bold',
-		fontWeight: '700',
+		fontSize: 18,
+		lineHeight: 24,
+		fontFamily: fonts.semiBold,
+		fontWeight: '600',
 	},
 });
 
-function LargeBold({ children, ...props }: LargeBoldProps) {
+function SectionTitle({ children, ...props }: Props) {
 	return (
 		<TextBase {...props} style={{ ...styles.text, ...props.style }}>
 			{children}
@@ -24,4 +26,4 @@ function LargeBold({ children, ...props }: LargeBoldProps) {
 	);
 }
 
-export default LargeBold;
+export default SectionTitle;

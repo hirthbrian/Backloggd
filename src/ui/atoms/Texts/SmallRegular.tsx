@@ -3,20 +3,22 @@ import { StyleSheet } from 'react-native';
 
 import type { TextBaseProps } from './TextBase';
 import TextBase from './TextBase';
+import fonts from '../../themes/fonts';
 
-export type LargeLightProps = {
+export type Props = {
 	children: ReactNode;
 } & TextBaseProps;
 
 const styles = StyleSheet.create({
 	text: {
-		fontSize: 32,
-		fontFamily: 'Roboto-Light',
-		fontWeight: '300',
+		fontSize: 12,
+		lineHeight: 18,
+		fontFamily: fonts.regular,
+		fontWeight: '400',
 	},
 });
 
-function LargeLight({ children, ...props }: LargeLightProps) {
+function SmallRegular({ children, ...props }: Props) {
 	return (
 		<TextBase {...props} style={{ ...styles.text, ...props.style }}>
 			{children}
@@ -24,4 +26,4 @@ function LargeLight({ children, ...props }: LargeLightProps) {
 	);
 }
 
-export default LargeLight;
+export default SmallRegular;

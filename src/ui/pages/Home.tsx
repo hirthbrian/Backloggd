@@ -1,42 +1,36 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useTheme } from '@react-navigation/native';
-import GameList from '../organisms/GameList';
-import GameSmallList from '../organisms/GameSmallList';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import { useQuery } from 'react-query';
 
-import mockGameList from '../../infrastructure/mock';
+import LoadingPage from '../templates/LoadingPage';
+import ErrorPage from '../templates/ErrorPage';
+import getHomeLists from '../../infrastructure/fetch/getHomeLists';
+import GameListHorizontal from '../organisms/Game/GameListHorizontal';
+
+const styles = StyleSheet.create({
+	container: {
+		paddingVertical: 15,
+	},
+});
 
 export default function Home() {
-	const insets = useSafeAreaInsets();
-	const { colors } = useTheme();
+	const response = useQuery(['getHomeList'], getHomeLists);
 
-	// const [popularGames, setPopularGames] = useState([]);
-
-	// useEffect(() => {
-	// 	getPopular().then(setPopularGames);
-	// }, []);
+	if (response?.isLoading) return <LoadingPage />;
+	if (response?.isError) return <ErrorPage />;
 
 	return (
-		<ScrollView
-			contentContainerStyle={{
-				paddingBottom: 20,
-				backgroundColor: colors.background,
-			}}
-		>
-			{/* <SearchScreen /> */}
-			<GameList
-				title="Popular Games"
-				subtitle="Don't miss the most popular games on OpenCritic today"
-				data={mockGameList.popular}
-			/>
-			<GameSmallList title="Recently Released" data={mockGameList.popular} />
+		<ScrollView style={styles.container}>
+			{/* <GameListStack title={'Recently trending'} data={response?.data} /> */}
+			<View style={{ gap: 20 }}>
+				{response?.data.map((data) => (
+					<GameListHorizontal
+						key={data.name}
+						title={data.name}
+						data={data.result}
+					/>
+				))}
+			</View>
 		</ScrollView>
 	);
 }
-
-const styles = StyleSheet.create({
-	titles: {
-		paddingHorizontal: 15,
-	},
-});

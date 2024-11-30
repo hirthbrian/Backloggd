@@ -3,20 +3,22 @@ import { StyleSheet } from 'react-native';
 
 import type { TextBaseProps } from './TextBase';
 import TextBase from './TextBase';
+import fonts from '../../themes/fonts';
 
-export type LargeRegularProps = {
+export type Props = {
 	children: ReactNode;
 } & TextBaseProps;
 
 const styles = StyleSheet.create({
 	text: {
-		fontSize: 32,
-		fontFamily: 'Roboto-Regular',
-		fontWeight: '400',
+		fontSize: 28,
+		lineHeight: 34,
+		fontFamily: fonts.semiBold,
+		fontWeight: '600',
 	},
 });
 
-function LargeRegular({ children, ...props }: LargeRegularProps) {
+function Header({ children, ...props }: Props) {
 	return (
 		<TextBase {...props} style={{ ...styles.text, ...props.style }}>
 			{children}
@@ -24,4 +26,4 @@ function LargeRegular({ children, ...props }: LargeRegularProps) {
 	);
 }
 
-export default LargeRegular;
+export default Header;

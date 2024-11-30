@@ -1,76 +1,105 @@
 import React from 'react';
-import { Image, StyleSheet, useColorScheme, View } from 'react-native';
+import { Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStaticNavigation, useTheme } from '@react-navigation/native';
+import {
+	createStaticNavigation,
+	StaticParamList,
+} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import Details from './src/ui/pages/Details';
+import GameDetails from './src/ui/pages/GameDetails';
 import Home from './src/ui/pages/Home';
 import Search from './src/ui/pages/Search';
-import UserList from './src/ui/pages/UserList';
-import { darkTheme, lightTheme } from './src/ui/themes/colors';
+import Profile from './src/ui/pages/Profile';
+import colors from './src/ui/themes/colors';
 import HomeIcon from './src/ui/atoms/Icons/HomeIcon';
-import ListIcon from './src/ui/atoms/Icons/ListIcon';
 import SearchIcon from './src/ui/atoms/Icons/SearchIcon';
+import AccountFullIcon from './src/ui/atoms/Icons/AccountFullIcon';
+import AccountIcon from './src/ui/atoms/Icons/AccountIcon';
+import HomeFullIcon from './src/ui/atoms/Icons/HomeFullIcon';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
-function HeaderTitle() {
-	const { colors } = useTheme();
+const queryClient = new QueryClient();
 
-	return (
-		<Image
-			source={require('./assets/logo-title.png')}
-			style={{ height: 20, width: 105, tintColor: colors.text }}
-		/>
-	);
-}
+const HeaderTitle = () => (
+	<Image
+		source={require('./assets/logo.png')}
+		style={{ width: 110, height: 25 }}
+	/>
+);
 
 const BottomTabStack = createBottomTabNavigator({
 	screens: {
-		Home: { screen: Home, options: { tabBarIcon: HomeIcon } },
-		UserList: { screen: UserList, options: { tabBarIcon: ListIcon } },
-		Search: { screen: Search, options: { tabBarIcon: SearchIcon } },
+		Home: {
+			screen: Home,
+			options: {
+				tabBarIcon: (props) =>
+					props.focused ? <HomeFullIcon {...props} /> : <HomeIcon {...props} />,
+			},
+		},
+		Search: {
+			screen: Search,
+			options: {
+				tabBarIcon: SearchIcon,
+			},
+		},
+		Profile: {
+			screen: Profile,
+			options: {
+				tabBarIcon: (props) =>
+					props.focused ? (
+						<AccountFullIcon {...props} />
+					) : (
+						<AccountIcon {...props} />
+					),
+			},
+		},
 	},
 	screenOptions: {
 		headerShown: false,
-		tabBarShowLabel: false,
+		sceneStyle: {
+			backgroundColor: colors.background,
+		},
+		tabBarStyle: {
+			backgroundColor: colors.background_light,
+		},
+		tabBarActiveTintColor: colors.text_highlight,
+		tabBarInactiveTintColor: colors.text,
 	},
 });
 
 const RootStack = createNativeStackNavigator({
 	screens: {
 		Main: { screen: BottomTabStack, options: { headerTitle: HeaderTitle } },
-		Details: {
-			screen: Details,
-			options: ({ route }) => ({
-				title: route?.params?.name,
-			}),
+		GameDetails: {
+			screen: GameDetails,
 		},
 	},
-	screenOptions: () => {
-		const { colors } = useTheme();
-
-		return {
-			headerStyle: {
-				backgroundColor: colors.primary,
-			},
-		};
+	screenOptions: {
+		headerStyle: {
+			backgroundColor: colors.background_light,
+		},
+		contentStyle: {
+			backgroundColor: colors.background,
+		},
+		headerTintColor: colors.text,
 	},
 });
+
+type RootStackParamList = StaticParamList<typeof BottomTabStack>;
+
+declare global {
+	namespace ReactNavigation {
+		interface RootParamList extends RootStackParamList {}
+	}
+}
 
 const Navigation = createStaticNavigation(RootStack);
 
 export default function App() {
-	const theme = useColorScheme();
-
 	return (
-		<View style={styles.container}>
-			<Navigation theme={theme === 'dark' ? darkTheme : lightTheme} />
-		</View>
+		<QueryClientProvider client={queryClient}>
+			<Navigation />
+		</QueryClientProvider>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-	},
-});

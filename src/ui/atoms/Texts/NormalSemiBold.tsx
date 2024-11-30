@@ -3,20 +3,22 @@ import { StyleSheet } from 'react-native';
 
 import type { TextBaseProps } from './TextBase';
 import TextBase from './TextBase';
+import fonts from '../../themes/fonts';
 
-export type NormalBoldProps = {
+export type NormalSemiBoldProps = {
 	children: ReactNode;
 } & TextBaseProps;
 
 const styles = StyleSheet.create({
 	text: {
-		fontSize: 16,
-		fontFamily: 'Roboto-Bold',
-		fontWeight: '700',
+		fontSize: 14,
+		lineHeight: 20,
+		fontFamily: fonts.semiBold,
+		fontWeight: '600',
 	},
 });
 
-function NormalBold({ children, ...props }: NormalBoldProps) {
+function NormalSemiBold({ children, ...props }: NormalSemiBoldProps) {
 	return (
 		<TextBase {...props} style={{ ...styles.text, ...props.style }}>
 			{children}
@@ -24,4 +26,4 @@ function NormalBold({ children, ...props }: NormalBoldProps) {
 	);
 }
 
-export default NormalBold;
+export default NormalSemiBold;

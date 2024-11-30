@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 
 import type { TextBaseProps } from './TextBase';
 import TextBase from './TextBase';
+import fonts from '../../themes/fonts';
 
 export type NormalRegularProps = {
 	children: ReactNode;
@@ -10,8 +11,9 @@ export type NormalRegularProps = {
 
 const styles = StyleSheet.create({
 	text: {
-		fontSize: 16,
-		fontFamily: 'Roboto-Regular',
+		fontSize: 14,
+		lineHeight: 20,
+		fontFamily: fonts.regular,
 		fontWeight: '400',
 	},
 });
