@@ -25,6 +25,7 @@ import SignUp from './src/ui/pages/account/SignUp';
 import SignIn from './src/ui/pages/account/SignIn';
 
 import './src/ui/organisms/ActionSheet/sheets';
+import LoadingPage from './src/ui/templates/LoadingPage';
 
 const queryClient = new QueryClient();
 
@@ -142,7 +143,9 @@ export default function App() {
 		});
 	}, []);
 
-	if (loading) return null;
+	if (loading) {
+		return <LoadingPage />;
+	}
 
 	return (
 		<QueryClientProvider client={queryClient}>

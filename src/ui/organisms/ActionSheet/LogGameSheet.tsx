@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
-import { Pressable, StyleSheet, useWindowDimensions, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Pressable, StyleSheet, View } from 'react-native';
 import ActionSheet, {
 	SheetManager,
 	SheetProps,
 } from 'react-native-actions-sheet';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 import globalStyles from '../../themes/globalStyles';
 import colors from '../../themes/colors';
 import { SheetIdEnum } from './sheets';
 import SectionTitle from '../../atoms/Texts/SectionTitle';
 import PrimaryButton from '../../atoms/PrimaryButton';
-import putLog from '../../../infrastructure/mutation/putLog';
+import insertLog from '../../../infrastructure/mutation/insertLog';
 import { GamepadIcon } from '../../atoms/Icons/GamepadIcon';
 import { PlayIcon } from '../../atoms/Icons/PlayIcon';
 import { BacklogIcon } from '../../atoms/Icons/BacklogIcon';
@@ -35,12 +36,16 @@ const LogGameSheet = ({ payload }: SheetProps<SheetIdEnum.LOG_GAME>) => {
 
 	const [statusSelected, setStatusSelected] = useState<Array<StatusEnum>>([]);
 
+	useEffect(() => {
+		ReactNativeHapticFeedback.trigger('impactLight');
+	}, []);
+
 	const onDeleteLog = () => {
 		deleteLog(id).then(() => SheetManager.hide(SheetIdEnum.LOG_GAME));
 	};
 
 	const onCreateLog = () => {
-		putLog(id, statusSelected).then(() =>
+		insertLog(id, statusSelected).then(() =>
 			SheetManager.hide(SheetIdEnum.LOG_GAME),
 		);
 	};
@@ -96,9 +101,17 @@ const LogGameSheet = ({ payload }: SheetProps<SheetIdEnum.LOG_GAME>) => {
 					{renderStatus('Playing', PlayIcon, StatusEnum.PLAYING)}
 					{renderStatus('Backlog', BacklogIcon, StatusEnum.BACKLOG)}
 				</View>
-				<View style={{ flexDirection: 'row' }}>
+				<View
+					style={{
+						flexDirection: 'row',
+						gap: 10,
+						alignItems: 'center',
+					}}
+				>
 					<SecondaryButton LeftIcon={DeleteIcon} onPress={onDeleteLog} />
-					<PrimaryButton title="Create Log" onPress={onCreateLog} />
+					<View style={{ flex: 1 }}>
+						<PrimaryButton title="Create Log" onPress={onCreateLog} />
+					</View>
 				</View>
 			</View>
 		</ActionSheet>

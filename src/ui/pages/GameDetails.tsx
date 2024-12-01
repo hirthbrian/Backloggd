@@ -52,20 +52,25 @@ const GameDetails = ({ route }: Props) => {
 
 	useEffect(() => {
 		navigation.setOptions({ title: query?.data?.name || '' });
-	}, [query?.data?.name]);
+	}, [navigation, query?.data?.name]);
 
 	const formatedReleaseDate = useMemo(
 		() => dayjs(query?.data?.first_released_date).format('MMM D, YYYY'),
-		[],
+		[query?.data?.first_released_date],
 	);
 
-	if (query?.isLoading) return <LoadingPage />;
-	if (query?.isError) return <ErrorPage />;
+	if (query?.isLoading) {
+		return <LoadingPage />;
+	}
+
+	if (query?.isError) {
+		return <ErrorPage />;
+	}
 
 	const renderCompanies = () => {
 		return (
 			<NormalRegular>
-				{`by `}
+				{'by '}
 				<LabelList
 					labels={query?.data?.involved_companies
 						?.filter((c) => c.developer)
@@ -87,7 +92,7 @@ const GameDetails = ({ route }: Props) => {
 						{query?.data?.name}
 					</Header>
 					<NormalRegular>
-						{`released on `}
+						{'released on '}
 						<NormalRegular color={colors.text_highlight}>
 							{formatedReleaseDate}
 						</NormalRegular>
