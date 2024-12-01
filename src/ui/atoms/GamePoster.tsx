@@ -4,8 +4,11 @@ import colors from '../themes/colors';
 import { getImageUrl } from '../../infrastructure/utils';
 import { IImage } from '../../domain/entities/gameEntities';
 import SmallRegular from './Texts/SmallRegular';
+import { SheetManager } from 'react-native-actions-sheet';
+import { SheetIdEnum } from '../organisms/ActionSheet/sheets';
 
 type Props = {
+	id: number;
 	cover: IImage | undefined;
 	name: string;
 	onPress?: () => void;
@@ -30,7 +33,12 @@ const styles = StyleSheet.create({
 
 const RATIO = 352 / 264;
 
-function GamePoster({ cover, name, onPress, width = 100 }: Props) {
+function GamePoster({ id, cover, name, onPress, width = 100 }: Props) {
+	const onLongPress = () =>
+		SheetManager.show(SheetIdEnum.LOG_GAME, {
+			payload: { id, name },
+		});
+
 	const renderPlaceholder = () => (
 		<View
 			style={[
@@ -61,7 +69,7 @@ function GamePoster({ cover, name, onPress, width = 100 }: Props) {
 	);
 
 	return (
-		<Pressable onPress={onPress}>
+		<Pressable onPress={onPress} onLongPress={onLongPress}>
 			{cover ? renderImage() : renderPlaceholder()}
 		</Pressable>
 	);

@@ -45,6 +45,7 @@ const GameListHorizontal = ({ data, title }: Props) => {
 	const renderItem = ({ item }: { item: IGameShort }) => (
 		<GamePoster
 			key={item.id}
+			id={item.id}
 			cover={item.cover}
 			name={item.name}
 			width={posterWidth}

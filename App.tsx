@@ -6,6 +6,7 @@ import {
 	StaticParamList,
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { SheetProvider } from 'react-native-actions-sheet';
 
 import GameDetails from './src/ui/pages/GameDetails';
 import Home from './src/ui/pages/Home';
@@ -22,6 +23,8 @@ import { supabase } from './src/infrastructure/lib/supabase';
 import { Session } from '@supabase/supabase-js';
 import SignUp from './src/ui/pages/account/SignUp';
 import SignIn from './src/ui/pages/account/SignIn';
+
+import './src/ui/organisms/ActionSheet/sheets';
 
 const queryClient = new QueryClient();
 
@@ -143,7 +146,9 @@ export default function App() {
 
 	return (
 		<QueryClientProvider client={queryClient}>
-			{session ? <Navigation /> : <AuthNavigation />}
+			<SheetProvider>
+				{session ? <Navigation /> : <AuthNavigation />}
+			</SheetProvider>
 		</QueryClientProvider>
 	);
 }

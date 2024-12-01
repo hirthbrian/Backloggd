@@ -10,13 +10,15 @@ import dayjs from 'dayjs';
 import getGameDetails from '../../infrastructure/fetch/getGameDetails';
 import LoadingPage from '../templates/LoadingPage';
 import ErrorPage from '../templates/ErrorPage';
-import SectionTitle from '../atoms/Texts/SectionTitle';
 import colors from '../themes/colors';
 import ScreenshotCarousel from '../molecules/ScreenshotCarousel';
 import LabelList from '../atoms/LabelList';
 import Header from '../atoms/Texts/Header';
 import PlatformList from '../organisms/Platform/PlatformList';
 import Divider from '../atoms/Divider';
+import PrimaryButton from '../atoms/PrimaryButton';
+import { SheetManager } from 'react-native-actions-sheet';
+import { SheetIdEnum } from '../organisms/ActionSheet/sheets';
 
 type Props = StaticScreenProps<{
 	id: number;
@@ -44,28 +46,28 @@ const styles = StyleSheet.create({
 
 const GameDetails = ({ route }: Props) => {
 	const navigation = useNavigation();
-	const response = useQuery(['gameDetails', route?.params?.id], () =>
+	const query = useQuery(['gameDetails', route?.params?.id], () =>
 		getGameDetails(route?.params?.id),
 	);
 
 	useEffect(() => {
-		navigation.setOptions({ title: response?.data?.name || '' });
-	}, [response?.data?.name]);
+		navigation.setOptions({ title: query?.data?.name || '' });
+	}, [query?.data?.name]);
 
 	const formatedReleaseDate = useMemo(
-		() => dayjs(response?.data?.first_released_date).format('MMM D, YYYY'),
+		() => dayjs(query?.data?.first_released_date).format('MMM D, YYYY'),
 		[],
 	);
 
-	if (response?.isLoading) return <LoadingPage />;
-	if (response?.isError) return <ErrorPage />;
+	if (query?.isLoading) return <LoadingPage />;
+	if (query?.isError) return <ErrorPage />;
 
 	const renderCompanies = () => {
 		return (
 			<NormalRegular>
 				{`by `}
 				<LabelList
-					labels={response?.data?.involved_companies
+					labels={query?.data?.involved_companies
 						?.filter((c) => c.developer)
 						?.map((c) => c.company.name)}
 				/>
@@ -82,7 +84,7 @@ const GameDetails = ({ route }: Props) => {
 						style={{ paddingBottom: 5 }}
 						color={colors.white}
 					>
-						{response?.data?.name}
+						{query?.data?.name}
 					</Header>
 					<NormalRegular>
 						{`released on `}
@@ -92,7 +94,11 @@ const GameDetails = ({ route }: Props) => {
 					</NormalRegular>
 					{renderCompanies()}
 				</View>
-				<GamePoster cover={response?.data?.cover} name={response.data.name} />
+				<GamePoster
+					id={query?.data?.id}
+					cover={query?.data?.cover}
+					name={query.data.name}
+				/>
 			</View>
 		);
 	};
@@ -101,22 +107,31 @@ const GameDetails = ({ route }: Props) => {
 		return (
 			<View style={styles.platformList}>
 				<NormalRegular>Released on: </NormalRegular>
-				<PlatformList data={response?.data?.platforms} />
+				<PlatformList data={query?.data?.platforms} />
 			</View>
 		);
 	};
 
 	return (
 		<ScrollView style={{ flex: 1 }}>
-			<ScreenshotCarousel screenshots={response?.data?.screenshots} />
+			<ScreenshotCarousel screenshots={query?.data?.screenshots} />
 			{renderHeader()}
 			<View style={styles.summary}>
-				<NormalRegular numberOfLines={3}>
-					{response?.data?.summary}
-				</NormalRegular>
+				<NormalRegular numberOfLines={3}>{query?.data?.summary}</NormalRegular>
 			</View>
 			<Divider />
 			{renderPlatforms()}
+			<Divider />
+			<View style={globalStyles.paddingHorizontal}>
+				<PrimaryButton
+					title="Log Game"
+					onPress={() =>
+						SheetManager.show(SheetIdEnum.LOG_GAME, {
+							payload: { id: query?.data?.id, name: query?.data?.name },
+						})
+					}
+				/>
+			</View>
 		</ScrollView>
 	);
 };

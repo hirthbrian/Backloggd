@@ -62,6 +62,7 @@ const GameItemShort = ({ data, onPressGame }: Props) => {
 					]}
 				>
 					<GamePoster
+						id={data.id}
 						cover={data.cover}
 						name={data.name}
 						onPress={onPressGame}

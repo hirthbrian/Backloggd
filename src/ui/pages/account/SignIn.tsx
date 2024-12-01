@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Input from '../../atoms/Input';
-import Button from '../../atoms/Button';
+import PrimaryButton from '../../atoms/PrimaryButton';
 import signInWithEmail from '../../../infrastructure/fetch/account/signInWithEmail';
 import globalStyles from '../../themes/globalStyles';
 import NormalRegular from '../../atoms/Texts/NormalRegular';
@@ -43,7 +43,7 @@ const SignIn = () => {
 					placeholder="Password"
 				/>
 			</View>
-			<Button title="Sign In" onPress={onPress} />
+			<PrimaryButton title="Sign In" onPress={onPress} />
 			<NormalRegular
 				onPress={() => navigation.navigate('SignUp')}
 				textAlign="center"

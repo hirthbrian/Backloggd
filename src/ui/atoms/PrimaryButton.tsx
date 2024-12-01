@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 	},
 });
 
-const Button = ({ title, onPress }: Props) => {
+const PrimaryButton = ({ title, onPress }: Props) => {
 	return (
 		<Pressable onPress={onPress}>
 			{({ pressed }) => (
@@ -40,4 +40,4 @@ const Button = ({ title, onPress }: Props) => {
 	);
 };
 
-export default Button;
+export default PrimaryButton;

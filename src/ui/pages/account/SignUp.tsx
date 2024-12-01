@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Input from '../../atoms/Input';
-import Button from '../../atoms/Button';
+import PrimaryButton from '../../atoms/PrimaryButton';
 import signUpWithEmail from '../../../infrastructure/fetch/account/signUpWithEmail';
 import globalStyles from '../../themes/globalStyles';
 
@@ -39,7 +39,7 @@ const SignUp = () => {
 					placeholder="Password"
 				/>
 			</View>
-			<Button title="Sign Up" onPress={onPress} />
+			<PrimaryButton title="Sign Up" onPress={onPress} />
 		</View>
 	);
 };

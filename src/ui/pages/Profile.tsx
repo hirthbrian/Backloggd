@@ -1,15 +1,16 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { RefreshControl, ScrollView, StyleSheet } from 'react-native';
 
-import globalStyles from '../themes/globalStyles';
-import Button from '../atoms/Button';
-import signOut from '../../infrastructure/fetch/account/signOut';
+import getLoggedGames from '../../infrastructure/fetch/getLoggedGames';
+import GameListColumns from '../organisms/Game/GameListColumns';
+import { useQuery } from 'react-query';
+import LoadingPage from '../templates/LoadingPage';
+import ErrorPage from '../templates/ErrorPage';
+import colors from '../themes/colors';
 
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		justifyContent: 'center',
-		...globalStyles.paddingHorizontal,
 	},
 	buttonContainer: {
 		gap: 10,
@@ -17,10 +18,25 @@ const styles = StyleSheet.create({
 });
 
 const Profile = () => {
+	const query = useQuery(['loggedGames'], () => getLoggedGames());
+
+	if (query?.isLoading) return <LoadingPage />;
+	if (query?.isError) return <ErrorPage />;
+
 	return (
-		<View style={styles.container}>
-			<Button title="Sign out" onPress={signOut} />
-		</View>
+		<ScrollView
+			refreshControl={
+				<RefreshControl
+					colors={[colors.text]}
+					tintColor={colors.text}
+					refreshing={query.isRefetching}
+					onRefresh={query.refetch}
+				/>
+			}
+			style={styles.container}
+		>
+			<GameListColumns data={query.data} />
+		</ScrollView>
 	);
 };
 

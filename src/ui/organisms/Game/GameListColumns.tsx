@@ -37,6 +37,7 @@ const GameListColumns = ({ data, numColumns = 4 }: Props) => {
 	const renderItem = ({ item }: { item: IGameShort }) => (
 		<GamePoster
 			key={item.id}
+			id={item.id}
 			cover={item.cover}
 			name={item.name}
 			onPress={() => onPressGame(item.id)}

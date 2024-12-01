@@ -36,7 +36,12 @@ const GameListStack = ({ data, title }: Props) => {
 				right: index * itemOffset,
 			}}
 		>
-			<GamePoster cover={item.cover} name={item.name} width={posterWidth} />
+			<GamePoster
+				id={item.id}
+				cover={item.cover}
+				name={item.name}
+				width={posterWidth}
+			/>
 		</View>
 	);
 
