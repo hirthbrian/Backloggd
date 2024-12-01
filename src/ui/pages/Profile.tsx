@@ -1,22 +1,26 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-import { useQuery } from 'react-query';
-import LoadingPage from '../templates/LoadingPage';
-import ErrorPage from '../templates/ErrorPage';
-import GameListColumns from '../organisms/Game/GameListColumns';
-import getMostRated from '../../infrastructure/fetch/getMostRated';
+import globalStyles from '../themes/globalStyles';
+import Button from '../atoms/Button';
+import signOut from '../../infrastructure/fetch/account/signOut';
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		justifyContent: 'center',
+		...globalStyles.paddingHorizontal,
+	},
+	buttonContainer: {
+		gap: 10,
+	},
+});
 
 const Profile = () => {
-	const response = useQuery(['getMostRated'], getMostRated);
-
-	if (response?.isLoading) return <LoadingPage />;
-	if (response?.isError) return <ErrorPage />;
-
 	return (
-		<ScrollView>
-			<GameListColumns data={response.data} />
-		</ScrollView>
+		<View style={styles.container}>
+			<Button title="Sign out" onPress={signOut} />
+		</View>
 	);
 };
 

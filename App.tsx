@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
@@ -18,6 +18,10 @@ import AccountFullIcon from './src/ui/atoms/Icons/AccountFullIcon';
 import AccountIcon from './src/ui/atoms/Icons/AccountIcon';
 import HomeFullIcon from './src/ui/atoms/Icons/HomeFullIcon';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { supabase } from './src/infrastructure/lib/supabase';
+import { Session } from '@supabase/supabase-js';
+import SignUp from './src/ui/pages/account/SignUp';
+import SignIn from './src/ui/pages/account/SignIn';
 
 const queryClient = new QueryClient();
 
@@ -68,6 +72,28 @@ const BottomTabStack = createBottomTabNavigator({
 	},
 });
 
+const AuthStack = createNativeStackNavigator({
+	screens: {
+		SignIn: {
+			screen: SignIn,
+			options: { headerTitle: 'Sign in' },
+		},
+		SignUp: {
+			screen: SignUp,
+			options: { headerTitle: 'Sign up' },
+		},
+	},
+	screenOptions: {
+		headerStyle: {
+			backgroundColor: colors.background_light,
+		},
+		contentStyle: {
+			backgroundColor: colors.background,
+		},
+		headerTintColor: colors.text,
+	},
+});
+
 const RootStack = createNativeStackNavigator({
 	screens: {
 		Main: { screen: BottomTabStack, options: { headerTitle: HeaderTitle } },
@@ -95,11 +121,29 @@ declare global {
 }
 
 const Navigation = createStaticNavigation(RootStack);
+const AuthNavigation = createStaticNavigation(AuthStack);
 
 export default function App() {
+	const [session, setSession] = useState<Session | null>(null);
+	const [loading, setLoading] = useState<boolean>(true);
+
+	useEffect(() => {
+		supabase.auth.getSession().then(({ data: { session } }) => {
+			setSession(session);
+			setLoading(false);
+		});
+
+		supabase.auth.onAuthStateChange((_event, session) => {
+			setSession(session);
+			setLoading(false);
+		});
+	}, []);
+
+	if (loading) return null;
+
 	return (
 		<QueryClientProvider client={queryClient}>
-			<Navigation />
+			{session ? <Navigation /> : <AuthNavigation />}
 		</QueryClientProvider>
 	);
 }

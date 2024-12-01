@@ -10,12 +10,14 @@
 		"test": "jest"
 	},
 	"dependencies": {
+		"@react-native-async-storage/async-storage": "^2.1.0",
 		"@react-native-community/blur": "^4.4.1",
 		"@react-navigation/bottom-tabs": "^7.0.11",
 		"@react-navigation/drawer": "^7.0.13",
 		"@react-navigation/material-top-tabs": "^7.0.11",
 		"@react-navigation/native": "^7.0.6",
 		"@react-navigation/native-stack": "^7.1.6",
+		"@supabase/supabase-js": "^2.46.2",
 		"dayjs": "^1.11.13",
 		"react": "18.3.1",
 		"react-native": "0.76.3",
@@ -27,6 +29,7 @@
 		"react-native-screens": "~4.3.0",
 		"react-native-svg": "15.9.0",
 		"react-native-tab-view": "^4.0.4",
+		"react-native-url-polyfill": "^2.0.0",
 		"react-query": "^3.39.3"
 	},
 	"devDependencies": {
