@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import SearchBar from '../molecules/SearchBar';
-import searchGame from '../../infrastructure/fetch/searchGame';
+import searchGame from '../../infrastructure/fetch/game/searchGame';
 import { useQuery } from 'react-query';
 import GameListShort from '../organisms/Game/GameListShort';
 import globalStyles from '../themes/globalStyles';

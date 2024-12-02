@@ -26,6 +26,9 @@ import SignIn from './src/ui/pages/account/SignIn';
 
 import './src/ui/organisms/ActionSheet/sheets';
 import LoadingPage from './src/ui/templates/LoadingPage';
+import MediaGallery from './src/ui/pages/MediaGallery';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import Filters from './src/ui/pages/Filters';
 
 const queryClient = new QueryClient();
 
@@ -104,6 +107,23 @@ const RootStack = createNativeStackNavigator({
 		GameDetails: {
 			screen: GameDetails,
 		},
+		Filters: {
+			screen: Filters,
+		},
+		MediaGallery: {
+			screen: MediaGallery,
+			options: {
+				cardStyleInterpolator: ({ current }) => ({
+					cardStyle: {
+						opacity: current.progress,
+					},
+				}),
+				gestureEnabled: false,
+				headerShown: false,
+				animation: 'fade_from_bottom',
+				animationDuration: 200,
+			},
+		},
 	},
 	screenOptions: {
 		headerStyle: {
@@ -148,10 +168,12 @@ export default function App() {
 	}
 
 	return (
-		<QueryClientProvider client={queryClient}>
-			<SheetProvider>
-				{session ? <Navigation /> : <AuthNavigation />}
-			</SheetProvider>
-		</QueryClientProvider>
+		<GestureHandlerRootView>
+			<QueryClientProvider client={queryClient}>
+				<SheetProvider>
+					{session ? <Navigation /> : <AuthNavigation />}
+				</SheetProvider>
+			</QueryClientProvider>
+		</GestureHandlerRootView>
 	);
 }

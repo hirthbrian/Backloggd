@@ -1,5 +1,5 @@
-import { getRequest } from '.';
-import { IGameShort } from '../../domain/entities/gameEntities';
+import { getRequest } from '..';
+import { IGameShort } from '../../../domain/entities/gameEntities';
 
 const ENDPOINT = '/v4/games';
 

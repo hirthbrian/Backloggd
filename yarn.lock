@@ -2054,16 +2054,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-community/blur@npm:^4.4.1":
-  version: 4.4.1
-  resolution: "@react-native-community/blur@npm:4.4.1"
-  peerDependencies:
-    react: "*"
-    react-native: "*"
-  checksum: 1e47144b0c00dce562e72ea9f6c3e93d3bb392ec0ea001ce37ff801d9a496c9801927033ee4800bf92ea2ece9de0abe596715add3b7afe3c5d1533e260f5e09e
-  languageName: node
-  linkType: hard
-
 "@react-native-community/cli-clean@npm:15.0.1":
   version: 15.0.1
   resolution: "@react-native-community/cli-clean@npm:15.0.1"
@@ -2239,6 +2229,16 @@ __metadata:
   bin:
     rnc-cli: build/bin.js
   checksum: 26c98ef67b4b89d3af13f2a3b19e51c7b2de5d320ca908cb628ca22b32bff5a17b8a1cc7f4b0ece303c4e53dc10e8ac0e88df9b376e63ebc97acb8d358f78c2e
+  languageName: node
+  linkType: hard
+
+"@react-native-segmented-control/segmented-control@npm:^2.5.6":
+  version: 2.5.6
+  resolution: "@react-native-segmented-control/segmented-control@npm:2.5.6"
+  peerDependencies:
+    react: ">=16.0"
+    react-native: ">=0.62"
+  checksum: 084fdc0037ecea1e6592f401946030cf539f68d32d0ded46c2fa013e2a44491b07fa4fc2482a75158fb27ad174cd377472425a81a474dc00ec82f905f791a4aa
   languageName: node
   linkType: hard
 
@@ -3850,10 +3850,10 @@ __metadata:
     "@babel/preset-env": ^7.25.3
     "@babel/runtime": ^7.25.0
     "@react-native-async-storage/async-storage": ^2.1.0
-    "@react-native-community/blur": ^4.4.1
     "@react-native-community/cli": 15.0.1
     "@react-native-community/cli-platform-android": 15.0.1
     "@react-native-community/cli-platform-ios": 15.0.1
+    "@react-native-segmented-control/segmented-control": ^2.5.6
     "@react-native/babel-preset": 0.76.3
     "@react-native/eslint-config": 0.76.3
     "@react-native/metro-config": 0.76.3
@@ -3888,6 +3888,7 @@ __metadata:
     react: 18.3.1
     react-native: 0.76.3
     react-native-actions-sheet: ^0.9.7
+    react-native-awesome-gallery: ^0.4.3
     react-native-gesture-handler: ^2.21.2
     react-native-haptic-feedback: ^2.3.3
     react-native-linear-gradient: ^2.8.3
@@ -8932,6 +8933,18 @@ __metadata:
     react-native-gesture-handler: "*"
     react-native-safe-area-context: "*"
   checksum: 48c6eeb7bf7e4607346dfaccdcbb09c6f74d306f9674941174475e54ec6ca0b9efab1c0dc250e19e1cd10b70afece013fc1758acf413c5cf33cfd73bbcf82431
+  languageName: node
+  linkType: hard
+
+"react-native-awesome-gallery@npm:^0.4.3":
+  version: 0.4.3
+  resolution: "react-native-awesome-gallery@npm:0.4.3"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+    react-native-gesture-handler: ^2.0.0
+    react-native-reanimated: ^3.2.0
+  checksum: 039152f554e587e391791b0a3a8ad2d0f8d2e98acc7c658e2b8850ccd48759b125077621ecad48ab48e7286a6d2084f6c3364d0f4b5308b0d8bb25a112bbf75b
   languageName: node
   linkType: hard
 

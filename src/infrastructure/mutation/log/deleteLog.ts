@@ -1,4 +1,4 @@
-import { supabase } from '../lib/supabase';
+import { supabase } from '../../lib/supabase';
 
 const userId = 'e9a4f011-1fe4-4144-acdd-30b2db5bfc13';
 

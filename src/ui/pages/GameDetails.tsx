@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { Image, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useQuery } from 'react-query';
 
 import NormalRegular from '../atoms/Texts/NormalRegular';
@@ -7,7 +7,7 @@ import { StaticScreenProps, useNavigation } from '@react-navigation/native';
 import GamePoster from '../atoms/GamePoster';
 import globalStyles from '../themes/globalStyles';
 import dayjs from 'dayjs';
-import getGameDetails from '../../infrastructure/fetch/getGameDetails';
+import getGameDetails from '../../infrastructure/fetch/game/getGameDetails';
 import LoadingPage from '../templates/LoadingPage';
 import ErrorPage from '../templates/ErrorPage';
 import colors from '../themes/colors';
@@ -19,6 +19,7 @@ import Divider from '../atoms/Divider';
 import PrimaryButton from '../atoms/PrimaryButton';
 import { SheetManager } from 'react-native-actions-sheet';
 import { SheetIdEnum } from '../organisms/ActionSheet/sheets';
+import { getImageUrl } from '../../infrastructure/utils';
 
 type Props = StaticScreenProps<{
 	id: number;
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
 
 const GameDetails = ({ route }: Props) => {
 	const navigation = useNavigation();
-	const query = useQuery(['gameDetails', route?.params?.id], () =>
+	const query = useQuery(['getGameDetails', route?.params?.id], () =>
 		getGameDetails(route?.params?.id),
 	);
 
@@ -66,6 +67,18 @@ const GameDetails = ({ route }: Props) => {
 	if (query?.isError) {
 		return <ErrorPage />;
 	}
+
+	const showCoverFullscreen = () => {
+		navigation.navigate('MediaGallery', {
+			images: [query?.data?.cover],
+		});
+	};
+
+	const showScreenshotsFullscreen = () => {
+		navigation.navigate('MediaGallery', {
+			images: query?.data?.screenshots,
+		});
+	};
 
 	const renderCompanies = () => {
 		return (
@@ -100,6 +113,8 @@ const GameDetails = ({ route }: Props) => {
 					{renderCompanies()}
 				</View>
 				<GamePoster
+					disableLongPress
+					onPress={showCoverFullscreen}
 					id={query?.data?.id}
 					cover={query?.data?.cover}
 					name={query.data.name}
@@ -117,6 +132,24 @@ const GameDetails = ({ route }: Props) => {
 		);
 	};
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const renderScreenshots = () => {
+		return (
+			<View style={{ flexDirection: 'row', gap: 5 }}>
+				{query?.data?.screenshots.map((s) => {
+					return (
+						<Pressable onPress={showScreenshotsFullscreen}>
+							<Image
+								style={{ width: 100, height: 100, borderRadius: 4 }}
+								source={{ uri: getImageUrl(s.image_id) }}
+							/>
+						</Pressable>
+					);
+				})}
+			</View>
+		);
+	};
+
 	return (
 		<ScrollView style={{ flex: 1 }}>
 			<ScreenshotCarousel screenshots={query?.data?.screenshots} />
@@ -127,6 +160,7 @@ const GameDetails = ({ route }: Props) => {
 			<Divider />
 			{renderPlatforms()}
 			<Divider />
+			{/* {renderScreenshots()} */}
 			<View style={globalStyles.paddingHorizontal}>
 				<PrimaryButton
 					title="Log Game"

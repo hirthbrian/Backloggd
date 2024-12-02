@@ -11,7 +11,7 @@ import colors from '../../themes/colors';
 import { SheetIdEnum } from './sheets';
 import SectionTitle from '../../atoms/Texts/SectionTitle';
 import PrimaryButton from '../../atoms/PrimaryButton';
-import insertLog from '../../../infrastructure/mutation/insertLog';
+import insertLog from '../../../infrastructure/mutation/log/insertLog';
 import { GamepadIcon } from '../../atoms/Icons/GamepadIcon';
 import { PlayIcon } from '../../atoms/Icons/PlayIcon';
 import { BacklogIcon } from '../../atoms/Icons/BacklogIcon';
@@ -20,7 +20,9 @@ import { StatusEnum } from '../../../domain/enum/StatusEnum';
 import { SvgProps } from 'react-native-svg';
 import { DeleteIcon } from '../../atoms/Icons/DeleteIcon';
 import SecondaryButton from '../../atoms/SecondaryButton';
-import deleteLog from '../../../infrastructure/mutation/deleteLog';
+import deleteLog from '../../../infrastructure/mutation/log/deleteLog';
+import { useQuery } from 'react-query';
+import getLog from '../../../infrastructure/fetch/log/getLog';
 
 const styles = StyleSheet.create({
 	container: {
@@ -34,11 +36,31 @@ const LogGameSheet = ({ payload }: SheetProps<SheetIdEnum.LOG_GAME>) => {
 	const id = payload.id;
 	const name = payload.name;
 
+	const query = useQuery(['getLog', id], () => getLog(id));
+
 	const [statusSelected, setStatusSelected] = useState<Array<StatusEnum>>([]);
 
 	useEffect(() => {
 		ReactNativeHapticFeedback.trigger('impactLight');
 	}, []);
+
+	useEffect(() => {
+		const test = [];
+		console.log('query?.isFetched', query?.data);
+		if (query?.data) {
+			if (query?.data.playing) {
+				test.push(StatusEnum.PLAYING);
+			}
+			if (query?.data.completed) {
+				test.push(StatusEnum.COMPLETED);
+			}
+			if (query?.data.backlog) {
+				test.push(StatusEnum.BACKLOG);
+			}
+			console.log('test', query?.data);
+			setStatusSelected(test);
+		}
+	}, [query?.data]);
 
 	const onDeleteLog = () => {
 		deleteLog(id).then(() => SheetManager.hide(SheetIdEnum.LOG_GAME));

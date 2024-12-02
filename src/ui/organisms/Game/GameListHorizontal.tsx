@@ -6,26 +6,32 @@ import { IGameShort } from '../../../domain/entities/gameEntities';
 import SectionTitle from '../../atoms/Texts/SectionTitle';
 import globalStyles from '../../themes/globalStyles';
 import { useNavigation } from '@react-navigation/native';
+import NormalRegular from '../../atoms/Texts/NormalRegular';
+import colors from '../../themes/colors';
 
 type Props = {
 	data: Array<IGameShort>;
 	title?: string;
+	onPressSeeMore?: () => void;
 };
 
 const styles = StyleSheet.create({
 	container: {
-		gap: 6,
+		gap: 10,
 	},
 	contentContainerStyle: {
 		gap: 8,
 		...globalStyles.paddingHorizontal,
 	},
-	title: {
+	titleContainer: {
+		flexDirection: 'row',
+		alignItems: 'flex-end',
+		justifyContent: 'space-between',
 		...globalStyles.paddingHorizontal,
 	},
 });
 
-const GameListHorizontal = ({ data, title }: Props) => {
+const GameListHorizontal = ({ data, title, onPressSeeMore }: Props) => {
 	const navigation = useNavigation();
 
 	const { width } = useWindowDimensions();
@@ -55,7 +61,14 @@ const GameListHorizontal = ({ data, title }: Props) => {
 
 	return (
 		<View style={styles.container}>
-			{title && <SectionTitle style={styles.title}>{title}</SectionTitle>}
+			<View style={styles.titleContainer}>
+				{title && <SectionTitle>{title}</SectionTitle>}
+				{onPressSeeMore && (
+					<NormalRegular onPress={onPressSeeMore} color={colors.text_highlight}>
+						See more
+					</NormalRegular>
+				)}
+			</View>
 			<FlatList
 				horizontal
 				data={data}

@@ -6,6 +6,7 @@ import LoadingPage from '../templates/LoadingPage';
 import ErrorPage from '../templates/ErrorPage';
 import getHomeLists from '../../infrastructure/fetch/getHomeLists';
 import GameListHorizontal from '../organisms/Game/GameListHorizontal';
+import { useNavigation } from '@react-navigation/native';
 
 const styles = StyleSheet.create({
 	container: {
@@ -14,6 +15,7 @@ const styles = StyleSheet.create({
 });
 
 export default function Home() {
+	const navigation = useNavigation();
 	const response = useQuery(['getHomeList'], getHomeLists);
 
 	if (response?.isLoading) {
@@ -25,13 +27,23 @@ export default function Home() {
 
 	return (
 		<ScrollView style={styles.container}>
-			{/* <GameListStack title={'Recently trending'} data={response?.data} /> */}
 			<View style={{ gap: 20 }}>
 				{response?.data.map((data) => (
 					<GameListHorizontal
 						key={data.name}
 						title={data.name}
 						data={data.result}
+						onPressSeeMore={() => {
+							if (data.name === 'Most Rated') {
+								navigation.navigate('Filters', {
+									requestFilter: `
+									where total_rating_count > 100;
+									sort rating_count desc;`,
+								});
+							} else {
+								return null;
+							}
+						}}
 					/>
 				))}
 			</View>

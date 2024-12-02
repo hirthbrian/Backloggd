@@ -215,6 +215,7 @@
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
 			name = BackloggdTests;
+			productName = BackloggdTests;
 			productReference = 00E356EE1AD99517003FC87E /* BackloggdTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -525,6 +526,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9FREWH4HKZ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Backloggd/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Backloggd;
@@ -554,6 +556,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9FREWH4HKZ;
 				INFOPLIST_FILE = Backloggd/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Backloggd;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
@@ -643,10 +646,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -715,10 +715,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
