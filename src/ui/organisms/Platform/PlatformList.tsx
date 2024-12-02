@@ -1,10 +1,9 @@
 import React from 'react';
-import { Image, StyleSheet, useWindowDimensions, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-import { IPlatform } from '../../../domain/entities/gameEntities';
 import NormalRegular from '../../atoms/Texts/NormalRegular';
 import colors from '../../themes/colors';
-import { getImageUrl } from '../../../infrastructure/utils';
+import { IPlatform } from '../../../domain/entities/platformEntities ';
 
 type Props = {
 	data: Array<IPlatform>;

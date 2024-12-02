@@ -16,8 +16,12 @@ const styles = StyleSheet.create({
 export default function Home() {
 	const response = useQuery(['getHomeList'], getHomeLists);
 
-	if (response?.isLoading) return <LoadingPage />;
-	if (response?.isError) return <ErrorPage />;
+	if (response?.isLoading) {
+		return <LoadingPage />;
+	}
+	if (response?.isError) {
+		return <ErrorPage />;
+	}
 
 	return (
 		<ScrollView style={styles.container}>

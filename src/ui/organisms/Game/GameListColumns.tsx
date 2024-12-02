@@ -31,7 +31,7 @@ const GameListColumns = ({ data, numColumns = 4 }: Props) => {
 
 	const posterWidth = useMemo(
 		() => (width - 10 * (numColumns - 1) - 15 * 2) / numColumns,
-		[],
+		[numColumns, width],
 	);
 
 	const renderItem = ({ item }: { item: IGameShort }) => (

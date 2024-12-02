@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Pressable, SectionList, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 
 import { IGameShort } from '../../../domain/entities/gameEntities';
 import GamePoster from '../../atoms/GamePoster';
@@ -34,17 +34,18 @@ const styles = StyleSheet.create({
 const GameItemShort = ({ data, onPressGame }: Props) => {
 	const formatedReleaseDate = useMemo(
 		() => dayjs(data?.first_released_date).format('YYYY'),
-		[],
+		[data?.first_released_date],
 	);
 
 	const renderPlatforms = () => {
-		if (data?.platforms)
+		if (data?.platforms) {
 			return (
 				<SmallRegular numberOfLines={3}>
 					{'Available on: '}
 					<LabelList labels={data?.platforms?.map((p) => p.name)} />
 				</SmallRegular>
 			);
+		}
 		return null;
 	};
 

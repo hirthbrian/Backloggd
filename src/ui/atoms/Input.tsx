@@ -1,12 +1,5 @@
-import React, { useState } from 'react';
-import {
-	NativeSyntheticEvent,
-	StyleSheet,
-	TextInput,
-	TextInputProps,
-	TextInputSubmitEditingEventData,
-	View,
-} from 'react-native';
+import React from 'react';
+import { StyleSheet, TextInput, TextInputProps, View } from 'react-native';
 import fonts from '../themes/fonts';
 import colors from '../themes/colors';
 

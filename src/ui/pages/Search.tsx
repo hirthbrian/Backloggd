@@ -3,7 +3,6 @@ import { StyleSheet, View } from 'react-native';
 import SearchBar from '../molecules/SearchBar';
 import searchGame from '../../infrastructure/fetch/searchGame';
 import { useQuery } from 'react-query';
-import NormalRegular from '../atoms/Texts/NormalRegular';
 import GameListShort from '../organisms/Game/GameListShort';
 import globalStyles from '../themes/globalStyles';
 

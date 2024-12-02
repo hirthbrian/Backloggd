@@ -1,8 +1,7 @@
-import React, { useMemo } from 'react';
-import { FlatList, StyleSheet, useWindowDimensions, View } from 'react-native';
+import React from 'react';
+import { FlatList, StyleSheet, View } from 'react-native';
 
 import { IGameShort } from '../../../domain/entities/gameEntities';
-import globalStyles from '../../themes/globalStyles';
 import GameItemShort from '../../molecules/Game/GameItemShort';
 import colors from '../../themes/colors';
 import { useNavigation } from '@react-navigation/native';

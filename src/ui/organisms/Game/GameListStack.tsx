@@ -24,9 +24,9 @@ const styles = StyleSheet.create({
 const GameListStack = ({ data, title }: Props) => {
 	const { width } = useWindowDimensions();
 
-	const posterWidth = useMemo(() => width / 3, []);
+	const posterWidth = useMemo(() => width / 3, [width]);
 
-	const itemOffset = useMemo(() => (width - 45) / 6, []);
+	const itemOffset = useMemo(() => (width - 45) / 6, [width]);
 
 	const renderItem = (item: IGameShort, index: number) => (
 		<View

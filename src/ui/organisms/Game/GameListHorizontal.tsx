@@ -36,7 +36,7 @@ const GameListHorizontal = ({ data, title }: Props) => {
 				8 * (3.5 - 1) -
 				globalStyles.paddingHorizontal.paddingHorizontal * 2) /
 			3.5,
-		[],
+		[width],
 	);
 
 	const onPressGame = (id: number) =>

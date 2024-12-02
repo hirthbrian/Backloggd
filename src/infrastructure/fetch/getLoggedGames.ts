@@ -6,7 +6,7 @@ const getLoggedGames = async (
 ) => {
 	const ids = await supabase
 		.from('logs')
-		.select(`game_id`)
+		.select('game_id')
 		.eq('user_id', userId)
 		.then(({ data }) => data?.map((d) => d.game_id));
 	return getGameByIds(ids);

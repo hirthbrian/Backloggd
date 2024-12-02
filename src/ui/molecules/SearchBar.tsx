@@ -9,7 +9,6 @@ import {
 import SearchIcon from '../atoms/Icons/SearchIcon';
 import fonts from '../themes/fonts';
 import colors from '../themes/colors';
-import NormalRegular from '../atoms/Texts/NormalRegular';
 
 type Props = {
 	onSubmit: (text: string) => void;

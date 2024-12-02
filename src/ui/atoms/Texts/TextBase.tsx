@@ -1,7 +1,6 @@
 import React from 'react';
 import type { ColorValue, TextStyle } from 'react-native';
 import { Text } from 'react-native';
-import { useTheme } from '@react-navigation/native';
 import colors from '../../themes/colors';
 
 export type TextBaseProps = {

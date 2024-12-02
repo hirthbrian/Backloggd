@@ -1,4 +1,3 @@
-import dayjs from 'dayjs';
 import { getRequest } from '.';
 import { IGameShort } from '../../domain/entities/gameEntities';
 

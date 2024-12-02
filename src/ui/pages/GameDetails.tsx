@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { useQuery } from 'react-query';
 
 import NormalRegular from '../atoms/Texts/NormalRegular';

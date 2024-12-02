@@ -1,24 +1,11 @@
-import React, { useEffect, useMemo } from 'react';
+import React from 'react';
 import {
-	Image,
 	ImageBackground,
-	ScrollView,
 	StyleSheet,
 	useWindowDimensions,
 	View,
 } from 'react-native';
-import { useQuery } from 'react-query';
 
-import NormalRegular from '../atoms/Texts/NormalRegular';
-import { StaticScreenProps, useNavigation } from '@react-navigation/native';
-import Header from '../atoms/Texts/Header';
-import GamePoster from '../atoms/GamePoster';
-import globalStyles from '../themes/globalStyles';
-import dayjs from 'dayjs';
-import getGameDetails from '../../infrastructure/fetch/getGameDetails';
-import LoadingPage from '../templates/LoadingPage';
-import ErrorPage from '../templates/ErrorPage';
-import SectionTitle from '../atoms/Texts/SectionTitle';
 import colors from '../themes/colors';
 import { getImageUrl } from '../../infrastructure/utils';
 import { IImage } from '../../domain/entities/gameEntities';
@@ -40,7 +27,7 @@ const styles = StyleSheet.create({
 const ScreenshotCarousel = ({ screenshots }: Props) => {
 	const { width } = useWindowDimensions();
 
-	if (!screenshots)
+	if (!screenshots) {
 		return (
 			<LinearGradient
 				style={styles.container}
@@ -48,6 +35,7 @@ const ScreenshotCarousel = ({ screenshots }: Props) => {
 				colors={[colors.background_light, colors.background]}
 			/>
 		);
+	}
 
 	return (
 		<View style={styles.container}>

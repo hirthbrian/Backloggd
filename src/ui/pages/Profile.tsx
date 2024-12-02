@@ -20,8 +20,12 @@ const styles = StyleSheet.create({
 const Profile = () => {
 	const query = useQuery(['loggedGames'], () => getLoggedGames());
 
-	if (query?.isLoading) return <LoadingPage />;
-	if (query?.isError) return <ErrorPage />;
+	if (query?.isLoading) {
+		return <LoadingPage />;
+	}
+	if (query?.isError) {
+		return <ErrorPage />;
+	}
 
 	return (
 		<ScrollView

@@ -1,11 +1,11 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Image, Pressable, StyleSheet, View } from 'react-native';
 import colors from '../themes/colors';
 import { getImageUrl } from '../../infrastructure/utils';
-import { IImage } from '../../domain/entities/gameEntities';
 import SmallRegular from './Texts/SmallRegular';
 import { SheetManager } from 'react-native-actions-sheet';
 import { SheetIdEnum } from '../organisms/ActionSheet/sheets';
+import { IImage } from '../../domain/entities/commonEntities';
 
 type Props = {
 	id: number;
