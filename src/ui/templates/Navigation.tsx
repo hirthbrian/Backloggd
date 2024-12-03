@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
 	createStaticNavigation,
@@ -25,9 +25,14 @@ import FilteredGames from '../pages/FilteredGames';
 
 const logo = require('../../../assets/logo.png');
 
-const HeaderTitle = () => (
-	<Image source={logo} style={{ width: 110, height: 25 }} />
-);
+const styles = StyleSheet.create({
+	headerImage: {
+		width: 110,
+		height: 25,
+	},
+});
+
+const HeaderTitle = () => <Image source={logo} style={styles.headerImage} />;
 
 const BottomTabStack = createBottomTabNavigator({
 	screens: {
@@ -134,7 +139,7 @@ const RootStack = createNativeStackNavigator({
 	},
 });
 
-type RootStackParamList = StaticParamList<typeof BottomTabStack>;
+type RootStackParamList = StaticParamList<typeof RootStack>;
 
 declare global {
 	namespace ReactNavigation {

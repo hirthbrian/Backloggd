@@ -25,7 +25,7 @@ import { useQuery } from 'react-query';
 import getLog from '../../../infrastructure/fetch/log/getLog';
 
 const styles = StyleSheet.create({
-	container: {
+	actionSheetcontainer: {
 		backgroundColor: colors.background,
 		paddingTop: 5,
 		...globalStyles.paddingHorizontal,
@@ -33,6 +33,31 @@ const styles = StyleSheet.create({
 	indicator: {
 		height: 4,
 		backgroundColor: colors.background_light,
+	},
+	container: {
+		gap: 20,
+		paddingTop: 5,
+	},
+	statusContainer: {
+		gap: 15,
+		flexDirection: 'row',
+	},
+	statusItem: {
+		flex: 1,
+		backgroundColor: colors.background_light,
+		borderRadius: 8,
+		borderWidth: 1,
+		alignItems: 'center',
+		paddingVertical: 10,
+		gap: 5,
+	},
+	buttonContainer: {
+		gap: 10,
+		flexDirection: 'row',
+		alignItems: 'center',
+	},
+	logButton: {
+		flex: 1,
 	},
 });
 
@@ -90,16 +115,16 @@ const LogGameSheet = ({ payload }: SheetProps<SheetIdEnum.LOG_GAME>) => {
 							: [...statusSelected, status],
 					);
 				}}
-				style={{
-					flex: 1,
-					backgroundColor: colors.background_light,
-					borderRadius: 8,
-					borderWidth: 1,
-					borderColor: isSelected ? colors.primary : colors.background_light,
-					alignItems: 'center',
-					paddingVertical: 10,
-					gap: 5,
-				}}
+				style={
+					(styles.statusItem,
+					[
+						{
+							borderColor: isSelected
+								? colors.primary
+								: colors.background_light,
+						},
+					])
+				}
 			>
 				<Icon color={isSelected ? colors.primary : colors.text} />
 				<NormalRegular color={isSelected ? colors.primary : colors.text}>
@@ -113,31 +138,20 @@ const LogGameSheet = ({ payload }: SheetProps<SheetIdEnum.LOG_GAME>) => {
 		<ActionSheet
 			gestureEnabled
 			indicatorStyle={styles.indicator}
-			containerStyle={styles.container}
+			containerStyle={styles.actionSheetcontainer}
 		>
-			<View style={{ gap: 20, paddingTop: 5 }}>
+			<View style={styles.container}>
 				<SectionTitle color={colors.white} textAlign="center">
 					{name}
 				</SectionTitle>
-				<View
-					style={{
-						flexDirection: 'row',
-						gap: 15,
-					}}
-				>
+				<View style={styles.statusContainer}>
 					{renderStatus('Completed', GamepadIcon, StatusEnum.COMPLETED)}
 					{renderStatus('Playing', PlayIcon, StatusEnum.PLAYING)}
 					{renderStatus('Backlog', BacklogIcon, StatusEnum.BACKLOG)}
 				</View>
-				<View
-					style={{
-						flexDirection: 'row',
-						gap: 10,
-						alignItems: 'center',
-					}}
-				>
+				<View style={styles.buttonContainer}>
 					<SecondaryButton LeftIcon={DeleteIcon} onPress={onDeleteLog} />
-					<View style={{ flex: 1 }}>
+					<View style={styles.logButton}>
 						<PrimaryButton title="Create Log" onPress={onCreateLog} />
 					</View>
 				</View>

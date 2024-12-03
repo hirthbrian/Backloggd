@@ -19,6 +19,9 @@ const styles = StyleSheet.create({
 	stackContainer: {
 		flexDirection: 'row',
 	},
+	item: {
+		position: 'absolute',
+	},
 });
 
 const GameListStack = ({ data, title }: Props) => {
@@ -31,10 +34,12 @@ const GameListStack = ({ data, title }: Props) => {
 	const renderItem = (item: IGameShort, index: number) => (
 		<View
 			key={item.id}
-			style={{
-				position: 'absolute',
-				right: index * itemOffset,
-			}}
+			style={[
+				styles.item,
+				{
+					right: index * itemOffset,
+				},
+			]}
 		>
 			<GamePoster
 				id={item.id}

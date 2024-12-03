@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from 'react';
-import { Image, Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { useQuery } from 'react-query';
 
 import NormalRegular from '../atoms/Texts/NormalRegular';
@@ -19,7 +19,6 @@ import Divider from '../atoms/Divider';
 import PrimaryButton from '../atoms/PrimaryButton';
 import { SheetManager } from 'react-native-actions-sheet';
 import { SheetIdEnum } from '../organisms/ActionSheet/sheets';
-import { getImageUrl } from '../../infrastructure/utils';
 import GameListHorizontal from '../organisms/Game/GameListHorizontal';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import NormalSemiBold from '../atoms/Texts/NormalSemiBold';
@@ -29,10 +28,16 @@ type Props = StaticScreenProps<{
 }>;
 
 const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+	},
 	headerContainer: {
 		gap: 5,
 		flexDirection: 'row',
 		...globalStyles.paddingHorizontal,
+	},
+	headerTitle: {
+		paddingBottom: 5,
 	},
 	headerText: {
 		flex: 1,
@@ -44,6 +49,10 @@ const styles = StyleSheet.create({
 	},
 	platformList: {
 		gap: 5,
+		...globalStyles.paddingHorizontal,
+	},
+	logButtonContainer: {
+		paddingTop: 10,
 		...globalStyles.paddingHorizontal,
 	},
 });
@@ -72,16 +81,20 @@ const GameDetails = ({ route }: Props) => {
 	}
 
 	const showCoverFullscreen = () => {
-		navigation.navigate('MediaGallery', {
-			images: [query?.data?.cover],
-		});
+		if (query?.data?.cover) {
+			navigation.navigate('MediaGallery', {
+				images: [query?.data?.cover],
+			});
+		}
 	};
 
-	const showScreenshotsFullscreen = () => {
-		navigation.navigate('MediaGallery', {
-			images: query?.data?.screenshots,
-		});
-	};
+	// const showScreenshotsFullscreen = () => {
+	// 	if (query?.data?.screenshots) {
+	// 		navigation.navigate('MediaGallery', {
+	// 			images: query?.data?.screenshots,
+	// 		});
+	// 	}
+	// };
 
 	const renderCompanies = () => {
 		return (
@@ -103,7 +116,7 @@ const GameDetails = ({ route }: Props) => {
 				<View style={styles.headerText}>
 					<Header
 						numberOfLines={3}
-						style={{ paddingBottom: 5 }}
+						style={styles.headerTitle}
 						color={colors.white}
 					>
 						{query?.data?.name}
@@ -137,23 +150,22 @@ const GameDetails = ({ route }: Props) => {
 		);
 	};
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const renderScreenshots = () => {
-		return (
-			<View style={{ flexDirection: 'row', gap: 5 }}>
-				{query?.data?.screenshots.map((s) => {
-					return (
-						<Pressable onPress={showScreenshotsFullscreen}>
-							<Image
-								style={{ width: 100, height: 100, borderRadius: 4 }}
-								source={{ uri: getImageUrl(s.image_id) }}
-							/>
-						</Pressable>
-					);
-				})}
-			</View>
-		);
-	};
+	// const renderScreenshots = () => {
+	// 	return (
+	// 		<View style={{ flexDirection: 'row', gap: 5 }}>
+	// 			{query?.data?.screenshots.map((s) => {
+	// 				return (
+	// 					<Pressable onPress={showScreenshotsFullscreen}>
+	// 						<Image
+	// 							style={{ width: 100, height: 100, borderRadius: 4 }}
+	// 							source={{ uri: getImageUrl(s.image_id) }}
+	// 						/>
+	// 					</Pressable>
+	// 				);
+	// 			})}
+	// 		</View>
+	// 	);
+	// };
 
 	const renderCollections = () => {
 		if (query?.data?.collections) {
@@ -175,7 +187,7 @@ const GameDetails = ({ route }: Props) => {
 	};
 
 	return (
-		<ScrollView style={{ flex: 1 }}>
+		<ScrollView style={styles.container}>
 			<SafeAreaView edges={['bottom']}>
 				<ScreenshotCarousel screenshots={query?.data?.screenshots} />
 				{renderHeader()}
@@ -193,7 +205,7 @@ const GameDetails = ({ route }: Props) => {
 					data={query?.data?.similar_games}
 				/> */}
 				{/* {renderScreenshots()} */}
-				<View style={{ paddingTop: 10, ...globalStyles.paddingHorizontal }}>
+				<View style={styles.logButtonContainer}>
 					<PrimaryButton
 						title="Create or Update Log"
 						onPress={() =>

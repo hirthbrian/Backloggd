@@ -24,11 +24,11 @@ const styles = StyleSheet.create({
 		borderColor: colors.text_secondary,
 		borderWidth: 1,
 	},
-	image: {
-		height: 15,
-		width: 15,
-		backgroundColor: 'red',
-	},
+	// image: {
+	// 	height: 15,
+	// 	width: 15,
+	// 	backgroundColor: 'red',
+	// },
 });
 
 const PlatformList = ({ data }: Props) => {

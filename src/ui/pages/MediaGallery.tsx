@@ -6,7 +6,6 @@ import { IImage } from '../../domain/entities/commonEntities';
 
 type Props = StaticScreenProps<{
 	images: Array<IImage>;
-	id: number;
 }>;
 
 function MediaGallery({ route }: Props) {

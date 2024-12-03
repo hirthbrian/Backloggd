@@ -24,7 +24,10 @@
 		"emitDecoratorMetadata": true,
 		"target": "ESNext",
 		"jsx": "react",
-		"module": "ESNext"
+		"module": "ESNext",
+		"paths": {
+			"@/ui": ["./src/ui/*"]
+		}
 	},
 	"include": ["App.tsx", "src"],
 	"exclude": [

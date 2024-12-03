@@ -5,11 +5,11 @@ import {
 	useWindowDimensions,
 	View,
 } from 'react-native';
-
-import colors from '../themes/colors';
-import { getImageUrl } from '../../infrastructure/utils';
-import { IImage } from '../../domain/entities/gameEntities';
 import LinearGradient from 'react-native-linear-gradient';
+
+import { IImage } from '../../domain/entities/gameEntities';
+import { getImageUrl } from '../../infrastructure/utils';
+import colors from '../themes/colors';
 
 type Props = {
 	screenshots: Array<IImage> | undefined;
@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
 	},
 	image: {
 		height: 200,
+		opacity: 0.9,
 	},
 });
 
@@ -43,7 +44,7 @@ const ScreenshotCarousel = ({ screenshots }: Props) => {
 				source={{
 					uri: getImageUrl(screenshots[0]?.image_id, '720p'),
 				}}
-				style={[styles.image, { width, opacity: 0.9 }]}
+				style={[styles.image, { width }]}
 			>
 				<LinearGradient
 					style={styles.image}
