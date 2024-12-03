@@ -1,27 +1,29 @@
+import dayjs from 'dayjs';
+
+import { StaticScreenProps, useNavigation } from '@react-navigation/native';
 import React, { useEffect, useMemo } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
+import { SheetManager } from 'react-native-actions-sheet';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useQuery } from 'react-query';
 
-import NormalRegular from '../atoms/Texts/NormalRegular';
-import { StaticScreenProps, useNavigation } from '@react-navigation/native';
-import GamePoster from '../atoms/GamePoster';
-import globalStyles from '../themes/globalStyles';
-import dayjs from 'dayjs';
+import Header from '@texts/Header';
+import NormalRegular from '@texts/NormalRegular';
+import NormalSemiBold from '@texts/NormalSemiBold';
+
 import getGameDetails from '../../infrastructure/fetch/game/getGameDetails';
-import LoadingPage from '../templates/LoadingPage';
-import ErrorPage from '../templates/ErrorPage';
-import colors from '../themes/colors';
-import ScreenshotCarousel from '../molecules/ScreenshotCarousel';
-import LabelList from '../atoms/LabelList';
-import Header from '../atoms/Texts/Header';
-import PlatformList from '../organisms/Platform/PlatformList';
 import Divider from '../atoms/Divider';
+import GamePoster from '../atoms/GamePoster';
+import LabelList from '../atoms/LabelList';
 import PrimaryButton from '../atoms/PrimaryButton';
-import { SheetManager } from 'react-native-actions-sheet';
+import ScreenshotCarousel from '../molecules/ScreenshotCarousel';
 import { SheetIdEnum } from '../organisms/ActionSheet/sheets';
 import GameListHorizontal from '../organisms/Game/GameListHorizontal';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import NormalSemiBold from '../atoms/Texts/NormalSemiBold';
+import PlatformList from '../organisms/Platform/PlatformList';
+import ErrorPage from '../templates/ErrorPage';
+import LoadingPage from '../templates/LoadingPage';
+import colors from '../themes/colors';
+import globalStyles from '../themes/globalStyles';
 
 type Props = StaticScreenProps<{
 	id: number;
@@ -172,6 +174,7 @@ const GameDetails = ({ route }: Props) => {
 			return query?.data?.collections.map((collection) => {
 				return (
 					<GameListHorizontal
+						key={collection.id}
 						title={`In "${collection.name}" series`}
 						data={collection.games}
 						onPressSeeMore={() =>

@@ -1,9 +1,10 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import NormalRegular from '../../atoms/Texts/NormalRegular';
-import colors from '../../themes/colors';
+import NormalRegular from '@texts/NormalRegular';
+
 import { IPlatform } from '../../../domain/entities/platformEntities ';
+import colors from '../../themes/colors';
 
 type Props = {
 	data: Array<IPlatform>;

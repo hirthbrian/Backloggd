@@ -1,9 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 
+import NormalRegular from '@texts/NormalRegular';
+import NormalSemiBold from '@texts/NormalSemiBold';
+
 import colors from '../themes/colors';
-import NormalSemiBold from './Texts/NormalSemiBold';
-import NormalRegular from './Texts/NormalRegular';
 
 type Props = {
 	highlightColor?: string;

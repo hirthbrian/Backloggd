@@ -1,11 +1,12 @@
+import SmallRegular from '@texts/SmallRegular';
 import React, { useState } from 'react';
 import { Image, Pressable, StyleSheet, View } from 'react-native';
-import colors from '../themes/colors';
-import { getImageUrl, ImageSizeType } from '../../infrastructure/utils';
-import SmallRegular from './Texts/SmallRegular';
 import { SheetManager } from 'react-native-actions-sheet';
-import { SheetIdEnum } from '../organisms/ActionSheet/sheets';
+
 import { IImage } from '../../domain/entities/commonEntities';
+import { getImageUrl, ImageSizeType } from '../../infrastructure/utils';
+import { SheetIdEnum } from '../organisms/ActionSheet/sheets';
+import colors from '../themes/colors';
 
 type Props = {
 	cover: IImage | undefined;

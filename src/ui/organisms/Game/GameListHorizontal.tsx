@@ -1,13 +1,14 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useMemo } from 'react';
 import { FlatList, StyleSheet, useWindowDimensions, View } from 'react-native';
 
-import GamePoster from '../../atoms/GamePoster';
+import NormalRegular from '@texts/NormalRegular';
+import SectionTitle from '@texts/SectionTitle';
+
 import { IGameShort } from '../../../domain/entities/gameEntities';
-import SectionTitle from '../../atoms/Texts/SectionTitle';
-import globalStyles from '../../themes/globalStyles';
-import { useNavigation } from '@react-navigation/native';
-import NormalRegular from '../../atoms/Texts/NormalRegular';
+import GamePoster from '../../atoms/GamePoster';
 import colors from '../../themes/colors';
+import globalStyles from '../../themes/globalStyles';
 
 type Props = {
 	data: Array<IGameShort>;

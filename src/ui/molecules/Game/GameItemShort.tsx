@@ -1,15 +1,16 @@
+import dayjs from 'dayjs';
 import React, { useMemo } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 
+import NormalRegular from '@texts/NormalRegular';
+import SectionTitle from '@texts/SectionTitle';
+import SmallRegular from '@texts/SmallRegular';
+
 import { IGameShort } from '../../../domain/entities/gameEntities';
 import GamePoster from '../../atoms/GamePoster';
-import globalStyles from '../../themes/globalStyles';
-import NormalRegular from '../../atoms/Texts/NormalRegular';
-import dayjs from 'dayjs';
-import SectionTitle from '../../atoms/Texts/SectionTitle';
-import colors from '../../themes/colors';
-import SmallRegular from '../../atoms/Texts/SmallRegular';
 import LabelList from '../../atoms/LabelList';
+import colors from '../../themes/colors';
+import globalStyles from '../../themes/globalStyles';
 
 type Props = {
 	data: IGameShort;

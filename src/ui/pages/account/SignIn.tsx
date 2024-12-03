@@ -4,9 +4,9 @@ import Input from '../../atoms/Input';
 import PrimaryButton from '../../atoms/PrimaryButton';
 import signInWithEmail from '../../../infrastructure/fetch/account/signInWithEmail';
 import globalStyles from '../../themes/globalStyles';
-import NormalRegular from '../../atoms/Texts/NormalRegular';
 import colors from '../../themes/colors';
 import { useNavigation } from '@react-navigation/native';
+import NormalRegular from '@texts/NormalRegular';
 
 const styles = StyleSheet.create({
 	container: {

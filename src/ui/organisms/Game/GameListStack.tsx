@@ -1,9 +1,10 @@
 import React, { useMemo } from 'react';
 import { StyleSheet, useWindowDimensions, View } from 'react-native';
 
-import SectionTitle from '../../atoms/Texts/SectionTitle';
-import GamePoster from '../../atoms/GamePoster';
+import SectionTitle from '@texts/SectionTitle';
+
 import { IGameShort } from '../../../domain/entities/gameEntities';
+import GamePoster from '../../atoms/GamePoster';
 import globalStyles from '../../themes/globalStyles';
 
 type Props = {

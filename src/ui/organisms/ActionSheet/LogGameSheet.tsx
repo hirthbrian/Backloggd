@@ -5,24 +5,26 @@ import ActionSheet, {
 	SheetProps,
 } from 'react-native-actions-sheet';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+import { SvgProps } from 'react-native-svg';
+import { useQuery } from 'react-query';
 
-import globalStyles from '../../themes/globalStyles';
-import colors from '../../themes/colors';
-import { SheetIdEnum } from './sheets';
-import SectionTitle from '../../atoms/Texts/SectionTitle';
-import PrimaryButton from '../../atoms/PrimaryButton';
+import NormalRegular from '@texts/NormalRegular';
+import SectionTitle from '@texts/SectionTitle';
+
+import { StatusEnum } from '../../../domain/enum/StatusEnum';
+import getLog from '../../../infrastructure/fetch/log/getLog';
+import { triggerHaptic } from '../../../infrastructure/lib/hapticFeedback';
+import deleteLog from '../../../infrastructure/mutation/log/deleteLog';
 import insertLog from '../../../infrastructure/mutation/log/insertLog';
+import { BacklogIcon } from '../../atoms/Icons/BacklogIcon';
+import { DeleteIcon } from '../../atoms/Icons/DeleteIcon';
 import { GamepadIcon } from '../../atoms/Icons/GamepadIcon';
 import { PlayIcon } from '../../atoms/Icons/PlayIcon';
-import { BacklogIcon } from '../../atoms/Icons/BacklogIcon';
-import NormalRegular from '../../atoms/Texts/NormalRegular';
-import { StatusEnum } from '../../../domain/enum/StatusEnum';
-import { SvgProps } from 'react-native-svg';
-import { DeleteIcon } from '../../atoms/Icons/DeleteIcon';
+import PrimaryButton from '../../atoms/PrimaryButton';
 import SecondaryButton from '../../atoms/SecondaryButton';
-import deleteLog from '../../../infrastructure/mutation/log/deleteLog';
-import { useQuery } from 'react-query';
-import getLog from '../../../infrastructure/fetch/log/getLog';
+import colors from '../../themes/colors';
+import globalStyles from '../../themes/globalStyles';
+import { SheetIdEnum } from './sheets';
 
 const styles = StyleSheet.create({
 	actionSheetcontainer: {
@@ -70,7 +72,7 @@ const LogGameSheet = ({ payload }: SheetProps<SheetIdEnum.LOG_GAME>) => {
 	const [statusSelected, setStatusSelected] = useState<Array<StatusEnum>>([]);
 
 	useEffect(() => {
-		ReactNativeHapticFeedback.trigger('impactLight');
+		triggerHaptic();
 	}, []);
 
 	useEffect(() => {
@@ -109,22 +111,23 @@ const LogGameSheet = ({ payload }: SheetProps<SheetIdEnum.LOG_GAME>) => {
 		return (
 			<Pressable
 				onPress={() => {
+					triggerHaptic();
 					setStatusSelected(
 						isSelected
 							? statusSelected.filter((s) => s !== status)
 							: [...statusSelected, status],
 					);
 				}}
-				style={
-					(styles.statusItem,
+				style={[
+					styles.statusItem,
 					[
 						{
 							borderColor: isSelected
 								? colors.primary
 								: colors.background_light,
 						},
-					])
-				}
+					],
+				]}
 			>
 				<Icon color={isSelected ? colors.primary : colors.text} />
 				<NormalRegular color={isSelected ? colors.primary : colors.text}>

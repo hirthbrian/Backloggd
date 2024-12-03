@@ -26,7 +26,8 @@
 		"jsx": "react",
 		"module": "ESNext",
 		"paths": {
-			"@/ui": ["./src/ui/*"]
+			"@texts/*": ["./src/ui/atoms/Texts/*"],
+			"@entities/*": ["./src/domain/entities/*"]
 		}
 	},
 	"include": ["App.tsx", "src"],

@@ -1,6 +1,6 @@
+import NormalRegular from '@texts/NormalRegular';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import NormalRegular from '../atoms/Texts/NormalRegular';
 
 type Props = {
 	errorMessage?: string;

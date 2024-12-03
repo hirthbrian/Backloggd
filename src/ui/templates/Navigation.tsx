@@ -1,27 +1,26 @@
-import React from 'react';
-import { Image, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
 	createStaticNavigation,
 	StaticParamList,
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
+import { Image, StyleSheet } from 'react-native';
 
-import GameDetails from '../pages/GameDetails';
-import Home from '../pages/Home';
-import Search from '../pages/Search';
-import Profile from '../pages/Profile';
-import colors from '../themes/colors';
-import HomeIcon from '../atoms/Icons/HomeIcon';
-import SearchIcon from '../atoms/Icons/SearchIcon';
 import AccountFullIcon from '../atoms/Icons/AccountFullIcon';
 import AccountIcon from '../atoms/Icons/AccountIcon';
 import HomeFullIcon from '../atoms/Icons/HomeFullIcon';
-import SignUp from '../pages/account/SignUp';
-import SignIn from '../pages/account/SignIn';
-
-import MediaGallery from '../pages/MediaGallery';
+import HomeIcon from '../atoms/Icons/HomeIcon';
+import SearchIcon from '../atoms/Icons/SearchIcon';
 import FilteredGames from '../pages/FilteredGames';
+import GameDetails from '../pages/GameDetails';
+import Home from '../pages/Home';
+import MediaGallery from '../pages/MediaGallery';
+import Profile from '../pages/Profile';
+import Search from '../pages/Search';
+import SignIn from '../pages/account/SignIn';
+import SignUp from '../pages/account/SignUp';
+import colors from '../themes/colors';
 
 const logo = require('../../../assets/logo.png');
 
@@ -139,7 +138,7 @@ const RootStack = createNativeStackNavigator({
 	},
 });
 
-type RootStackParamList = StaticParamList<typeof RootStack>;
+type RootStackParamList = StaticParamList<typeof RootStack & typeof AuthStack>;
 
 declare global {
 	namespace ReactNavigation {
