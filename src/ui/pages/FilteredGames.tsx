@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
 
 import GameListColumns from '../organisms/Game/GameListColumns';
@@ -9,7 +9,9 @@ import getGamesCustomFilter from '../../infrastructure/fetch/game/getGamesWithFi
 import { StaticScreenProps } from '@react-navigation/native';
 
 type Props = StaticScreenProps<{
-	requestFilter: string;
+	filters: {
+		sortByRating?: boolean;
+	};
 }>;
 
 const styles = StyleSheet.create({
@@ -18,9 +20,19 @@ const styles = StyleSheet.create({
 	},
 });
 
-const Filters = ({ route }: Props) => {
-	const query = useQuery(['filteredGames', route?.params?.requestFilter], () =>
-		getGamesCustomFilter(route?.params?.requestFilter),
+const MOST_RATED = 'where total_rating_count > 100;sort rating_count desc;';
+
+const FilteredGames = ({ route }: Props) => {
+	const filters = useMemo(() => {
+		let requestString = '';
+		if (route.params.filters.sortByRating) {
+			requestString += MOST_RATED;
+		}
+		return requestString;
+	}, [route.params.filters]);
+
+	const query = useQuery(['filteredGames', filters], () =>
+		getGamesCustomFilter(filters),
 	);
 
 	if (query?.isError) {
@@ -45,4 +57,4 @@ const Filters = ({ route }: Props) => {
 	);
 };
 
-export default Filters;
+export default FilteredGames;

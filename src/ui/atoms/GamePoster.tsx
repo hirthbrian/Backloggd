@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Image, Pressable, StyleSheet, View } from 'react-native';
 import colors from '../themes/colors';
-import { getImageUrl } from '../../infrastructure/utils';
+import { getImageUrl, ImageSizeType } from '../../infrastructure/utils';
 import SmallRegular from './Texts/SmallRegular';
 import { SheetManager } from 'react-native-actions-sheet';
 import { SheetIdEnum } from '../organisms/ActionSheet/sheets';
@@ -11,6 +11,7 @@ type Props = {
 	cover: IImage | undefined;
 	disableLongPress?: boolean;
 	id: number;
+	imageSize?: ImageSizeType;
 	name: string;
 	onPress?: () => void;
 	width?: number;
@@ -38,6 +39,7 @@ function GamePoster({
 	cover,
 	disableLongPress,
 	id,
+	imageSize = 'logo_med',
 	name,
 	onPress,
 	width = 100,
@@ -82,7 +84,7 @@ function GamePoster({
 
 	const renderImage = () => (
 		<Image
-			source={{ uri: getImageUrl(cover.image_id) }}
+			source={{ uri: getImageUrl(cover.image_id, imageSize) }}
 			style={[
 				styles.image,
 				{

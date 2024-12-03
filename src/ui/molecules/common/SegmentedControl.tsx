@@ -53,7 +53,10 @@ const SegmentedControl = ({ onChange, selectedIndex, values }: Props) => {
 			selectedIndex={selectedIndex}
 			onChange={(event) => onChange(event.nativeEvent.selectedSegmentIndex)}
 			fontStyle={styles.font}
-			style={{ paddingHorizontal: 15 }}
+			style={{
+				marginHorizontal: 15,
+				backgroundColor: colors.background_highlight,
+			}}
 			activeFontStyle={styles.activeFont}
 			tintColor={colors.background_light}
 		/>

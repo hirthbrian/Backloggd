@@ -113,6 +113,7 @@ const GameDetails = ({ route }: Props) => {
 					{renderCompanies()}
 				</View>
 				<GamePoster
+					imageSize="cover_big"
 					disableLongPress
 					onPress={showCoverFullscreen}
 					id={query?.data?.id}

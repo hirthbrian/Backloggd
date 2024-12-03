@@ -35,10 +35,8 @@ export default function Home() {
 						data={data.result}
 						onPressSeeMore={() => {
 							if (data.name === 'Most Rated') {
-								navigation.navigate('Filters', {
-									requestFilter: `
-									where total_rating_count > 100;
-									sort rating_count desc;`,
+								navigation.navigate('FilteredGames', {
+									filters: { sortByRating: true },
 								});
 							} else {
 								return null;

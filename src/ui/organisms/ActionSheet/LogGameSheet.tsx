@@ -46,7 +46,6 @@ const LogGameSheet = ({ payload }: SheetProps<SheetIdEnum.LOG_GAME>) => {
 
 	useEffect(() => {
 		const test = [];
-		console.log('query?.isFetched', query?.data);
 		if (query?.data) {
 			if (query?.data.playing) {
 				test.push(StatusEnum.PLAYING);
@@ -57,7 +56,6 @@ const LogGameSheet = ({ payload }: SheetProps<SheetIdEnum.LOG_GAME>) => {
 			if (query?.data.backlog) {
 				test.push(StatusEnum.BACKLOG);
 			}
-			console.log('test', query?.data);
 			setStatusSelected(test);
 		}
 	}, [query?.data]);

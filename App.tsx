@@ -1,151 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Image } from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {
-	createStaticNavigation,
-	StaticParamList,
-} from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SheetProvider } from 'react-native-actions-sheet';
 
-import GameDetails from './src/ui/pages/GameDetails';
-import Home from './src/ui/pages/Home';
-import Search from './src/ui/pages/Search';
-import Profile from './src/ui/pages/Profile';
-import colors from './src/ui/themes/colors';
-import HomeIcon from './src/ui/atoms/Icons/HomeIcon';
-import SearchIcon from './src/ui/atoms/Icons/SearchIcon';
-import AccountFullIcon from './src/ui/atoms/Icons/AccountFullIcon';
-import AccountIcon from './src/ui/atoms/Icons/AccountIcon';
-import HomeFullIcon from './src/ui/atoms/Icons/HomeFullIcon';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { supabase } from './src/infrastructure/lib/supabase';
 import { Session } from '@supabase/supabase-js';
-import SignUp from './src/ui/pages/account/SignUp';
-import SignIn from './src/ui/pages/account/SignIn';
+
+import LoadingPage from './src/ui/templates/LoadingPage';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { AuthNavigation, Navigation } from './src/ui/templates/Navigation';
 
 import './src/ui/organisms/ActionSheet/sheets';
-import LoadingPage from './src/ui/templates/LoadingPage';
-import MediaGallery from './src/ui/pages/MediaGallery';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import Filters from './src/ui/pages/Filters';
 
 const queryClient = new QueryClient();
-
-const HeaderTitle = () => (
-	<Image
-		source={require('./assets/logo.png')}
-		style={{ width: 110, height: 25 }}
-	/>
-);
-
-const BottomTabStack = createBottomTabNavigator({
-	screens: {
-		Home: {
-			screen: Home,
-			options: {
-				tabBarIcon: (props) =>
-					props.focused ? <HomeFullIcon {...props} /> : <HomeIcon {...props} />,
-			},
-		},
-		Search: {
-			screen: Search,
-			options: {
-				tabBarIcon: SearchIcon,
-			},
-		},
-		Profile: {
-			screen: Profile,
-			options: {
-				tabBarIcon: (props) =>
-					props.focused ? (
-						<AccountFullIcon {...props} />
-					) : (
-						<AccountIcon {...props} />
-					),
-			},
-		},
-	},
-	screenOptions: {
-		headerShown: false,
-		sceneStyle: {
-			backgroundColor: colors.background,
-		},
-		tabBarStyle: {
-			backgroundColor: colors.background_light,
-		},
-		tabBarActiveTintColor: colors.text_highlight,
-		tabBarInactiveTintColor: colors.text,
-	},
-});
-
-const AuthStack = createNativeStackNavigator({
-	screens: {
-		SignIn: {
-			screen: SignIn,
-			options: { headerTitle: 'Sign in' },
-		},
-		SignUp: {
-			screen: SignUp,
-			options: { headerTitle: 'Sign up' },
-		},
-	},
-	screenOptions: {
-		headerStyle: {
-			backgroundColor: colors.background_light,
-		},
-		contentStyle: {
-			backgroundColor: colors.background,
-		},
-		headerTintColor: colors.text,
-	},
-});
-
-const RootStack = createNativeStackNavigator({
-	screens: {
-		Main: { screen: BottomTabStack, options: { headerTitle: HeaderTitle } },
-		GameDetails: {
-			screen: GameDetails,
-		},
-		Filters: {
-			screen: Filters,
-		},
-		MediaGallery: {
-			screen: MediaGallery,
-			options: {
-				cardStyleInterpolator: ({ current }) => ({
-					cardStyle: {
-						opacity: current.progress,
-					},
-				}),
-				gestureEnabled: false,
-				headerShown: false,
-				animation: 'fade_from_bottom',
-				animationDuration: 200,
-			},
-		},
-	},
-	screenOptions: {
-		headerStyle: {
-			backgroundColor: colors.background_light,
-		},
-		contentStyle: {
-			backgroundColor: colors.background,
-		},
-		headerTintColor: colors.text,
-	},
-});
-
-type RootStackParamList = StaticParamList<typeof BottomTabStack>;
-
-declare global {
-	namespace ReactNavigation {
-		interface RootParamList extends RootStackParamList {}
-	}
-}
-
-const Navigation = createStaticNavigation(RootStack);
-const AuthNavigation = createStaticNavigation(AuthStack);
 
 export default function App() {
 	const [session, setSession] = useState<Session | null>(null);
@@ -168,12 +34,12 @@ export default function App() {
 	}
 
 	return (
-		<GestureHandlerRootView>
-			<QueryClientProvider client={queryClient}>
-				<SheetProvider>
+		<QueryClientProvider client={queryClient}>
+			<SheetProvider>
+				<GestureHandlerRootView>
 					{session ? <Navigation /> : <AuthNavigation />}
-				</SheetProvider>
-			</QueryClientProvider>
-		</GestureHandlerRootView>
+				</GestureHandlerRootView>
+			</SheetProvider>
+		</QueryClientProvider>
 	);
 }
