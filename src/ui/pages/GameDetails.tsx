@@ -20,6 +20,9 @@ import PrimaryButton from '../atoms/PrimaryButton';
 import { SheetManager } from 'react-native-actions-sheet';
 import { SheetIdEnum } from '../organisms/ActionSheet/sheets';
 import { getImageUrl } from '../../infrastructure/utils';
+import GameListHorizontal from '../organisms/Game/GameListHorizontal';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import NormalSemiBold from '../atoms/Texts/NormalSemiBold';
 
 type Props = StaticScreenProps<{
 	id: number;
@@ -85,6 +88,7 @@ const GameDetails = ({ route }: Props) => {
 			<NormalRegular>
 				{'by '}
 				<LabelList
+					highlightColor={colors.text_highlight}
 					labels={query?.data?.involved_companies
 						?.filter((c) => c.developer)
 						?.map((c) => c.company.name)}
@@ -106,9 +110,9 @@ const GameDetails = ({ route }: Props) => {
 					</Header>
 					<NormalRegular>
 						{'released on '}
-						<NormalRegular color={colors.text_highlight}>
+						<NormalSemiBold color={colors.text_highlight}>
 							{formatedReleaseDate}
-						</NormalRegular>
+						</NormalSemiBold>
 					</NormalRegular>
 					{renderCompanies()}
 				</View>
@@ -151,27 +155,55 @@ const GameDetails = ({ route }: Props) => {
 		);
 	};
 
+	const renderCollections = () => {
+		if (query?.data?.collections) {
+			return query?.data?.collections.map((collection) => {
+				return (
+					<GameListHorizontal
+						title={`In "${collection.name}" series`}
+						data={collection.games}
+						onPressSeeMore={() =>
+							navigation.navigate('FilteredGames', {
+								collectionId: collection.id,
+							})
+						}
+					/>
+				);
+			});
+		}
+		return null;
+	};
+
 	return (
 		<ScrollView style={{ flex: 1 }}>
-			<ScreenshotCarousel screenshots={query?.data?.screenshots} />
-			{renderHeader()}
-			<View style={styles.summary}>
-				<NormalRegular numberOfLines={3}>{query?.data?.summary}</NormalRegular>
-			</View>
-			<Divider />
-			{renderPlatforms()}
-			<Divider />
-			{/* {renderScreenshots()} */}
-			<View style={globalStyles.paddingHorizontal}>
-				<PrimaryButton
-					title="Log Game"
-					onPress={() =>
-						SheetManager.show(SheetIdEnum.LOG_GAME, {
-							payload: { id: query?.data?.id, name: query?.data?.name },
-						})
-					}
-				/>
-			</View>
+			<SafeAreaView edges={['bottom']}>
+				<ScreenshotCarousel screenshots={query?.data?.screenshots} />
+				{renderHeader()}
+				<View style={styles.summary}>
+					<NormalRegular numberOfLines={3}>
+						{query?.data?.summary}
+					</NormalRegular>
+				</View>
+				<Divider />
+				{renderPlatforms()}
+				<Divider />
+				{renderCollections()}
+				{/* <GameListHorizontal
+					title="Similar Games"
+					data={query?.data?.similar_games}
+				/> */}
+				{/* {renderScreenshots()} */}
+				<View style={{ paddingTop: 10, ...globalStyles.paddingHorizontal }}>
+					<PrimaryButton
+						title="Create or Update Log"
+						onPress={() =>
+							SheetManager.show(SheetIdEnum.LOG_GAME, {
+								payload: { id: query?.data?.id, name: query?.data?.name },
+							})
+						}
+					/>
+				</View>
+			</SafeAreaView>
 		</ScrollView>
 	);
 };

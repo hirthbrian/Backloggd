@@ -4,6 +4,10 @@ import { IGameShort } from '../../../domain/entities/gameEntities';
 const ENDPOINT = '/v4/games';
 
 const FIELDS = `
+	collections.games,
+	collections.games.cover.image_id,
+	collections.games.name,
+	collections.name,
 	cover.image_id,
 	first_release_date,
 	involved_companies.company.name,
@@ -12,6 +16,9 @@ const FIELDS = `
 	platforms.name,
 	platforms.platform_logo.image_id,
 	screenshots.image_id,
+	similar_games,
+	similar_games.cover.image_id,
+	similar_games.name,
 	summary
 `;
 

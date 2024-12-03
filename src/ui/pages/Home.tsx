@@ -36,7 +36,7 @@ export default function Home() {
 						onPressSeeMore={() => {
 							if (data.name === 'Most Rated') {
 								navigation.navigate('FilteredGames', {
-									filters: { sortByRating: true },
+									sortByRating: true,
 								});
 							} else {
 								return null;

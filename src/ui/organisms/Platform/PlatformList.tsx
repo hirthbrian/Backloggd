@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		paddingHorizontal: 4,
 		borderRadius: 4,
-		borderColor: colors.text,
-		borderWidth: StyleSheet.hairlineWidth,
+		borderColor: colors.text_secondary,
+		borderWidth: 1,
 	},
 	image: {
 		height: 15,

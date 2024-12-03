@@ -27,8 +27,12 @@ import getLog from '../../../infrastructure/fetch/log/getLog';
 const styles = StyleSheet.create({
 	container: {
 		backgroundColor: colors.background,
-		paddingVertical: 20,
+		paddingTop: 5,
 		...globalStyles.paddingHorizontal,
+	},
+	indicator: {
+		height: 4,
+		backgroundColor: colors.background_light,
 	},
 });
 
@@ -106,8 +110,12 @@ const LogGameSheet = ({ payload }: SheetProps<SheetIdEnum.LOG_GAME>) => {
 	};
 
 	return (
-		<ActionSheet containerStyle={styles.container}>
-			<View style={{ gap: 20 }}>
+		<ActionSheet
+			gestureEnabled
+			indicatorStyle={styles.indicator}
+			containerStyle={styles.container}
+		>
+			<View style={{ gap: 20, paddingTop: 5 }}>
 				<SectionTitle color={colors.white} textAlign="center">
 					{name}
 				</SectionTitle>

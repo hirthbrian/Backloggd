@@ -10,6 +10,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { AuthNavigation, Navigation } from './src/ui/templates/Navigation';
 
 import './src/ui/organisms/ActionSheet/sheets';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const queryClient = new QueryClient();
 
@@ -34,12 +35,14 @@ export default function App() {
 	}
 
 	return (
-		<QueryClientProvider client={queryClient}>
-			<SheetProvider>
+		<SafeAreaProvider>
+			<QueryClientProvider client={queryClient}>
 				<GestureHandlerRootView>
-					{session ? <Navigation /> : <AuthNavigation />}
+					<SheetProvider>
+						{session ? <Navigation /> : <AuthNavigation />}
+					</SheetProvider>
 				</GestureHandlerRootView>
-			</SheetProvider>
-		</QueryClientProvider>
+			</QueryClientProvider>
+		</SafeAreaProvider>
 	);
 }

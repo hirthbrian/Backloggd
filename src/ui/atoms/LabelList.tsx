@@ -2,8 +2,11 @@ import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 
 import colors from '../themes/colors';
+import NormalSemiBold from './Texts/NormalSemiBold';
+import NormalRegular from './Texts/NormalRegular';
 
 type Props = {
+	highlightColor?: string;
 	labels: Array<string> | undefined;
 };
 
@@ -13,12 +16,14 @@ const styles = StyleSheet.create({
 	},
 });
 
-const LabelList = ({ labels }: Props) => {
+const LabelList = ({ highlightColor, labels }: Props) => {
 	return labels?.map((label, i) => (
-		<Text key={label + i}>
-			<Text style={styles.label}>{label}</Text>
+		<NormalRegular key={label + i}>
+			<NormalSemiBold color={highlightColor} style={styles.label}>
+				{label}
+			</NormalSemiBold>
 			{i < labels.length - 1 && <Text>{', '}</Text>}
-		</Text>
+		</NormalRegular>
 	));
 };
 

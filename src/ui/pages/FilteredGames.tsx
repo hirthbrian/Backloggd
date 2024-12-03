@@ -9,9 +9,8 @@ import getGamesCustomFilter from '../../infrastructure/fetch/game/getGamesWithFi
 import { StaticScreenProps } from '@react-navigation/native';
 
 type Props = StaticScreenProps<{
-	filters: {
-		sortByRating?: boolean;
-	};
+	sortByRating?: boolean;
+	collectionId?: number;
 }>;
 
 const styles = StyleSheet.create({
@@ -20,16 +19,23 @@ const styles = StyleSheet.create({
 	},
 });
 
-const MOST_RATED = 'where total_rating_count > 100;sort rating_count desc;';
+const MOST_RATED = () =>
+	'where total_rating_count > 100;sort rating_count desc;';
+
+const BY_COLLECTION = (collectionId: number) =>
+	`where collections = ${collectionId};sort rating_count desc;`;
 
 const FilteredGames = ({ route }: Props) => {
 	const filters = useMemo(() => {
 		let requestString = '';
-		if (route.params.filters.sortByRating) {
-			requestString += MOST_RATED;
+		if (route.params.sortByRating) {
+			requestString += MOST_RATED();
+		}
+		if (route.params.collectionId) {
+			requestString += BY_COLLECTION(route.params.collectionId);
 		}
 		return requestString;
-	}, [route.params.filters]);
+	}, [route.params]);
 
 	const query = useQuery(['filteredGames', filters], () =>
 		getGamesCustomFilter(filters),

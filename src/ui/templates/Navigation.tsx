@@ -99,6 +99,9 @@ const RootStack = createNativeStackNavigator({
 		},
 		FilteredGames: {
 			screen: FilteredGames,
+			options: {
+				title: 'Games',
+			},
 		},
 		MediaGallery: {
 			screen: MediaGallery,
@@ -109,9 +112,14 @@ const RootStack = createNativeStackNavigator({
 					},
 				}),
 				gestureEnabled: false,
-				headerShown: false,
-				// animation: 'fade_from_bottom',
-				// animationDuration: 200,
+				headerTransparent: true,
+				headerStyle: {
+					backgroundColor: 'transparent',
+				},
+				title: '',
+				headerBackVisible: false,
+				animation: 'fade',
+				animationDuration: 200,
 			},
 		},
 	},
