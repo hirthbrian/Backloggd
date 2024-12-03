@@ -12,6 +12,7 @@ import { useQuery } from 'react-query';
 
 import getGamesCustomFilter from '../../infrastructure/fetch/game/getGamesWithFilter';
 import FilterIcon from '../atoms/Icons/FilterIcon';
+import SortByIcon from '../atoms/Icons/SortByIcon';
 import { SheetIdEnum } from '../organisms/ActionSheet/sheets';
 import GameListColumns from '../organisms/Game/GameListColumns';
 import ErrorPage from '../templates/ErrorPage';
@@ -26,6 +27,10 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 	},
+	headerRightContainer: {
+		gap: 10,
+		flexDirection: 'row',
+	},
 });
 
 const MOST_RATED = () =>
@@ -37,18 +42,21 @@ const BY_COLLECTION = (collectionId: number) =>
 const FilteredGames = ({ route }: Props) => {
 	const navigation = useNavigation();
 
-	const renderFilterButton = () => {
+	const headerRight = () => {
 		return (
-			<Pressable onPress={() => SheetManager.show(SheetIdEnum.FILTER_GAME)}>
-				<FilterIcon color={colors.primary} />
-			</Pressable>
+			<View style={styles.headerRightContainer}>
+				<Pressable onPress={() => SheetManager.show(SheetIdEnum.FILTER_GAME)}>
+					<FilterIcon color={colors.primary} />
+				</Pressable>
+				<Pressable onPress={() => SheetManager.show(SheetIdEnum.SORT_BY_GAME)}>
+					<SortByIcon color={colors.primary} />
+				</Pressable>
+			</View>
 		);
 	};
 
 	useEffect(() => {
-		navigation.setOptions({
-			headerRight: renderFilterButton,
-		});
+		navigation.setOptions({ headerRight });
 	}, [navigation]);
 
 	const filters = useMemo(() => {

@@ -27,7 +27,7 @@ const filters = [
 	{ name: 'Avg Rating' },
 ];
 
-const FilterGameSheet = ({}: SheetProps<SheetIdEnum.FILTER_GAME>) => {
+const SortByGameSheet = ({}: SheetProps<SheetIdEnum.SORT_BY_GAME>) => {
 	const renderItem = ({ name }: { name: string }) => {
 		return (
 			<Pressable key={name}>
@@ -54,11 +54,11 @@ const FilterGameSheet = ({}: SheetProps<SheetIdEnum.FILTER_GAME>) => {
 	return (
 		<ActionSheetBase containerStyle={styles.container}>
 			<>
-				<SectionTitle>Filter by</SectionTitle>
+				<SectionTitle>Sort by</SectionTitle>
 				{filters.map(renderItem)}
 			</>
 		</ActionSheetBase>
 	);
 };
 
-export default FilterGameSheet;
+export default SortByGameSheet;

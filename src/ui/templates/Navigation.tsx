@@ -5,7 +5,7 @@ import {
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import { Image, StyleSheet } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 
 import AccountFullIcon from '../atoms/Icons/AccountFullIcon';
 import AccountIcon from '../atoms/Icons/AccountIcon';
@@ -13,6 +13,7 @@ import FilterIcon from '../atoms/Icons/FilterIcon';
 import HomeFullIcon from '../atoms/Icons/HomeFullIcon';
 import HomeIcon from '../atoms/Icons/HomeIcon';
 import SearchIcon from '../atoms/Icons/SearchIcon';
+import SortByIcon from '../atoms/Icons/SortByIcon';
 import FilteredGames from '../pages/FilteredGames';
 import GameDetails from '../pages/GameDetails';
 import Home from '../pages/Home';
@@ -106,7 +107,6 @@ const RootStack = createNativeStackNavigator({
 			screen: FilteredGames,
 			options: {
 				title: 'Games',
-				headerRight: () => <FilterIcon color={colors.primary} />,
 			},
 		},
 		MediaGallery: {
