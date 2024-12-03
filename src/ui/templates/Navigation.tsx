@@ -9,6 +9,7 @@ import { Image, StyleSheet } from 'react-native';
 
 import AccountFullIcon from '../atoms/Icons/AccountFullIcon';
 import AccountIcon from '../atoms/Icons/AccountIcon';
+import FilterIcon from '../atoms/Icons/FilterIcon';
 import HomeFullIcon from '../atoms/Icons/HomeFullIcon';
 import HomeIcon from '../atoms/Icons/HomeIcon';
 import SearchIcon from '../atoms/Icons/SearchIcon';
@@ -22,7 +23,7 @@ import SignIn from '../pages/account/SignIn';
 import SignUp from '../pages/account/SignUp';
 import colors from '../themes/colors';
 
-const logo = require('../../../assets/logo.png');
+const logo = require('../assets/images/logo.png');
 
 const styles = StyleSheet.create({
 	headerImage: {
@@ -105,6 +106,7 @@ const RootStack = createNativeStackNavigator({
 			screen: FilteredGames,
 			options: {
 				title: 'Games',
+				headerRight: () => <FilterIcon color={colors.primary} />,
 			},
 		},
 		MediaGallery: {

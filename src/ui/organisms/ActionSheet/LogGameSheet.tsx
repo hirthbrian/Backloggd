@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
-import ActionSheet, {
-	SheetManager,
-	SheetProps,
-} from 'react-native-actions-sheet';
-import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+import { SheetManager, SheetProps } from 'react-native-actions-sheet';
 import { SvgProps } from 'react-native-svg';
 import { useQuery } from 'react-query';
 
@@ -23,19 +19,10 @@ import { PlayIcon } from '../../atoms/Icons/PlayIcon';
 import PrimaryButton from '../../atoms/PrimaryButton';
 import SecondaryButton from '../../atoms/SecondaryButton';
 import colors from '../../themes/colors';
-import globalStyles from '../../themes/globalStyles';
+import ActionSheetBase from './ActionSheetBase';
 import { SheetIdEnum } from './sheets';
 
 const styles = StyleSheet.create({
-	actionSheetcontainer: {
-		backgroundColor: colors.background,
-		paddingTop: 5,
-		...globalStyles.paddingHorizontal,
-	},
-	indicator: {
-		height: 4,
-		backgroundColor: colors.background_light,
-	},
 	container: {
 		gap: 20,
 		paddingTop: 5,
@@ -70,10 +57,6 @@ const LogGameSheet = ({ payload }: SheetProps<SheetIdEnum.LOG_GAME>) => {
 	const query = useQuery(['getLog', id], () => getLog(id));
 
 	const [statusSelected, setStatusSelected] = useState<Array<StatusEnum>>([]);
-
-	useEffect(() => {
-		triggerHaptic();
-	}, []);
 
 	useEffect(() => {
 		const test = [];
@@ -138,28 +121,22 @@ const LogGameSheet = ({ payload }: SheetProps<SheetIdEnum.LOG_GAME>) => {
 	};
 
 	return (
-		<ActionSheet
-			gestureEnabled
-			indicatorStyle={styles.indicator}
-			containerStyle={styles.actionSheetcontainer}
-		>
-			<View style={styles.container}>
-				<SectionTitle color={colors.white} textAlign="center">
-					{name}
-				</SectionTitle>
-				<View style={styles.statusContainer}>
-					{renderStatus('Completed', GamepadIcon, StatusEnum.COMPLETED)}
-					{renderStatus('Playing', PlayIcon, StatusEnum.PLAYING)}
-					{renderStatus('Backlog', BacklogIcon, StatusEnum.BACKLOG)}
-				</View>
-				<View style={styles.buttonContainer}>
-					<SecondaryButton LeftIcon={DeleteIcon} onPress={onDeleteLog} />
-					<View style={styles.logButton}>
-						<PrimaryButton title="Create Log" onPress={onCreateLog} />
-					</View>
+		<ActionSheetBase containerStyle={styles.container}>
+			<SectionTitle color={colors.white} textAlign="center">
+				{name}
+			</SectionTitle>
+			<View style={styles.statusContainer}>
+				{renderStatus('Completed', GamepadIcon, StatusEnum.COMPLETED)}
+				{renderStatus('Playing', PlayIcon, StatusEnum.PLAYING)}
+				{renderStatus('Backlog', BacklogIcon, StatusEnum.BACKLOG)}
+			</View>
+			<View style={styles.buttonContainer}>
+				<SecondaryButton LeftIcon={DeleteIcon} onPress={onDeleteLog} />
+				<View style={styles.logButton}>
+					<PrimaryButton title="Create Log" onPress={onCreateLog} />
 				</View>
 			</View>
-		</ActionSheet>
+		</ActionSheetBase>
 	);
 };
 

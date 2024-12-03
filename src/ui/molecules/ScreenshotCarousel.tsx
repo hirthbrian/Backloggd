@@ -18,10 +18,10 @@ type Props = {
 const styles = StyleSheet.create({
 	container: {
 		height: 100,
+		opacity: 0.9,
 	},
 	image: {
 		height: 200,
-		opacity: 0.9,
 	},
 });
 

@@ -1,12 +1,21 @@
-import React, { useMemo } from 'react';
-import { RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
-
-import GameListColumns from '../organisms/Game/GameListColumns';
+import { StaticScreenProps, useNavigation } from '@react-navigation/native';
+import React, { useEffect, useMemo } from 'react';
+import {
+	Pressable,
+	RefreshControl,
+	ScrollView,
+	StyleSheet,
+	View,
+} from 'react-native';
+import { SheetManager } from 'react-native-actions-sheet';
 import { useQuery } from 'react-query';
+
+import getGamesCustomFilter from '../../infrastructure/fetch/game/getGamesWithFilter';
+import FilterIcon from '../atoms/Icons/FilterIcon';
+import { SheetIdEnum } from '../organisms/ActionSheet/sheets';
+import GameListColumns from '../organisms/Game/GameListColumns';
 import ErrorPage from '../templates/ErrorPage';
 import colors from '../themes/colors';
-import getGamesCustomFilter from '../../infrastructure/fetch/game/getGamesWithFilter';
-import { StaticScreenProps } from '@react-navigation/native';
 
 type Props = StaticScreenProps<{
 	sortByRating?: boolean;
@@ -26,6 +35,22 @@ const BY_COLLECTION = (collectionId: number) =>
 	`where collections = ${collectionId};sort rating_count desc;`;
 
 const FilteredGames = ({ route }: Props) => {
+	const navigation = useNavigation();
+
+	const renderFilterButton = () => {
+		return (
+			<Pressable onPress={() => SheetManager.show(SheetIdEnum.FILTER_GAME)}>
+				<FilterIcon color={colors.primary} />
+			</Pressable>
+		);
+	};
+
+	useEffect(() => {
+		navigation.setOptions({
+			headerRight: renderFilterButton,
+		});
+	}, [navigation]);
+
 	const filters = useMemo(() => {
 		let requestString = '';
 		if (route.params.sortByRating) {
