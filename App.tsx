@@ -1,98 +1,45 @@
-// @flow
-import React from 'react';
-import { Image, StyleSheet, useColorScheme, View } from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer, useTheme } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React, { useEffect, useState } from 'react';
+import { SheetProvider } from 'react-native-actions-sheet';
 
-import HomeIcon from './app/components/icons/HomeIcon';
-import ListIcon from './app/components/icons/ListIcon';
-import SearchIcon from './app/components/icons/SearchIcon';
-import { MyDarkTheme, MyLightTheme } from './app/constants/Theme';
-import DetailsScreen from './app/screens/DetailsScreen';
-import HomeScreen from './app/screens/HomeScreen';
-import SearchScreen from './app/screens/SearchScreen';
-import UserListScreen from './app/screens/UserListScreen';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { supabase } from './src/infrastructure/lib/supabase';
+import { Session } from '@supabase/supabase-js';
 
-const Stack = createNativeStackNavigator();
-const BottomTab = createBottomTabNavigator();
+import LoadingPage from './src/ui/templates/LoadingPage';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { AuthNavigation, Navigation } from './src/ui/templates/Navigation';
 
-function OtherScreenGroup() {
-	return (
-		<Stack.Group>
-			<Stack.Screen
-				key="detail"
-				name="Details"
-				component={DetailsScreen}
-				options={({ route }) => ({
-					title: route?.params?.name,
-				})}
-			/>
-		</Stack.Group>
-	);
-}
+import './src/ui/organisms/ActionSheet/sheets';
 
-function BottomTabStack() {
-	return (
-		<BottomTab.Navigator
-			screenOptions={{
-				headerShown: false,
-				tabBarShowLabel: false,
-			}}
-		>
-			<BottomTab.Screen
-				name="Home"
-				component={HomeScreen}
-				options={{ tabBarIcon: HomeIcon }}
-			/>
-			<BottomTab.Screen
-				name="UserList"
-				component={UserListScreen}
-				options={{ tabBarIcon: ListIcon }}
-			/>
-			<BottomTab.Screen
-				name="Search"
-				component={SearchScreen}
-				options={{ tabBarIcon: SearchIcon }}
-			/>
-		</BottomTab.Navigator>
-	);
-}
-
-function HeaderTitle() {
-	const { colors } = useTheme();
-
-	return (
-		<Image
-			source={require('./assets/logo-title.png')}
-			style={{ height: 20, width: 105, tintColor: colors.text }}
-		/>
-	);
-}
+const queryClient = new QueryClient();
 
 export default function App() {
-	const scheme = useColorScheme();
+	const [session, setSession] = useState<Session | null>(null);
+	const [loading, setLoading] = useState<boolean>(true);
+
+	useEffect(() => {
+		supabase.auth.getSession().then(({ data: { session } }) => {
+			setSession(session);
+			setLoading(false);
+		});
+
+		supabase.auth.onAuthStateChange((_event, session) => {
+			setSession(session);
+			setLoading(false);
+		});
+	}, []);
+
+	if (loading) {
+		return <LoadingPage />;
+	}
 
 	return (
-		<View style={styles.container}>
-			<NavigationContainer
-				theme={scheme === 'light' ? MyLightTheme : MyDarkTheme}
-			>
-				<Stack.Navigator>
-					<Stack.Screen
-						name="Main"
-						component={BottomTabStack}
-						options={{ headerTitle: HeaderTitle }}
-					/>
-					{OtherScreenGroup()}
-				</Stack.Navigator>
-			</NavigationContainer>
-		</View>
+		<QueryClientProvider client={queryClient}>
+			<SheetProvider>
+				<GestureHandlerRootView>
+					{session ? <Navigation /> : <AuthNavigation />}
+				</GestureHandlerRootView>
+			</SheetProvider>
+		</QueryClientProvider>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-	},
-});
