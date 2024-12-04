@@ -2,17 +2,20 @@ import { IGameShort } from '@entities/gameEntities';
 import dayjs from 'dayjs';
 
 import { useNavigation } from '@react-navigation/native';
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { SheetManager } from 'react-native-actions-sheet';
 import Animated, {
+	interpolateColor,
 	useAnimatedRef,
+	useAnimatedStyle,
 	useScrollViewOffset,
 } from 'react-native-reanimated';
 
 import Header from '@texts/Header';
 import NormalRegular from '@texts/NormalRegular';
 import NormalSemiBold from '@texts/NormalSemiBold';
+import SectionTitle from '@texts/SectionTitle';
 
 import Divider from '../../atoms/Divider';
 import GamePoster from '../../atoms/GamePoster';
@@ -63,6 +66,33 @@ const GameDetails = ({ data }: Props) => {
 	const navigation = useNavigation();
 	const animatedRef = useAnimatedRef<Animated.ScrollView>();
 	const scrollOffset = useScrollViewOffset(animatedRef);
+
+	const aStyle = useAnimatedStyle(() => ({
+		backgroundColor: interpolateColor(
+			scrollOffset.value,
+			[0, 200],
+			['transparent', colors.background],
+		),
+	}));
+
+	const aStyleText = useAnimatedStyle(() => ({
+		color: interpolateColor(
+			scrollOffset.value,
+			[0, 200],
+			['transparent', colors.white],
+		),
+	}));
+
+	useEffect(() => {
+		navigation.setOptions({
+			headerBackground: () => <Animated.View style={[aStyle, { flex: 1 }]} />,
+			headerTitle: () => (
+				<SectionTitle>
+					<Animated.Text style={[aStyleText]}>{data.name}</Animated.Text>
+				</SectionTitle>
+			),
+		});
+	}, [aStyle, aStyleText, data.name, navigation]);
 
 	const formatedReleaseDate = useMemo(
 		() => dayjs(data?.first_released_date).format('MMM D, YYYY'),
@@ -187,7 +217,7 @@ const GameDetails = ({ data }: Props) => {
 			/>
 			{renderHeader()}
 			<View style={styles.summary}>
-				<NormalRegular numberOfLines={3}>{data?.summary}</NormalRegular>
+				<NormalRegular numberOfLines={10}>{data?.summary}</NormalRegular>
 			</View>
 			<Divider />
 			{renderPlatforms()}

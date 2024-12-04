@@ -1,13 +1,13 @@
 import { IImage } from '@entities/commonEntities';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Animated, {
-	DerivedValue,
 	SharedValue,
 	useAnimatedStyle,
 } from 'react-native-reanimated';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { getImageUrl } from '../../infrastructure/utils';
 import colors from '../themes/colors';
@@ -31,15 +31,19 @@ const styles = StyleSheet.create({
 });
 
 const BackgroundCover = ({ screenshots, scrollOffset }: Props) => {
+	const insets = useSafeAreaInsets();
+
+	const height = useMemo(() => 100 + insets.top, [insets.top]);
+
 	const animatedStyles = useAnimatedStyle(() => ({
-		height: 200 - scrollOffset.value,
+		height: height + 100 - scrollOffset.value,
 		transform: [{ translateY: scrollOffset.value }],
 	}));
 
 	if (!screenshots) {
 		return (
 			<LinearGradient
-				style={{ height: 200 }}
+				style={styles.container}
 				locations={[0, 0.9]}
 				colors={[colors.background_light, colors.background]}
 			/>
@@ -47,7 +51,7 @@ const BackgroundCover = ({ screenshots, scrollOffset }: Props) => {
 	}
 
 	return (
-		<View style={{ height: 100 }}>
+		<View style={{ height }}>
 			<Animated.View style={[styles.container, animatedStyles]}>
 				<Image
 					source={{

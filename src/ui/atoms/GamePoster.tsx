@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 	image: {
 		borderRadius: 5,
 		borderWidth: StyleSheet.hairlineWidth,
-		borderColor: colors.text,
+		borderColor: colors.background_light,
 	},
 	placeholder: {
 		borderRadius: 5,
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		padding: 10,
 		borderWidth: StyleSheet.hairlineWidth,
-		borderColor: colors.background_highlight,
+		borderColor: colors.background_light,
 	},
 });
 

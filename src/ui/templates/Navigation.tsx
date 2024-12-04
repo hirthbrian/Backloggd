@@ -102,6 +102,13 @@ const RootStack = createNativeStackNavigator({
 		Main: { screen: BottomTabStack, options: { headerTitle: HeaderTitle } },
 		GameDetailsScreen: {
 			screen: GameDetailsScreen,
+			options: {
+				headerTransparent: true,
+				headerStyle: {
+					backgroundColor: 'transparent',
+				},
+				headerTintColor: colors.white,
+			},
 		},
 		FilteredGames: {
 			screen: FilteredGames,
