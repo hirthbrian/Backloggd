@@ -25,7 +25,7 @@ const GameListShort = ({ data }: Props) => {
 	const navigation = useNavigation();
 
 	const onPressGame = (id: number) =>
-		navigation.navigate('GameDetails', { id });
+		navigation.navigate('GameDetailsScreen', { id });
 
 	const renderSeparator = () => <View style={styles.separator} />;
 

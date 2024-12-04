@@ -47,7 +47,7 @@ const GameListHorizontal = ({ data, title, onPressSeeMore }: Props) => {
 	);
 
 	const onPressGame = (id: number) =>
-		navigation.navigate('GameDetails', { id });
+		navigation.navigate('GameDetailsScreen', { id });
 
 	const renderItem = ({ item }: { item: IGameShort }) => (
 		<GamePoster

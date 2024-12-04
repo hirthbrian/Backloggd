@@ -27,7 +27,7 @@ const GameListColumns = ({ data, numColumns = 4 }: Props) => {
 	const { width } = useWindowDimensions();
 
 	const onPressGame = (id: number) =>
-		navigation.navigate('GameDetails', { id });
+		navigation.navigate('GameDetailsScreen', { id });
 
 	const posterWidth = useMemo(
 		() => (width - 10 * (numColumns - 1) - 15 * 2) / numColumns,

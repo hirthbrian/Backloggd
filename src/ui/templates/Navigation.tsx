@@ -15,7 +15,7 @@ import HomeIcon from '../atoms/Icons/HomeIcon';
 import SearchIcon from '../atoms/Icons/SearchIcon';
 import SortByIcon from '../atoms/Icons/SortByIcon';
 import FilteredGames from '../pages/FilteredGames';
-import GameDetails from '../pages/GameDetails';
+import GameDetailsScreen from '../pages/GameDetailsScreen';
 import Home from '../pages/Home';
 import MediaGallery from '../pages/MediaGallery';
 import Profile from '../pages/Profile';
@@ -100,8 +100,8 @@ const AuthStack = createNativeStackNavigator({
 const RootStack = createNativeStackNavigator({
 	screens: {
 		Main: { screen: BottomTabStack, options: { headerTitle: HeaderTitle } },
-		GameDetails: {
-			screen: GameDetails,
+		GameDetailsScreen: {
+			screen: GameDetailsScreen,
 		},
 		FilteredGames: {
 			screen: FilteredGames,

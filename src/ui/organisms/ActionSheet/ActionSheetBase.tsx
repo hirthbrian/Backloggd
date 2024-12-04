@@ -1,6 +1,7 @@
 import React, { ReactElement, useEffect } from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
 import ActionSheet from 'react-native-actions-sheet';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { triggerHaptic } from '../../../infrastructure/lib/hapticFeedback';
 import colors from '../../themes/colors';
@@ -18,13 +19,14 @@ const styles = StyleSheet.create({
 		...globalStyles.paddingHorizontal,
 	},
 	indicator: {
-		height: 4,
-		backgroundColor: colors.background_light,
-		paddingBottom: 5,
+		backgroundColor: colors.background_highlight,
+		marginBottom: 10,
 	},
 });
 
 const ActionSheetBase = ({ children, containerStyle }: Props) => {
+	const insets = useSafeAreaInsets();
+
 	useEffect(() => {
 		triggerHaptic();
 	}, []);
@@ -32,10 +34,11 @@ const ActionSheetBase = ({ children, containerStyle }: Props) => {
 	return (
 		<ActionSheet
 			gestureEnabled
+			safeAreaInsets={insets}
 			indicatorStyle={styles.indicator}
 			containerStyle={styles.actionSheetcontainer}
 		>
-			<View style={containerStyle}>{children}</View>
+			<View style={[containerStyle]}>{children}</View>
 		</ActionSheet>
 	);
 };

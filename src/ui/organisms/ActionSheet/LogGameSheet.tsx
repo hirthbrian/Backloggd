@@ -25,7 +25,6 @@ import { SheetIdEnum } from './sheets';
 const styles = StyleSheet.create({
 	container: {
 		gap: 20,
-		paddingTop: 5,
 	},
 	statusContainer: {
 		gap: 15,

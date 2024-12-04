@@ -1,41 +1,33 @@
+import { IGameShort } from '@entities/gameEntities';
 import dayjs from 'dayjs';
 
-import { StaticScreenProps, useNavigation } from '@react-navigation/native';
-import React, { useEffect, useMemo } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import React, { useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { SheetManager } from 'react-native-actions-sheet';
 import Animated, {
-	Extrapolation,
-	interpolate,
 	useAnimatedRef,
-	useAnimatedScrollHandler,
-	useDerivedValue,
 	useScrollViewOffset,
-	useSharedValue,
 } from 'react-native-reanimated';
-import { useQuery } from 'react-query';
 
 import Header from '@texts/Header';
 import NormalRegular from '@texts/NormalRegular';
 import NormalSemiBold from '@texts/NormalSemiBold';
 
-import getGameDetails from '../../infrastructure/fetch/game/getGameDetails';
-import Divider from '../atoms/Divider';
-import GamePoster from '../atoms/GamePoster';
-import LabelList from '../atoms/LabelList';
-import PrimaryButton from '../atoms/PrimaryButton';
-import BackgroundCover from '../molecules/BackgroundCover';
-import { SheetIdEnum } from '../organisms/ActionSheet/sheets';
-import GameListHorizontal from '../organisms/Game/GameListHorizontal';
-import PlatformList from '../organisms/Platform/PlatformList';
-import ErrorPage from '../templates/ErrorPage';
-import LoadingPage from '../templates/LoadingPage';
-import colors from '../themes/colors';
-import globalStyles from '../themes/globalStyles';
+import Divider from '../../atoms/Divider';
+import GamePoster from '../../atoms/GamePoster';
+import LabelList from '../../atoms/LabelList';
+import PrimaryButton from '../../atoms/PrimaryButton';
+import BackgroundCover from '../../molecules/BackgroundCover';
+import colors from '../../themes/colors';
+import globalStyles from '../../themes/globalStyles';
+import { SheetIdEnum } from '../ActionSheet/sheets';
+import PlatformList from '../Platform/PlatformList';
+import GameListHorizontal from './GameListHorizontal';
 
-type Props = StaticScreenProps<{
-	id: number;
-}>;
+type Props = {
+	data: IGameShort;
+};
 
 const styles = StyleSheet.create({
 	container: {
@@ -62,51 +54,33 @@ const styles = StyleSheet.create({
 		...globalStyles.paddingHorizontal,
 	},
 	logButtonContainer: {
-		paddingTop: 10,
+		paddingTop: 20,
 		...globalStyles.paddingHorizontal,
 	},
 });
 
-const GameDetails = ({ route }: Props) => {
+const GameDetails = ({ data }: Props) => {
 	const navigation = useNavigation();
 	const animatedRef = useAnimatedRef<Animated.ScrollView>();
-	const scrollOffset = useScrollViewOffset(
-		animatedRef.current ? animatedRef : null,
-	);
-
-	const query = useQuery(['getGameDetails', route?.params?.id], () =>
-		getGameDetails(route?.params?.id),
-	);
-
-	useEffect(() => {
-		navigation.setOptions({ title: query?.data?.name || '' });
-	}, [navigation, query?.data?.name]);
+	const scrollOffset = useScrollViewOffset(animatedRef);
 
 	const formatedReleaseDate = useMemo(
-		() => dayjs(query?.data?.first_released_date).format('MMM D, YYYY'),
-		[query?.data?.first_released_date],
+		() => dayjs(data?.first_released_date).format('MMM D, YYYY'),
+		[data?.first_released_date],
 	);
 
-	if (query?.isLoading) {
-		return <LoadingPage />;
-	}
-
-	if (query?.isError) {
-		return <ErrorPage />;
-	}
-
 	const showCoverFullscreen = () => {
-		if (query?.data?.cover) {
+		if (data?.cover) {
 			navigation.navigate('MediaGallery', {
-				images: [query?.data?.cover],
+				images: [data?.cover],
 			});
 		}
 	};
 
 	// const showScreenshotsFullscreen = () => {
-	// 	if (query?.data?.screenshots) {
+	// 	if (data?.screenshots) {
 	// 		navigation.navigate('MediaGallery', {
-	// 			images: query?.data?.screenshots,
+	// 			images: data?.screenshots,
 	// 		});
 	// 	}
 	// };
@@ -117,7 +91,7 @@ const GameDetails = ({ route }: Props) => {
 				{'by '}
 				<LabelList
 					highlightColor={colors.text_highlight}
-					labels={query?.data?.involved_companies
+					labels={data?.involved_companies
 						?.filter((c) => c.developer)
 						?.map((c) => c.company.name)}
 				/>
@@ -134,7 +108,7 @@ const GameDetails = ({ route }: Props) => {
 						style={styles.headerTitle}
 						color={colors.white}
 					>
-						{query?.data?.name}
+						{data?.name}
 					</Header>
 					<NormalRegular>
 						{'released on '}
@@ -148,27 +122,30 @@ const GameDetails = ({ route }: Props) => {
 					imageSize="cover_big"
 					disableLongPress
 					onPress={showCoverFullscreen}
-					id={query?.data?.id}
-					cover={query?.data?.cover}
-					name={query.data.name}
+					id={data?.id}
+					cover={data?.cover}
+					name={data.name}
 				/>
 			</View>
 		);
 	};
 
 	const renderPlatforms = () => {
-		return (
-			<View style={styles.platformList}>
-				<NormalRegular>Released on: </NormalRegular>
-				<PlatformList data={query?.data?.platforms} />
-			</View>
-		);
+		if (data?.platforms) {
+			return (
+				<View style={styles.platformList}>
+					<NormalRegular>Released on: </NormalRegular>
+					<PlatformList data={data.platforms} />
+				</View>
+			);
+		}
+		return null;
 	};
 
 	// const renderScreenshots = () => {
 	// 	return (
 	// 		<View style={{ flexDirection: 'row', gap: 5 }}>
-	// 			{query?.data?.screenshots.map((s) => {
+	// 			{data?.screenshots.map((s) => {
 	// 				return (
 	// 					<Pressable onPress={showScreenshotsFullscreen}>
 	// 						<Image
@@ -183,8 +160,8 @@ const GameDetails = ({ route }: Props) => {
 	// };
 
 	const renderCollections = () => {
-		if (query?.data?.collections) {
-			return query?.data?.collections.map((collection) => {
+		if (data?.collections) {
+			return data?.collections.map((collection) => {
 				return (
 					<GameListHorizontal
 						key={collection.id}
@@ -205,12 +182,12 @@ const GameDetails = ({ route }: Props) => {
 	return (
 		<Animated.ScrollView ref={animatedRef} style={styles.container}>
 			<BackgroundCover
-				screenshots={query?.data?.screenshots}
+				screenshots={data?.screenshots}
 				scrollOffset={scrollOffset}
 			/>
 			{renderHeader()}
 			<View style={styles.summary}>
-				<NormalRegular numberOfLines={3}>{query?.data?.summary}</NormalRegular>
+				<NormalRegular numberOfLines={3}>{data?.summary}</NormalRegular>
 			</View>
 			<Divider />
 			{renderPlatforms()}
@@ -218,7 +195,7 @@ const GameDetails = ({ route }: Props) => {
 			{renderCollections()}
 			{/* <GameListHorizontal
 					title="Similar Games"
-					data={query?.data?.similar_games}
+					data={data?.similar_games}
 				/> */}
 			{/* {renderScreenshots()} */}
 			<View style={styles.logButtonContainer}>
@@ -226,7 +203,7 @@ const GameDetails = ({ route }: Props) => {
 					title="Create or Update Log"
 					onPress={() =>
 						SheetManager.show(SheetIdEnum.LOG_GAME, {
-							payload: { id: query?.data?.id, name: query?.data?.name },
+							payload: { id: data?.id, name: data?.name },
 						})
 					}
 				/>
