@@ -2,9 +2,17 @@ import dayjs from 'dayjs';
 
 import { StaticScreenProps, useNavigation } from '@react-navigation/native';
 import React, { useEffect, useMemo } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { SheetManager } from 'react-native-actions-sheet';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import Animated, {
+	Extrapolation,
+	interpolate,
+	useAnimatedRef,
+	useAnimatedScrollHandler,
+	useDerivedValue,
+	useScrollViewOffset,
+	useSharedValue,
+} from 'react-native-reanimated';
 import { useQuery } from 'react-query';
 
 import Header from '@texts/Header';
@@ -16,7 +24,7 @@ import Divider from '../atoms/Divider';
 import GamePoster from '../atoms/GamePoster';
 import LabelList from '../atoms/LabelList';
 import PrimaryButton from '../atoms/PrimaryButton';
-import ScreenshotCarousel from '../molecules/ScreenshotCarousel';
+import BackgroundCover from '../molecules/BackgroundCover';
 import { SheetIdEnum } from '../organisms/ActionSheet/sheets';
 import GameListHorizontal from '../organisms/Game/GameListHorizontal';
 import PlatformList from '../organisms/Platform/PlatformList';
@@ -61,6 +69,11 @@ const styles = StyleSheet.create({
 
 const GameDetails = ({ route }: Props) => {
 	const navigation = useNavigation();
+	const animatedRef = useAnimatedRef<Animated.ScrollView>();
+	const scrollOffset = useScrollViewOffset(
+		animatedRef.current ? animatedRef : null,
+	);
+
 	const query = useQuery(['getGameDetails', route?.params?.id], () =>
 		getGameDetails(route?.params?.id),
 	);
@@ -190,36 +203,35 @@ const GameDetails = ({ route }: Props) => {
 	};
 
 	return (
-		<ScrollView style={styles.container}>
-			<SafeAreaView edges={['bottom']}>
-				<ScreenshotCarousel screenshots={query?.data?.screenshots} />
-				{renderHeader()}
-				<View style={styles.summary}>
-					<NormalRegular numberOfLines={3}>
-						{query?.data?.summary}
-					</NormalRegular>
-				</View>
-				<Divider />
-				{renderPlatforms()}
-				<Divider />
-				{renderCollections()}
-				{/* <GameListHorizontal
+		<Animated.ScrollView ref={animatedRef} style={styles.container}>
+			<BackgroundCover
+				screenshots={query?.data?.screenshots}
+				scrollOffset={scrollOffset}
+			/>
+			{renderHeader()}
+			<View style={styles.summary}>
+				<NormalRegular numberOfLines={3}>{query?.data?.summary}</NormalRegular>
+			</View>
+			<Divider />
+			{renderPlatforms()}
+			<Divider />
+			{renderCollections()}
+			{/* <GameListHorizontal
 					title="Similar Games"
 					data={query?.data?.similar_games}
 				/> */}
-				{/* {renderScreenshots()} */}
-				<View style={styles.logButtonContainer}>
-					<PrimaryButton
-						title="Create or Update Log"
-						onPress={() =>
-							SheetManager.show(SheetIdEnum.LOG_GAME, {
-								payload: { id: query?.data?.id, name: query?.data?.name },
-							})
-						}
-					/>
-				</View>
-			</SafeAreaView>
-		</ScrollView>
+			{/* {renderScreenshots()} */}
+			<View style={styles.logButtonContainer}>
+				<PrimaryButton
+					title="Create or Update Log"
+					onPress={() =>
+						SheetManager.show(SheetIdEnum.LOG_GAME, {
+							payload: { id: query?.data?.id, name: query?.data?.name },
+						})
+					}
+				/>
+			</View>
+		</Animated.ScrollView>
 	);
 };
 
