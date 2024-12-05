@@ -4,8 +4,9 @@ import Header from '@texts/Header';
 import NormalRegular from '@texts/NormalRegular';
 import NormalSemiBold from '@texts/NormalSemiBold';
 import SectionTitle from '@texts/SectionTitle';
+import globalStyles from '@themes/globalStyles';
 import dayjs from 'dayjs';
-import React, { useEffect, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { SheetManager } from 'react-native-actions-sheet';
 import Animated, {
@@ -14,14 +15,15 @@ import Animated, {
 	useAnimatedStyle,
 	useScrollViewOffset,
 } from 'react-native-reanimated';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import Divider from '../../atoms/Divider';
 import GamePoster from '../../atoms/GamePoster';
 import LabelList from '../../atoms/LabelList';
 import PrimaryButton from '../../atoms/PrimaryButton';
 import BackgroundCover from '../../molecules/BackgroundCover';
+import ScreenshotCarousel from '../../molecules/Game/ScreenshotCarousel';
 import colors from '../../themes/colors';
-import globalStyles from '../../themes/globalStyles';
 import { SheetIdEnum } from '../ActionSheet/sheets';
 import PlatformList from '../Platform/PlatformList';
 import GameListHorizontal from './GameListHorizontal';
@@ -55,17 +57,19 @@ const styles = StyleSheet.create({
 		...globalStyles.paddingHorizontal,
 	},
 	logButtonContainer: {
-		paddingTop: 20,
+		// paddingTop: 20,
 		...globalStyles.paddingHorizontal,
 	},
 });
 
 const GameDetails = ({ data }: Props) => {
 	const navigation = useNavigation();
+	const insets = useSafeAreaInsets();
 	const animatedRef = useAnimatedRef<Animated.ScrollView>();
 	const scrollOffset = useScrollViewOffset(animatedRef);
 
 	const aStyle = useAnimatedStyle(() => ({
+		flex: 1,
 		backgroundColor: interpolateColor(
 			scrollOffset.value,
 			[0, 200],
@@ -76,21 +80,37 @@ const GameDetails = ({ data }: Props) => {
 	const aStyleText = useAnimatedStyle(() => ({
 		color: interpolateColor(
 			scrollOffset.value,
-			[0, 200],
+			[100, 125],
 			['transparent', colors.white],
 		),
 	}));
 
+	const headerBackground = useCallback(
+		() => <Animated.View style={aStyle} />,
+		[aStyle],
+	);
+	const headerTitle = useCallback(
+		() => (
+			<SectionTitle>
+				<Animated.Text style={[aStyleText]}>{data.name}</Animated.Text>
+			</SectionTitle>
+		),
+		[aStyleText, data.name],
+	);
+
 	useEffect(() => {
 		navigation.setOptions({
-			headerBackground: () => <Animated.View style={[aStyle, { flex: 1 }]} />,
-			headerTitle: () => (
-				<SectionTitle>
-					<Animated.Text style={[aStyleText]}>{data.name}</Animated.Text>
-				</SectionTitle>
-			),
+			headerBackground,
+			headerTitle,
 		});
-	}, [aStyle, aStyleText, data.name, navigation]);
+	}, [
+		aStyle,
+		aStyleText,
+		data.name,
+		headerBackground,
+		headerTitle,
+		navigation,
+	]);
 
 	const formatedReleaseDate = useMemo(
 		() => dayjs(data?.first_released_date).format('MMM D, YYYY'),
@@ -105,13 +125,14 @@ const GameDetails = ({ data }: Props) => {
 		}
 	};
 
-	// const showScreenshotsFullscreen = () => {
-	// 	if (data?.screenshots) {
-	// 		navigation.navigate('MediaGallery', {
-	// 			images: data?.screenshots,
-	// 		});
-	// 	}
-	// };
+	const showScreenshotsFullscreen = (index: number) => {
+		if (data?.screenshots) {
+			navigation.navigate('MediaGallery', {
+				images: data?.screenshots,
+				index,
+			});
+		}
+	};
 
 	const renderCompanies = () => {
 		return (
@@ -170,22 +191,17 @@ const GameDetails = ({ data }: Props) => {
 		return null;
 	};
 
-	// const renderScreenshots = () => {
-	// 	return (
-	// 		<View style={{ flexDirection: 'row', gap: 5 }}>
-	// 			{data?.screenshots.map((s) => {
-	// 				return (
-	// 					<Pressable onPress={showScreenshotsFullscreen}>
-	// 						<Image
-	// 							style={{ width: 100, height: 100, borderRadius: 4 }}
-	// 							source={{ uri: getImageUrl(s.image_id) }}
-	// 						/>
-	// 					</Pressable>
-	// 				);
-	// 			})}
-	// 		</View>
-	// 	);
-	// };
+	const renderScreenshots = () => {
+		if (data.screenshots) {
+			return (
+				<ScreenshotCarousel
+					onPress={showScreenshotsFullscreen}
+					data={data.screenshots}
+				/>
+			);
+		}
+		return null;
+	};
 
 	const renderCollections = () => {
 		if (data?.collections) {
@@ -208,7 +224,11 @@ const GameDetails = ({ data }: Props) => {
 	};
 
 	return (
-		<Animated.ScrollView ref={animatedRef} style={styles.container}>
+		<Animated.ScrollView
+			ref={animatedRef}
+			style={[styles.container]}
+			contentContainerStyle={{ paddingBottom: insets.bottom }}
+		>
 			<BackgroundCover
 				screenshots={data?.screenshots}
 				scrollOffset={scrollOffset}
@@ -221,6 +241,7 @@ const GameDetails = ({ data }: Props) => {
 			{renderPlatforms()}
 			<Divider />
 			{renderCollections()}
+			{renderScreenshots()}
 			{/* <GameListHorizontal
 					title="Similar Games"
 					data={data?.similar_games}

@@ -26,9 +26,10 @@
 		"jsx": "react",
 		"module": "ESNext",
 		"paths": {
-			"@texts/*": ["./src/ui/atoms/Texts/*"],
+			"@contexts/*": ["./src/infrastructure/contexts/*"],
 			"@entities/*": ["./src/domain/entities/*"],
-			"@themes/*": ["./src/ui/themes"]
+			"@texts/*": ["./src/ui/atoms/Texts/*"],
+			"@themes/*": ["./src/ui/themes/*"]
 		}
 	},
 	"include": ["App.tsx", "src"],

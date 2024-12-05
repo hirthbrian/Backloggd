@@ -5,9 +5,10 @@ module.exports = {
 			'module-resolver',
 			{
 				alias: {
-					'@texts': './src/ui/atoms/Texts',
+					'@contexts': './src/infrastructure/contexts',
 					'@entities': './src/domain/entities',
-					'@themes': './src/themes',
+					'@texts': './src/ui/atoms/Texts',
+					'@themes': './src/ui/themes',
 				},
 			},
 		],

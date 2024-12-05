@@ -7,6 +7,7 @@ import { getImageUrl } from '../../infrastructure/utils';
 
 type Props = StaticScreenProps<{
 	images: Array<IImage>;
+	index?: number;
 }>;
 
 function MediaGallery({ route }: Props) {
@@ -18,7 +19,13 @@ function MediaGallery({ route }: Props) {
 
 	const goBack = () => navigation.goBack();
 
-	return <Gallery onSwipeToClose={goBack} data={images} />;
+	return (
+		<Gallery
+			initialIndex={route.params.index}
+			onSwipeToClose={goBack}
+			data={images}
+		/>
+	);
 }
 
 export default MediaGallery;

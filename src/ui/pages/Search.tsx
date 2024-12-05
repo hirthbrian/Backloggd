@@ -1,3 +1,4 @@
+import globalStyles from '@themes/globalStyles';
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useQuery } from 'react-query';
@@ -5,7 +6,6 @@ import { useQuery } from 'react-query';
 import searchGame from '../../infrastructure/fetch/game/searchGame';
 import SearchBar from '../molecules/SearchBar';
 import GameListShort from '../organisms/Game/GameListShort';
-import globalStyles from '../themes/globalStyles';
 
 const styles = StyleSheet.create({
 	container: {

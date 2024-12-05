@@ -1,3 +1,5 @@
+import './src/ui/organisms/ActionSheet/sheets';
+
 import { Session } from '@supabase/supabase-js';
 import React, { useEffect, useState } from 'react';
 import { SheetProvider } from 'react-native-actions-sheet';
@@ -5,8 +7,8 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
+import { SessionContext } from './src/infrastructure/contexts/SessionContext';
 import { supabase } from './src/infrastructure/lib/supabase';
-import './src/ui/organisms/ActionSheet/sheets';
 import LoadingPage from './src/ui/templates/LoadingPage';
 import { AuthNavigation, Navigation } from './src/ui/templates/Navigation';
 
@@ -36,9 +38,11 @@ export default function App() {
 		<SafeAreaProvider>
 			<QueryClientProvider client={queryClient}>
 				<GestureHandlerRootView>
-					<SheetProvider>
-						{userSession ? <Navigation /> : <AuthNavigation />}
-					</SheetProvider>
+					<SessionContext.Provider value={userSession}>
+						<SheetProvider>
+							{userSession ? <Navigation /> : <AuthNavigation />}
+						</SheetProvider>
+					</SessionContext.Provider>
 				</GestureHandlerRootView>
 			</QueryClientProvider>
 		</SafeAreaProvider>
