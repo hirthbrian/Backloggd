@@ -1,7 +1,10 @@
 import { IGameShort } from '@entities/gameEntities';
-import dayjs from 'dayjs';
-
 import { useNavigation } from '@react-navigation/native';
+import Header from '@texts/Header';
+import NormalRegular from '@texts/NormalRegular';
+import NormalSemiBold from '@texts/NormalSemiBold';
+import SectionTitle from '@texts/SectionTitle';
+import dayjs from 'dayjs';
 import React, { useEffect, useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { SheetManager } from 'react-native-actions-sheet';
@@ -11,11 +14,6 @@ import Animated, {
 	useAnimatedStyle,
 	useScrollViewOffset,
 } from 'react-native-reanimated';
-
-import Header from '@texts/Header';
-import NormalRegular from '@texts/NormalRegular';
-import NormalSemiBold from '@texts/NormalSemiBold';
-import SectionTitle from '@texts/SectionTitle';
 
 import Divider from '../../atoms/Divider';
 import GamePoster from '../../atoms/GamePoster';

@@ -7,6 +7,7 @@ module.exports = {
 				alias: {
 					'@texts': './src/ui/atoms/Texts',
 					'@entities': './src/domain/entities',
+					'@themes': './src/themes',
 				},
 			},
 		],

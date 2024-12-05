@@ -5,23 +5,21 @@ import {
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 
 import AccountFullIcon from '../atoms/Icons/AccountFullIcon';
 import AccountIcon from '../atoms/Icons/AccountIcon';
-import FilterIcon from '../atoms/Icons/FilterIcon';
 import HomeFullIcon from '../atoms/Icons/HomeFullIcon';
 import HomeIcon from '../atoms/Icons/HomeIcon';
 import SearchIcon from '../atoms/Icons/SearchIcon';
-import SortByIcon from '../atoms/Icons/SortByIcon';
+import SignIn from '../pages/account/SignIn';
+import SignUp from '../pages/account/SignUp';
 import FilteredGames from '../pages/FilteredGames';
 import GameDetailsScreen from '../pages/GameDetailsScreen';
 import Home from '../pages/Home';
 import MediaGallery from '../pages/MediaGallery';
 import Profile from '../pages/Profile';
 import Search from '../pages/Search';
-import SignIn from '../pages/account/SignIn';
-import SignUp from '../pages/account/SignUp';
 import colors from '../themes/colors';
 
 const logo = require('../assets/images/logo.png');

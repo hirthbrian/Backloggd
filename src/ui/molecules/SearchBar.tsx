@@ -6,9 +6,10 @@ import {
 	TextInputSubmitEditingEventData,
 	View,
 } from 'react-native';
+
 import SearchIcon from '../atoms/Icons/SearchIcon';
-import fonts from '../themes/fonts';
 import colors from '../themes/colors';
+import fonts from '../themes/fonts';
 
 type Props = {
 	onSubmit: (text: string) => void;

@@ -1,8 +1,7 @@
-import React from 'react';
-import { StyleSheet, Pressable, View } from 'react-native';
-import { SvgProps } from 'react-native-svg';
-
 import NormalSemiBold from '@texts/NormalSemiBold';
+import React from 'react';
+import { Pressable, StyleSheet, View } from 'react-native';
+import { SvgProps } from 'react-native-svg';
 
 import colors from '../themes/colors';
 

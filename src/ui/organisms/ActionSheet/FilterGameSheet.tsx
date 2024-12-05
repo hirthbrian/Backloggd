@@ -1,9 +1,8 @@
+import NormalRegular from '@texts/NormalRegular';
+import SectionTitle from '@texts/SectionTitle';
 import React from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { SheetProps } from 'react-native-actions-sheet';
-
-import NormalRegular from '@texts/NormalRegular';
-import SectionTitle from '@texts/SectionTitle';
 
 import colors from '../../themes/colors';
 import ActionSheetBase from './ActionSheetBase';

@@ -27,7 +27,8 @@
 		"module": "ESNext",
 		"paths": {
 			"@texts/*": ["./src/ui/atoms/Texts/*"],
-			"@entities/*": ["./src/domain/entities/*"]
+			"@entities/*": ["./src/domain/entities/*"],
+			"@themes/*": ["./src/ui/themes"]
 		}
 	},
 	"include": ["App.tsx", "src"],

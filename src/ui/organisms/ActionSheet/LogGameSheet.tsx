@@ -1,11 +1,10 @@
+import NormalRegular from '@texts/NormalRegular';
+import SectionTitle from '@texts/SectionTitle';
 import React, { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { SheetManager, SheetProps } from 'react-native-actions-sheet';
 import { SvgProps } from 'react-native-svg';
 import { useQuery } from 'react-query';
-
-import NormalRegular from '@texts/NormalRegular';
-import SectionTitle from '@texts/SectionTitle';
 
 import { StatusEnum } from '../../../domain/enum/StatusEnum';
 import getLog from '../../../infrastructure/fetch/log/getLog';

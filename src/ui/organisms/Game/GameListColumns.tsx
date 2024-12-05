@@ -1,10 +1,10 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useMemo } from 'react';
 import { FlatList, StyleSheet, useWindowDimensions } from 'react-native';
 
-import GamePoster from '../../atoms/GamePoster';
 import { IGameShort } from '../../../domain/entities/gameEntities';
+import GamePoster from '../../atoms/GamePoster';
 import globalStyles from '../../themes/globalStyles';
-import { useNavigation } from '@react-navigation/native';
 
 type Props = {
 	data: Array<IGameShort>;

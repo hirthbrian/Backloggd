@@ -1,10 +1,9 @@
-import dayjs from 'dayjs';
-import React, { useMemo } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
-
 import NormalRegular from '@texts/NormalRegular';
 import SectionTitle from '@texts/SectionTitle';
 import SmallRegular from '@texts/SmallRegular';
+import dayjs from 'dayjs';
+import React, { useMemo } from 'react';
+import { Pressable, StyleSheet, View } from 'react-native';
 
 import { IGameShort } from '../../../domain/entities/gameEntities';
 import GamePoster from '../../atoms/GamePoster';

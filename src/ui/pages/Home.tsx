@@ -1,12 +1,12 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { useQuery } from 'react-query';
 
-import LoadingPage from '../templates/LoadingPage';
-import ErrorPage from '../templates/ErrorPage';
 import getHomeLists from '../../infrastructure/fetch/getHomeLists';
 import GameListHorizontal from '../organisms/Game/GameListHorizontal';
-import { useNavigation } from '@react-navigation/native';
+import ErrorPage from '../templates/ErrorPage';
+import LoadingPage from '../templates/LoadingPage';
 
 const styles = StyleSheet.create({
 	container: {

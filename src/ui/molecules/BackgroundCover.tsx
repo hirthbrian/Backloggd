@@ -1,5 +1,4 @@
 import { IImage } from '@entities/commonEntities';
-
 import React, { useMemo } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';

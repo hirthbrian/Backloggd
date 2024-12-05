@@ -1,6 +1,6 @@
 const IGDB_BASE_URL = 'https://api.igdb.com';
 
-import { TWITCH_CLIENT_ID, TWITCH_ACCESS_TOKEN } from '../../../secrets';
+import { TWITCH_ACCESS_TOKEN,TWITCH_CLIENT_ID } from '../../../secrets';
 
 const headers = {
 	Accept: 'application/json',

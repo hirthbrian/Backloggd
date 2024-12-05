@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
-import { Image, Pressable, StyleSheet, View } from 'react-native';
+import SmallRegular from '@texts/SmallRegular';
+import React from 'react';
+import { Pressable, StyleSheet, View } from 'react-native';
 import { SheetManager } from 'react-native-actions-sheet';
 import Animated, {
 	useAnimatedStyle,
 	useSharedValue,
-	withSpring,
 	withTiming,
 } from 'react-native-reanimated';
-
-import SmallRegular from '@texts/SmallRegular';
 
 import { IImage } from '../../domain/entities/commonEntities';
 import { getImageUrl, ImageSizeType } from '../../infrastructure/utils';

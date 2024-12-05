@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
 import { StyleSheet } from 'react-native';
 
+import fonts from '../../themes/fonts';
 import type { TextBaseProps } from './TextBase';
 import TextBase from './TextBase';
-import fonts from '../../themes/fonts';
 
 export type Props = {
 	children: ReactNode;

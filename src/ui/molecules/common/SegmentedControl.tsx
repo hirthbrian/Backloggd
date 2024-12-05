@@ -1,6 +1,6 @@
+import SegmentedControlLib from '@react-native-segmented-control/segmented-control';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import SegmentedControlLib from '@react-native-segmented-control/segmented-control';
 
 import colors from '../../themes/colors';
 import fonts from '../../themes/fonts';

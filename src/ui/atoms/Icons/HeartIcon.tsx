@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Svg, { SvgProps, Path } from 'react-native-svg';
+import Svg, { Path,SvgProps } from 'react-native-svg';
 
 const HeartIcon = ({ width = 24, height = 24, color }: SvgProps) => (
 	<Svg fill={color} width={width} height={height} viewBox="0 -960 960 960">

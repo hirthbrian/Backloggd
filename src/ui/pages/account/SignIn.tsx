@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
-import Input from '../../atoms/Input';
-import PrimaryButton from '../../atoms/PrimaryButton';
-import signInWithEmail from '../../../infrastructure/fetch/account/signInWithEmail';
-import globalStyles from '../../themes/globalStyles';
-import colors from '../../themes/colors';
 import { useNavigation } from '@react-navigation/native';
 import NormalRegular from '@texts/NormalRegular';
+import React, { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+
+import signInWithEmail from '../../../infrastructure/fetch/account/signInWithEmail';
+import Input from '../../atoms/Input';
+import PrimaryButton from '../../atoms/PrimaryButton';
+import colors from '../../themes/colors';
+import globalStyles from '../../themes/globalStyles';
 
 const styles = StyleSheet.create({
 	container: {
