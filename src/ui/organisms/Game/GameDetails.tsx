@@ -23,6 +23,7 @@ import LabelList from '../../atoms/LabelList';
 import PrimaryButton from '../../atoms/PrimaryButton';
 import BackgroundCover from '../../molecules/BackgroundCover';
 import ScreenshotCarousel from '../../molecules/Game/ScreenshotCarousel';
+import LogStatus from '../../molecules/LogStatus';
 import colors from '../../themes/colors';
 import { SheetIdEnum } from '../ActionSheet/sheets';
 import PlatformList from '../Platform/PlatformList';
@@ -91,7 +92,7 @@ const GameDetails = ({ data }: Props) => {
 	);
 	const headerTitle = useCallback(
 		() => (
-			<SectionTitle>
+			<SectionTitle numberOfLines={1}>
 				<Animated.Text style={[aStyleText]}>{data.name}</Animated.Text>
 			</SectionTitle>
 		),
@@ -191,6 +192,27 @@ const GameDetails = ({ data }: Props) => {
 		return null;
 	};
 
+	const renderCollections = () => {
+		if (data?.collections) {
+			return (
+				<>
+					<GameListHorizontal
+						key={data.collections[0].id}
+						title={`In "${data.collections[0].name}" series`}
+						data={data.collections[0].games}
+						onPressSeeMore={() =>
+							navigation.navigate('FilteredGames', {
+								collectionId: data.collections[0].id,
+							})
+						}
+					/>
+					<Divider />
+				</>
+			);
+		}
+		return null;
+	};
+
 	const renderScreenshots = () => {
 		if (data.screenshots) {
 			return (
@@ -199,26 +221,6 @@ const GameDetails = ({ data }: Props) => {
 					data={data.screenshots}
 				/>
 			);
-		}
-		return null;
-	};
-
-	const renderCollections = () => {
-		if (data?.collections) {
-			return data?.collections.map((collection) => {
-				return (
-					<GameListHorizontal
-						key={collection.id}
-						title={`In "${collection.name}" series`}
-						data={collection.games}
-						onPressSeeMore={() =>
-							navigation.navigate('FilteredGames', {
-								collectionId: collection.id,
-							})
-						}
-					/>
-				);
-			});
 		}
 		return null;
 	};
@@ -238,25 +240,14 @@ const GameDetails = ({ data }: Props) => {
 				<NormalRegular numberOfLines={10}>{data?.summary}</NormalRegular>
 			</View>
 			<Divider />
+			<View style={globalStyles.paddingHorizontal}>
+				<LogStatus gameId={data.id} />
+			</View>
+			<Divider />
 			{renderPlatforms()}
 			<Divider />
 			{renderCollections()}
 			{renderScreenshots()}
-			{/* <GameListHorizontal
-					title="Similar Games"
-					data={data?.similar_games}
-				/> */}
-			{/* {renderScreenshots()} */}
-			<View style={styles.logButtonContainer}>
-				<PrimaryButton
-					title="Create or Update Log"
-					onPress={() =>
-						SheetManager.show(SheetIdEnum.LOG_GAME, {
-							payload: { id: data?.id, name: data?.name },
-						})
-					}
-				/>
-			</View>
 		</Animated.ScrollView>
 	);
 };

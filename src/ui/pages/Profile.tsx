@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 	},
 });
 
-const VALUES = [StatusEnum.PLAYING, StatusEnum.COMPLETED, StatusEnum.BACKLOG];
+const VALUES = [StatusEnum.COMPLETED, StatusEnum.PLAYING, StatusEnum.BACKLOG];
 
 const Profile = () => {
 	const [selectedIndex, setSelectedIndex] = useState<number>(0);
@@ -37,7 +37,7 @@ const Profile = () => {
 			<SegmentedControl
 				onChange={setSelectedIndex}
 				selectedIndex={selectedIndex}
-				values={['Playing', 'Completed', 'Backlog']}
+				values={['Completed', 'Playing', 'Backlog']}
 			/>
 			<ScrollView
 				contentContainerStyle={{ flex: 1 }}
