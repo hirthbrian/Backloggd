@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 	},
 	search: {
 		paddingTop: 10,
-		...globalStyles.paddingHorizontal,
+		...globalStyles.withPadding,
 	},
 });
 

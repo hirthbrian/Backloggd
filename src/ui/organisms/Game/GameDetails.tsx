@@ -8,7 +8,6 @@ import globalStyles from '@themes/globalStyles';
 import dayjs from 'dayjs';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { SheetManager } from 'react-native-actions-sheet';
 import Animated, {
 	interpolateColor,
 	useAnimatedRef,
@@ -20,12 +19,10 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Divider from '../../atoms/Divider';
 import GamePoster from '../../atoms/GamePoster';
 import LabelList from '../../atoms/LabelList';
-import PrimaryButton from '../../atoms/PrimaryButton';
 import BackgroundCover from '../../molecules/BackgroundCover';
 import ScreenshotCarousel from '../../molecules/Game/ScreenshotCarousel';
 import LogStatus from '../../molecules/LogStatus';
 import colors from '../../themes/colors';
-import { SheetIdEnum } from '../ActionSheet/sheets';
 import PlatformList from '../Platform/PlatformList';
 import GameListHorizontal from './GameListHorizontal';
 
@@ -40,7 +37,7 @@ const styles = StyleSheet.create({
 	headerContainer: {
 		gap: 5,
 		flexDirection: 'row',
-		...globalStyles.paddingHorizontal,
+		...globalStyles.withPadding,
 	},
 	headerTitle: {
 		paddingBottom: 5,
@@ -51,15 +48,11 @@ const styles = StyleSheet.create({
 	},
 	summary: {
 		paddingTop: 20,
-		...globalStyles.paddingHorizontal,
+		...globalStyles.withPadding,
 	},
 	platformList: {
 		gap: 5,
-		...globalStyles.paddingHorizontal,
-	},
-	logButtonContainer: {
-		// paddingTop: 20,
-		...globalStyles.paddingHorizontal,
+		...globalStyles.withPadding,
 	},
 });
 
@@ -114,8 +107,8 @@ const GameDetails = ({ data }: Props) => {
 	]);
 
 	const formatedReleaseDate = useMemo(
-		() => dayjs(data?.first_released_date).format('MMM D, YYYY'),
-		[data?.first_released_date],
+		() => dayjs.unix(data.first_release_date).format('MMM D, YYYY'),
+		[data?.first_release_date],
 	);
 
 	const showCoverFullscreen = () => {
@@ -240,7 +233,7 @@ const GameDetails = ({ data }: Props) => {
 				<NormalRegular numberOfLines={10}>{data?.summary}</NormalRegular>
 			</View>
 			<Divider />
-			<View style={globalStyles.paddingHorizontal}>
+			<View style={globalStyles.withPadding}>
 				<LogStatus gameId={data.id} />
 			</View>
 			<Divider />

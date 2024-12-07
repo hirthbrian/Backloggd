@@ -14,7 +14,7 @@ type Props = {
 const styles = StyleSheet.create({
 	container: {
 		gap: 10,
-		...globalStyles.paddingHorizontal,
+		...globalStyles.withPadding,
 	},
 	stackContainer: {
 		flexDirection: 'row',

@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 	contentContainerStyle: {
 		gap: 10,
 		paddingVertical: 15,
-		...globalStyles.paddingHorizontal,
+		...globalStyles.withPadding,
 	},
 });
 

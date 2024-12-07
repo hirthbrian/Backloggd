@@ -10,7 +10,7 @@ export type IGameShort = {
 		games: Array<IGameShort>;
 	}>;
 	cover: IImage;
-	first_released_date?: number;
+	first_release_date?: number;
 	involved_companies?: Array<ICompany>;
 	name: string;
 	platforms?: Array<IPlatform>;

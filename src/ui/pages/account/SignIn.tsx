@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		gap: 20,
 		justifyContent: 'center',
-		...globalStyles.paddingHorizontal,
+		...globalStyles.withPadding,
 	},
 	buttonContainer: {
 		gap: 10,

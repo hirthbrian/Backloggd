@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 	actionSheetcontainer: {
 		backgroundColor: colors.background,
 		paddingTop: 5,
-		...globalStyles.paddingHorizontal,
+		...globalStyles.withPadding,
 	},
 	indicator: {
 		backgroundColor: colors.background_highlight,

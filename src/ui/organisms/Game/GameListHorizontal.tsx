@@ -21,13 +21,13 @@ const styles = StyleSheet.create({
 	},
 	contentContainerStyle: {
 		gap: 8,
-		...globalStyles.paddingHorizontal,
+		...globalStyles.withPadding,
 	},
 	titleContainer: {
 		flexDirection: 'row',
 		alignItems: 'flex-end',
 		justifyContent: 'space-between',
-		...globalStyles.paddingHorizontal,
+		...globalStyles.withPadding,
 	},
 });
 
@@ -38,9 +38,7 @@ const GameListHorizontal = ({ data, title, onPressSeeMore }: Props) => {
 
 	const posterWidth = useMemo(
 		() =>
-			(width -
-				8 * (3.5 - 1) -
-				globalStyles.paddingHorizontal.paddingHorizontal * 2) /
+			(width - 8 * (3.5 - 1) - globalStyles.withPadding.paddingHorizontal * 2) /
 			3.5,
 		[width],
 	);

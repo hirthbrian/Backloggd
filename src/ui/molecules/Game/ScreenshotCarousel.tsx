@@ -1,5 +1,4 @@
 import { IImage } from '@entities/commonEntities';
-import SmallRegular from '@texts/SmallRegular';
 import colors from '@themes/colors';
 import globalStyles from '@themes/globalStyles';
 import React, { useMemo, useState } from 'react';
@@ -106,7 +105,7 @@ const ScreenshotCarousel = ({ data, onPress }: Props) => {
 				pagingEnabled={true}
 				data={data}
 				style={styles.container}
-				containerStyle={globalStyles.paddingHorizontal}
+				containerStyle={globalStyles.withPadding}
 				renderItem={renderItem}
 			/>
 			{renderIndexIndicator()}

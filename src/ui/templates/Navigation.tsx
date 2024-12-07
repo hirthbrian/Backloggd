@@ -9,6 +9,8 @@ import { Image, StyleSheet } from 'react-native';
 
 import AccountFullIcon from '../atoms/Icons/AccountFullIcon';
 import AccountIcon from '../atoms/Icons/AccountIcon';
+import { BookFullIcon } from '../atoms/Icons/BookFullIcon';
+import { BookIcon } from '../atoms/Icons/BookIcon';
 import HomeFullIcon from '../atoms/Icons/HomeFullIcon';
 import HomeIcon from '../atoms/Icons/HomeIcon';
 import SearchIcon from '../atoms/Icons/SearchIcon';
@@ -52,11 +54,7 @@ const BottomTabStack = createBottomTabNavigator({
 			screen: Profile,
 			options: {
 				tabBarIcon: (props) =>
-					props.focused ? (
-						<AccountFullIcon {...props} />
-					) : (
-						<AccountIcon {...props} />
-					),
+					props.focused ? <BookFullIcon {...props} /> : <BookIcon {...props} />,
 			},
 		},
 	},

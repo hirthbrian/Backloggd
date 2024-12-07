@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		gap: 10,
 		paddingVertical: 10,
-		...globalStyles.paddingHorizontal,
+		...globalStyles.withPadding,
 	},
 	info: {
 		flex: 1,
@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
 
 const GameItemShort = ({ data, onPressGame }: Props) => {
 	const formatedReleaseDate = useMemo(
-		() => dayjs(data?.first_released_date).format('YYYY'),
-		[data?.first_released_date],
+		() => dayjs(data?.first_release_date).format('YYYY'),
+		[data?.first_release_date],
 	);
 
 	const renderPlatforms = () => {
