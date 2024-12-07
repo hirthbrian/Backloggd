@@ -1,8 +1,9 @@
+import NormalSemiBold from '@texts/NormalSemiBold';
 import React from 'react';
-import { StyleSheet, Pressable, View } from 'react-native';
-import colors from '../themes/colors';
-import NormalSemiBold from './Texts/NormalSemiBold';
+import { Pressable, StyleSheet, View } from 'react-native';
 import { SvgProps } from 'react-native-svg';
+
+import colors from '../themes/colors';
 
 type Props = {
 	LeftIcon?: (props: SvgProps) => React.JSX.Element;

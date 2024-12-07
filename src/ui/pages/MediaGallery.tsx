@@ -1,12 +1,13 @@
 import { StaticScreenProps, useNavigation } from '@react-navigation/native';
 import React, { useMemo } from 'react';
 import Gallery from 'react-native-awesome-gallery';
-import { getImageUrl } from '../../infrastructure/utils';
+
 import { IImage } from '../../domain/entities/commonEntities';
+import { getImageUrl } from '../../infrastructure/utils';
 
 type Props = StaticScreenProps<{
 	images: Array<IImage>;
-	id: number;
+	index?: number;
 }>;
 
 function MediaGallery({ route }: Props) {
@@ -18,7 +19,13 @@ function MediaGallery({ route }: Props) {
 
 	const goBack = () => navigation.goBack();
 
-	return <Gallery onSwipeToClose={goBack} data={images} />;
+	return (
+		<Gallery
+			initialIndex={route.params.index}
+			onSwipeToClose={goBack}
+			data={images}
+		/>
+	);
 }
 
 export default MediaGallery;

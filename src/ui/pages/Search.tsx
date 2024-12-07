@@ -1,10 +1,11 @@
+import globalStyles from '@themes/globalStyles';
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import SearchBar from '../molecules/SearchBar';
-import searchGame from '../../infrastructure/fetch/game/searchGame';
 import { useQuery } from 'react-query';
+
+import searchGame from '../../infrastructure/fetch/game/searchGame';
+import SearchBar from '../molecules/SearchBar';
 import GameListShort from '../organisms/Game/GameListShort';
-import globalStyles from '../themes/globalStyles';
 
 const styles = StyleSheet.create({
 	container: {
@@ -12,7 +13,7 @@ const styles = StyleSheet.create({
 	},
 	search: {
 		paddingTop: 10,
-		...globalStyles.paddingHorizontal,
+		...globalStyles.withPadding,
 	},
 });
 

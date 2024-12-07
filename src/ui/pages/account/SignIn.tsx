@@ -1,19 +1,20 @@
+import { useNavigation } from '@react-navigation/native';
+import NormalRegular from '@texts/NormalRegular';
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
+
+import signInWithEmail from '../../../infrastructure/fetch/account/signInWithEmail';
 import Input from '../../atoms/Input';
 import PrimaryButton from '../../atoms/PrimaryButton';
-import signInWithEmail from '../../../infrastructure/fetch/account/signInWithEmail';
-import globalStyles from '../../themes/globalStyles';
-import NormalRegular from '../../atoms/Texts/NormalRegular';
 import colors from '../../themes/colors';
-import { useNavigation } from '@react-navigation/native';
+import globalStyles from '../../themes/globalStyles';
 
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		gap: 20,
 		justifyContent: 'center',
-		...globalStyles.paddingHorizontal,
+		...globalStyles.withPadding,
 	},
 	buttonContainer: {
 		gap: 10,

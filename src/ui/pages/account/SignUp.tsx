@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
+
+import signUpWithEmail from '../../../infrastructure/fetch/account/signUpWithEmail';
 import Input from '../../atoms/Input';
 import PrimaryButton from '../../atoms/PrimaryButton';
-import signUpWithEmail from '../../../infrastructure/fetch/account/signUpWithEmail';
 import globalStyles from '../../themes/globalStyles';
 
 const styles = StyleSheet.create({
@@ -10,7 +11,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		gap: 20,
 		justifyContent: 'center',
-		...globalStyles.paddingHorizontal,
+		...globalStyles.withPadding,
 	},
 	buttonContainer: {
 		gap: 10,

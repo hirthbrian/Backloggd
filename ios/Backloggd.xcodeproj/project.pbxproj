@@ -8,25 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* BackloggdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BackloggdTests.m */; };
-		04E4989F4C064EA098EE8F0D /* IBMPlexSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75B3AF41D86E4EA08B9172E2 /* IBMPlexSans-ExtraLight.ttf */; };
-		0A17549DABB742CDA4CBD34F /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBBD58FE0B2C45748FEEAD66 /* IBMPlexSans-Bold.ttf */; };
+		04C876BE0E874403A2579C59 /* IBMPlexSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53DB40E89F3C4D18BA148E1B /* IBMPlexSans-ExtraLight.ttf */; };
 		0C80B921A6F3F58F76C31292 /* libPods-Backloggd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-Backloggd.a */; };
-		0D4E557343A640F1855A7A52 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CADDB2628C8486D883F86EF /* NotoSans-Regular.ttf */; };
+		135BD7C3CDD341B993823FC7 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6455608F1A6646BB892F7B61 /* IBMPlexSans-SemiBold.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		1D336C80D43B4FCC886E4479 /* NotoSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C950C8227BF34E098B29F70A /* NotoSans-Medium.ttf */; };
-		4147F775F7544F2EA4CF52E9 /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33D9BF2E883845009F2E0E79 /* NotoSans-Bold.ttf */; };
+		250724FF7A564FB3BA1C7A89 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5E07489BE92454CB1445813 /* IBMPlexSans-Regular.ttf */; };
+		2F85ACF95EF64C14B6DB2485 /* IBMPlexSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0380A847352D4FF497321F6C /* IBMPlexSans-Thin.ttf */; };
+		326D699DD56F42CB96474987 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00503A4E92794F0085FCBB7A /* Roboto-Regular.ttf */; };
+		5FA50DFAADF84180A4A10FB7 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E297C73DC9E41BDBB693FBA /* IBMPlexSans-Medium.ttf */; };
+		62D8DC6DE310448F99C8A950 /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9329A4CF18514707A67DDB87 /* NotoSans-Bold.ttf */; };
+		7428AA38C49D48EEBF5F768E /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72DCE64BD6094B258B95F080 /* IBMPlexSans-Bold.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-Backloggd-BackloggdTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Backloggd-BackloggdTests.a */; };
+		787DB12E8A804BD09A205411 /* NotoSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28C7AECE02E74FCBAC134C9D /* NotoSans-Medium.ttf */; };
 		793A3F9A2C5B98D0F6994244 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		9A608612AE714D2FA2966266 /* IBMPlexSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9A4C61CBBB947BBBD95B678 /* IBMPlexSans-Thin.ttf */; };
-		9E1A62FF14F348E28D482E89 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D81E5A99F6140689A1D6338 /* IBMPlexSans-Medium.ttf */; };
-		AE303E492E2742C38A1DB4B8 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06CD859EDC4D4E64B9E80DD9 /* IBMPlexSans-SemiBold.ttf */; };
-		BA721AF2CF424A77A6025684 /* IBMPlexSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9F7DA2C80DE4AB890910ACC /* IBMPlexSans-Light.ttf */; };
-		C9A7BE3FA49E484AA01F8C38 /* NotoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7F72981F4214700B15F6AE0 /* NotoSans-SemiBold.ttf */; };
-		D57C56F6156546A2A1D01543 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7493926EF5B047ACBA968BDD /* IBMPlexSans-Regular.ttf */; };
-		F169CFE2C6714B09801796B9 /* NotoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38DA9D2B8447445DBC7A1FEA /* NotoSans-Light.ttf */; };
+		C2FF68471CE44077BD9B57D4 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DE929B230224593B0C46644 /* Roboto-Light.ttf */; };
+		C8DD0760EDC34A49B489AEBD /* NotoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6264E5BD37DC4543ACB1DFA7 /* NotoSans-SemiBold.ttf */; };
+		CAB600AFFB4047F492CBC4FB /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F92EDEDC162447BB4D1945E /* NotoSans-Regular.ttf */; };
+		E38EB4222FE84023B324B4E7 /* NotoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5037ED448954373A4EFBBF0 /* NotoSans-Light.ttf */; };
+		F125D560C9BB4BF68E1CB256 /* IBMPlexSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 793D2E7BC5924858A1AAB8B8 /* IBMPlexSans-Light.ttf */; };
+		FE03BFFCC8ED42AEB15B6653 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06E55622F2BB401FB6BCACF2 /* Roboto-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00503A4E92794F0085FCBB7A /* Roboto-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Regular.ttf"; path = "../src/ui/assets/fonts/Roboto/Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* BackloggdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackloggdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* BackloggdTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackloggdTests.m; sourceTree = "<group>"; };
-		06CD859EDC4D4E64B9E80DD9 /* IBMPlexSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-SemiBold.ttf"; path = "../assets/fonts/Plex/IBMPlexSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		0380A847352D4FF497321F6C /* IBMPlexSans-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-Thin.ttf"; path = "../src/ui/assets/fonts/Plex/IBMPlexSans-Thin.ttf"; sourceTree = "<group>"; };
+		06E55622F2BB401FB6BCACF2 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Bold.ttf"; path = "../src/ui/assets/fonts/Roboto/Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Backloggd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Backloggd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Backloggd/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Backloggd/AppDelegate.mm; sourceTree = "<group>"; };
@@ -52,24 +57,25 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Backloggd/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = Backloggd/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-Backloggd-BackloggdTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Backloggd-BackloggdTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D81E5A99F6140689A1D6338 /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-Medium.ttf"; path = "../assets/fonts/Plex/IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
-		33D9BF2E883845009F2E0E79 /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-Bold.ttf"; path = "../assets/fonts/Noto/NotoSans-Bold.ttf"; sourceTree = "<group>"; };
-		38DA9D2B8447445DBC7A1FEA /* NotoSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-Light.ttf"; path = "../assets/fonts/Noto/NotoSans-Light.ttf"; sourceTree = "<group>"; };
+		28C7AECE02E74FCBAC134C9D /* NotoSans-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-Medium.ttf"; path = "../src/ui/assets/fonts/Noto/NotoSans-Medium.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-Backloggd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backloggd.debug.xcconfig"; path = "Target Support Files/Pods-Backloggd/Pods-Backloggd.debug.xcconfig"; sourceTree = "<group>"; };
+		4F92EDEDC162447BB4D1945E /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-Regular.ttf"; path = "../src/ui/assets/fonts/Noto/NotoSans-Regular.ttf"; sourceTree = "<group>"; };
+		53DB40E89F3C4D18BA148E1B /* IBMPlexSans-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-ExtraLight.ttf"; path = "../src/ui/assets/fonts/Plex/IBMPlexSans-ExtraLight.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-Backloggd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backloggd.release.xcconfig"; path = "Target Support Files/Pods-Backloggd/Pods-Backloggd.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-Backloggd-BackloggdTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backloggd-BackloggdTests.debug.xcconfig"; path = "Target Support Files/Pods-Backloggd-BackloggdTests/Pods-Backloggd-BackloggdTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-Backloggd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Backloggd.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7493926EF5B047ACBA968BDD /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-Regular.ttf"; path = "../assets/fonts/Plex/IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
-		75B3AF41D86E4EA08B9172E2 /* IBMPlexSans-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-ExtraLight.ttf"; path = "../assets/fonts/Plex/IBMPlexSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		6264E5BD37DC4543ACB1DFA7 /* NotoSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-SemiBold.ttf"; path = "../src/ui/assets/fonts/Noto/NotoSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		6455608F1A6646BB892F7B61 /* IBMPlexSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-SemiBold.ttf"; path = "../src/ui/assets/fonts/Plex/IBMPlexSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		72DCE64BD6094B258B95F080 /* IBMPlexSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-Bold.ttf"; path = "../src/ui/assets/fonts/Plex/IBMPlexSans-Bold.ttf"; sourceTree = "<group>"; };
+		793D2E7BC5924858A1AAB8B8 /* IBMPlexSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-Light.ttf"; path = "../src/ui/assets/fonts/Plex/IBMPlexSans-Light.ttf"; sourceTree = "<group>"; };
+		7E297C73DC9E41BDBB693FBA /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-Medium.ttf"; path = "../src/ui/assets/fonts/Plex/IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Backloggd/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Backloggd-BackloggdTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backloggd-BackloggdTests.release.xcconfig"; path = "Target Support Files/Pods-Backloggd-BackloggdTests/Pods-Backloggd-BackloggdTests.release.xcconfig"; sourceTree = "<group>"; };
-		8CADDB2628C8486D883F86EF /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-Regular.ttf"; path = "../assets/fonts/Noto/NotoSans-Regular.ttf"; sourceTree = "<group>"; };
-		A7F72981F4214700B15F6AE0 /* NotoSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-SemiBold.ttf"; path = "../assets/fonts/Noto/NotoSans-SemiBold.ttf"; sourceTree = "<group>"; };
-		A9F7DA2C80DE4AB890910ACC /* IBMPlexSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-Light.ttf"; path = "../assets/fonts/Plex/IBMPlexSans-Light.ttf"; sourceTree = "<group>"; };
-		B9A4C61CBBB947BBBD95B678 /* IBMPlexSans-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-Thin.ttf"; path = "../assets/fonts/Plex/IBMPlexSans-Thin.ttf"; sourceTree = "<group>"; };
-		C950C8227BF34E098B29F70A /* NotoSans-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-Medium.ttf"; path = "../assets/fonts/Noto/NotoSans-Medium.ttf"; sourceTree = "<group>"; };
-		DBBD58FE0B2C45748FEEAD66 /* IBMPlexSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-Bold.ttf"; path = "../assets/fonts/Plex/IBMPlexSans-Bold.ttf"; sourceTree = "<group>"; };
+		9329A4CF18514707A67DDB87 /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-Bold.ttf"; path = "../src/ui/assets/fonts/Noto/NotoSans-Bold.ttf"; sourceTree = "<group>"; };
+		9DE929B230224593B0C46644 /* Roboto-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Light.ttf"; path = "../src/ui/assets/fonts/Roboto/Roboto-Light.ttf"; sourceTree = "<group>"; };
+		C5E07489BE92454CB1445813 /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-Regular.ttf"; path = "../src/ui/assets/fonts/Plex/IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F5037ED448954373A4EFBBF0 /* NotoSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-Light.ttf"; path = "../src/ui/assets/fonts/Noto/NotoSans-Light.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,18 +174,21 @@
 		9777500DE2684B128D4E10AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				33D9BF2E883845009F2E0E79 /* NotoSans-Bold.ttf */,
-				38DA9D2B8447445DBC7A1FEA /* NotoSans-Light.ttf */,
-				C950C8227BF34E098B29F70A /* NotoSans-Medium.ttf */,
-				8CADDB2628C8486D883F86EF /* NotoSans-Regular.ttf */,
-				A7F72981F4214700B15F6AE0 /* NotoSans-SemiBold.ttf */,
-				DBBD58FE0B2C45748FEEAD66 /* IBMPlexSans-Bold.ttf */,
-				75B3AF41D86E4EA08B9172E2 /* IBMPlexSans-ExtraLight.ttf */,
-				A9F7DA2C80DE4AB890910ACC /* IBMPlexSans-Light.ttf */,
-				2D81E5A99F6140689A1D6338 /* IBMPlexSans-Medium.ttf */,
-				7493926EF5B047ACBA968BDD /* IBMPlexSans-Regular.ttf */,
-				06CD859EDC4D4E64B9E80DD9 /* IBMPlexSans-SemiBold.ttf */,
-				B9A4C61CBBB947BBBD95B678 /* IBMPlexSans-Thin.ttf */,
+				9329A4CF18514707A67DDB87 /* NotoSans-Bold.ttf */,
+				F5037ED448954373A4EFBBF0 /* NotoSans-Light.ttf */,
+				28C7AECE02E74FCBAC134C9D /* NotoSans-Medium.ttf */,
+				4F92EDEDC162447BB4D1945E /* NotoSans-Regular.ttf */,
+				6264E5BD37DC4543ACB1DFA7 /* NotoSans-SemiBold.ttf */,
+				72DCE64BD6094B258B95F080 /* IBMPlexSans-Bold.ttf */,
+				53DB40E89F3C4D18BA148E1B /* IBMPlexSans-ExtraLight.ttf */,
+				793D2E7BC5924858A1AAB8B8 /* IBMPlexSans-Light.ttf */,
+				7E297C73DC9E41BDBB693FBA /* IBMPlexSans-Medium.ttf */,
+				C5E07489BE92454CB1445813 /* IBMPlexSans-Regular.ttf */,
+				6455608F1A6646BB892F7B61 /* IBMPlexSans-SemiBold.ttf */,
+				0380A847352D4FF497321F6C /* IBMPlexSans-Thin.ttf */,
+				06E55622F2BB401FB6BCACF2 /* Roboto-Bold.ttf */,
+				9DE929B230224593B0C46644 /* Roboto-Light.ttf */,
+				00503A4E92794F0085FCBB7A /* Roboto-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -291,18 +300,21 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				793A3F9A2C5B98D0F6994244 /* PrivacyInfo.xcprivacy in Resources */,
-				4147F775F7544F2EA4CF52E9 /* NotoSans-Bold.ttf in Resources */,
-				F169CFE2C6714B09801796B9 /* NotoSans-Light.ttf in Resources */,
-				1D336C80D43B4FCC886E4479 /* NotoSans-Medium.ttf in Resources */,
-				0D4E557343A640F1855A7A52 /* NotoSans-Regular.ttf in Resources */,
-				C9A7BE3FA49E484AA01F8C38 /* NotoSans-SemiBold.ttf in Resources */,
-				0A17549DABB742CDA4CBD34F /* IBMPlexSans-Bold.ttf in Resources */,
-				04E4989F4C064EA098EE8F0D /* IBMPlexSans-ExtraLight.ttf in Resources */,
-				BA721AF2CF424A77A6025684 /* IBMPlexSans-Light.ttf in Resources */,
-				9E1A62FF14F348E28D482E89 /* IBMPlexSans-Medium.ttf in Resources */,
-				D57C56F6156546A2A1D01543 /* IBMPlexSans-Regular.ttf in Resources */,
-				AE303E492E2742C38A1DB4B8 /* IBMPlexSans-SemiBold.ttf in Resources */,
-				9A608612AE714D2FA2966266 /* IBMPlexSans-Thin.ttf in Resources */,
+				62D8DC6DE310448F99C8A950 /* NotoSans-Bold.ttf in Resources */,
+				E38EB4222FE84023B324B4E7 /* NotoSans-Light.ttf in Resources */,
+				787DB12E8A804BD09A205411 /* NotoSans-Medium.ttf in Resources */,
+				CAB600AFFB4047F492CBC4FB /* NotoSans-Regular.ttf in Resources */,
+				C8DD0760EDC34A49B489AEBD /* NotoSans-SemiBold.ttf in Resources */,
+				7428AA38C49D48EEBF5F768E /* IBMPlexSans-Bold.ttf in Resources */,
+				04C876BE0E874403A2579C59 /* IBMPlexSans-ExtraLight.ttf in Resources */,
+				F125D560C9BB4BF68E1CB256 /* IBMPlexSans-Light.ttf in Resources */,
+				5FA50DFAADF84180A4A10FB7 /* IBMPlexSans-Medium.ttf in Resources */,
+				250724FF7A564FB3BA1C7A89 /* IBMPlexSans-Regular.ttf in Resources */,
+				135BD7C3CDD341B993823FC7 /* IBMPlexSans-SemiBold.ttf in Resources */,
+				2F85ACF95EF64C14B6DB2485 /* IBMPlexSans-Thin.ttf in Resources */,
+				FE03BFFCC8ED42AEB15B6653 /* Roboto-Bold.ttf in Resources */,
+				C2FF68471CE44077BD9B57D4 /* Roboto-Light.ttf in Resources */,
+				326D699DD56F42CB96474987 /* Roboto-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,7 +658,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -715,7 +730,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

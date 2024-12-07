@@ -1,5 +1,6 @@
 import React from 'react';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
+
 import colors from '../themes/colors';
 
 const styles = StyleSheet.create({

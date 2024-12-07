@@ -1,26 +1,23 @@
 import React, { useState } from 'react';
 import { RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
-
-import getLoggedGames from '../../infrastructure/fetch/game/getLoggedGames';
-import GameListColumns from '../organisms/Game/GameListColumns';
 import { useQuery } from 'react-query';
-import LoadingPage from '../templates/LoadingPage';
-import ErrorPage from '../templates/ErrorPage';
-import colors from '../themes/colors';
-import SegmentedControl from '../molecules/common/SegmentedControl';
+
 import { StatusEnum } from '../../domain/enum/StatusEnum';
+import getLoggedGames from '../../infrastructure/fetch/game/getLoggedGames';
+import SegmentedControl from '../molecules/common/SegmentedControl';
+import GameListColumns from '../organisms/Game/GameListColumns';
+import ErrorPage from '../templates/ErrorPage';
+import LoadingPage from '../templates/LoadingPage';
+import colors from '../themes/colors';
 
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		paddingTop: 10,
 	},
-	buttonContainer: {
-		gap: 10,
-	},
 });
 
-const VALUES = [StatusEnum.PLAYING, StatusEnum.COMPLETED, StatusEnum.BACKLOG];
+const VALUES = [StatusEnum.COMPLETED, StatusEnum.PLAYING, StatusEnum.BACKLOG];
 
 const Profile = () => {
 	const [selectedIndex, setSelectedIndex] = useState<number>(0);
@@ -40,9 +37,10 @@ const Profile = () => {
 			<SegmentedControl
 				onChange={setSelectedIndex}
 				selectedIndex={selectedIndex}
-				values={['Playing', 'Completed', 'Backlog']}
+				values={['Completed', 'Playing', 'Backlog']}
 			/>
 			<ScrollView
+				contentContainerStyle={{ flex: 1 }}
 				refreshControl={
 					<RefreshControl
 						colors={[colors.text]}

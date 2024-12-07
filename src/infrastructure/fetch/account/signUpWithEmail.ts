@@ -1,4 +1,5 @@
 import { Alert } from 'react-native';
+
 import { supabase } from '../../lib/supabase';
 
 const signUpWithEmail = (email: string, password: string) => {

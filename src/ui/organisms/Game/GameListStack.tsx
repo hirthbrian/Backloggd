@@ -1,9 +1,9 @@
+import SectionTitle from '@texts/SectionTitle';
 import React, { useMemo } from 'react';
 import { StyleSheet, useWindowDimensions, View } from 'react-native';
 
-import SectionTitle from '../../atoms/Texts/SectionTitle';
-import GamePoster from '../../atoms/GamePoster';
 import { IGameShort } from '../../../domain/entities/gameEntities';
+import GamePoster from '../../atoms/GamePoster';
 import globalStyles from '../../themes/globalStyles';
 
 type Props = {
@@ -14,10 +14,13 @@ type Props = {
 const styles = StyleSheet.create({
 	container: {
 		gap: 10,
-		...globalStyles.paddingHorizontal,
+		...globalStyles.withPadding,
 	},
 	stackContainer: {
 		flexDirection: 'row',
+	},
+	item: {
+		position: 'absolute',
 	},
 });
 
@@ -31,10 +34,12 @@ const GameListStack = ({ data, title }: Props) => {
 	const renderItem = (item: IGameShort, index: number) => (
 		<View
 			key={item.id}
-			style={{
-				position: 'absolute',
-				right: index * itemOffset,
-			}}
+			style={[
+				styles.item,
+				{
+					right: index * itemOffset,
+				},
+			]}
 		>
 			<GamePoster
 				id={item.id}

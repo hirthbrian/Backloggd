@@ -1,9 +1,8 @@
+import SegmentedControlLib from '@react-native-segmented-control/segmented-control';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import SegmentedControlLib from '@react-native-segmented-control/segmented-control';
 
 import colors from '../../themes/colors';
-import globalStyles from '../../themes/globalStyles';
 import fonts from '../../themes/fonts';
 
 type Props = {
@@ -13,23 +12,6 @@ type Props = {
 };
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		...globalStyles.paddingHorizontal,
-	},
-	itemsContainer: {
-		flexDirection: 'row',
-		backgroundColor: colors.background_highlight,
-	},
-	itemContainer: {
-		flex: 1,
-		flexDirection: 'row',
-	},
-	separator: {
-		width: 1,
-		height: '80%',
-		backgroundColor: 'red',
-	},
 	font: {
 		fontSize: 14,
 		lineHeight: 20,
@@ -44,6 +26,10 @@ const styles = StyleSheet.create({
 		fontWeight: '600',
 		color: colors.white,
 	},
+	container: {
+		marginHorizontal: 15,
+		backgroundColor: colors.background_highlight,
+	},
 });
 
 const SegmentedControl = ({ onChange, selectedIndex, values }: Props) => {
@@ -53,10 +39,7 @@ const SegmentedControl = ({ onChange, selectedIndex, values }: Props) => {
 			selectedIndex={selectedIndex}
 			onChange={(event) => onChange(event.nativeEvent.selectedSegmentIndex)}
 			fontStyle={styles.font}
-			style={{
-				marginHorizontal: 15,
-				backgroundColor: colors.background_highlight,
-			}}
+			style={styles.container}
 			activeFontStyle={styles.activeFont}
 			tintColor={colors.background_light}
 		/>

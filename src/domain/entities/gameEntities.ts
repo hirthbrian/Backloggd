@@ -4,15 +4,17 @@ import { IPlatform } from './platformEntities ';
 
 export type IGameShort = {
 	id: number;
-	alternative_names?: Array<{
+	collections: Array<{
 		id: number;
 		name: string;
+		games: Array<IGameShort>;
 	}>;
 	cover: IImage;
-	first_released_date?: number;
+	first_release_date?: number;
 	involved_companies?: Array<ICompany>;
 	name: string;
-	platforms: Array<IPlatform>;
-	screenshots: Array<IImage>;
+	platforms?: Array<IPlatform>;
+	screenshots?: Array<IImage>;
+	similar_games: Array<IGameShort>;
 	summary?: string;
 };

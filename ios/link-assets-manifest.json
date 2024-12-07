@@ -2,63 +2,63 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "assets/fonts/Noto/NotoSans-Bold.ttf",
+      "path": "src/ui/assets/fonts/Noto/NotoSans-Bold.ttf",
       "sha1": "6edc69bf78fbbc0b678aa43727275855f45975b5"
     },
     {
-      "path": "assets/fonts/Noto/NotoSans-Light.ttf",
+      "path": "src/ui/assets/fonts/Noto/NotoSans-Light.ttf",
       "sha1": "82098bd0d202fefcde5310e607f3cdc6c4329b76"
     },
     {
-      "path": "assets/fonts/Noto/NotoSans-Medium.ttf",
+      "path": "src/ui/assets/fonts/Noto/NotoSans-Medium.ttf",
       "sha1": "b98208e84da28199547ae7ee0ebbc2df87cbed83"
     },
     {
-      "path": "assets/fonts/Noto/NotoSans-Regular.ttf",
+      "path": "src/ui/assets/fonts/Noto/NotoSans-Regular.ttf",
       "sha1": "d5981e3704e9c53718933c721c020838289f8509"
     },
     {
-      "path": "assets/fonts/Noto/NotoSans-SemiBold.ttf",
+      "path": "src/ui/assets/fonts/Noto/NotoSans-SemiBold.ttf",
       "sha1": "f7443adc7425c29f631d382f30fb34d4bb3f3d05"
     },
     {
-      "path": "assets/fonts/Plex/IBMPlexSans-Bold.ttf",
+      "path": "src/ui/assets/fonts/Plex/IBMPlexSans-Bold.ttf",
       "sha1": "6c829b9e0904df3399e7ac03ee1bb1f72c2d5e52"
     },
     {
-      "path": "assets/fonts/Plex/IBMPlexSans-ExtraLight.ttf",
+      "path": "src/ui/assets/fonts/Plex/IBMPlexSans-ExtraLight.ttf",
       "sha1": "d81b576095a66090e49d6d0b761f1a7a06aa1c93"
     },
     {
-      "path": "assets/fonts/Plex/IBMPlexSans-Light.ttf",
+      "path": "src/ui/assets/fonts/Plex/IBMPlexSans-Light.ttf",
       "sha1": "371d18ef3fa2148a1c0b40834a9228eaa7bb2e31"
     },
     {
-      "path": "assets/fonts/Plex/IBMPlexSans-Medium.ttf",
+      "path": "src/ui/assets/fonts/Plex/IBMPlexSans-Medium.ttf",
       "sha1": "754f3b3406638d2b8da0e71dd4449557add0eccf"
     },
     {
-      "path": "assets/fonts/Plex/IBMPlexSans-Regular.ttf",
+      "path": "src/ui/assets/fonts/Plex/IBMPlexSans-Regular.ttf",
       "sha1": "8e18e19c963fd6b0895620010d1a4adbc2d2caf7"
     },
     {
-      "path": "assets/fonts/Plex/IBMPlexSans-SemiBold.ttf",
+      "path": "src/ui/assets/fonts/Plex/IBMPlexSans-SemiBold.ttf",
       "sha1": "45bed8ec82912658ca349d6332084a12266fcc7a"
     },
     {
-      "path": "assets/fonts/Plex/IBMPlexSans-Thin.ttf",
+      "path": "src/ui/assets/fonts/Plex/IBMPlexSans-Thin.ttf",
       "sha1": "b927f11d9362e53f289b0a148663f517fab35ee1"
     },
     {
-      "path": "assets/fonts/Roboto-Bold.ttf",
+      "path": "src/ui/assets/fonts/Roboto/Roboto-Bold.ttf",
       "sha1": "62442a18a9fe9457c1afeabf683d263a691b7798"
     },
     {
-      "path": "assets/fonts/Roboto-Light.ttf",
+      "path": "src/ui/assets/fonts/Roboto/Roboto-Light.ttf",
       "sha1": "18788c5d630fa695f9283f6393bfa541b2031508"
     },
     {
-      "path": "assets/fonts/Roboto-Regular.ttf",
+      "path": "src/ui/assets/fonts/Roboto/Roboto-Regular.ttf",
       "sha1": "56c5c0d38bde4c1f1549dda43db37b09c608aad3"
     }
   ]

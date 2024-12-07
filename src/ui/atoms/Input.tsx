@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, TextInput, TextInputProps, View } from 'react-native';
-import fonts from '../themes/fonts';
+
 import colors from '../themes/colors';
+import fonts from '../themes/fonts';
 
 type Props = {} & TextInputProps;
 

@@ -1,10 +1,10 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 
 import { IGameShort } from '../../../domain/entities/gameEntities';
 import GameItemShort from '../../molecules/Game/GameItemShort';
 import colors from '../../themes/colors';
-import { useNavigation } from '@react-navigation/native';
 
 type Props = {
 	data: Array<IGameShort>;
@@ -25,7 +25,7 @@ const GameListShort = ({ data }: Props) => {
 	const navigation = useNavigation();
 
 	const onPressGame = (id: number) =>
-		navigation.navigate('GameDetails', { id });
+		navigation.navigate('GameDetailsScreen', { id });
 
 	const renderSeparator = () => <View style={styles.separator} />;
 

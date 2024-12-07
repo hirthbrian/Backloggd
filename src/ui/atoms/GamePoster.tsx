@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
-import { Image, Pressable, StyleSheet, View } from 'react-native';
-import colors from '../themes/colors';
-import { getImageUrl, ImageSizeType } from '../../infrastructure/utils';
-import SmallRegular from './Texts/SmallRegular';
+import SmallRegular from '@texts/SmallRegular';
+import React from 'react';
+import { Pressable, StyleSheet, View } from 'react-native';
 import { SheetManager } from 'react-native-actions-sheet';
-import { SheetIdEnum } from '../organisms/ActionSheet/sheets';
+import Animated, {
+	useAnimatedStyle,
+	useSharedValue,
+	withTiming,
+} from 'react-native-reanimated';
+
 import { IImage } from '../../domain/entities/commonEntities';
+import { getImageUrl, ImageSizeType } from '../../infrastructure/utils';
+import { SheetIdEnum } from '../organisms/ActionSheet/sheets';
+import colors from '../themes/colors';
 
 type Props = {
 	cover: IImage | undefined;
@@ -21,7 +27,7 @@ const styles = StyleSheet.create({
 	image: {
 		borderRadius: 5,
 		borderWidth: StyleSheet.hairlineWidth,
-		borderColor: colors.text,
+		borderColor: colors.background_light,
 	},
 	placeholder: {
 		borderRadius: 5,
@@ -29,7 +35,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		padding: 10,
 		borderWidth: StyleSheet.hairlineWidth,
-		borderColor: colors.text,
+		borderColor: colors.background_light,
 	},
 });
 
@@ -44,7 +50,7 @@ function GamePoster({
 	onPress,
 	width = 100,
 }: Props) {
-	const [isPressed, setIsPressed] = useState(false);
+	const opacity = useSharedValue<number>(1);
 
 	const onLongPress = () => {
 		if (!disableLongPress) {
@@ -56,13 +62,13 @@ function GamePoster({
 
 	const onPressIn = () => {
 		if (onPress) {
-			setIsPressed(true);
+			opacity.value = 0.6;
 		}
 	};
 
 	const onPressOut = () => {
 		if (onPress) {
-			setIsPressed(false);
+			opacity.value = 1;
 		}
 	};
 
@@ -82,15 +88,19 @@ function GamePoster({
 		</View>
 	);
 
+	const animatedStyles = useAnimatedStyle(() => ({
+		opacity: withTiming(opacity.value, { duration: 200 }),
+	}));
+
 	const renderImage = () => (
-		<Image
+		<Animated.Image
 			source={{ uri: getImageUrl(cover.image_id, imageSize) }}
 			style={[
 				styles.image,
+				animatedStyles,
 				{
 					width,
 					height: width * RATIO,
-					opacity: isPressed ? 0.6 : 1,
 				},
 			]}
 		/>

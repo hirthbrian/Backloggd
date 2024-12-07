@@ -1,15 +1,15 @@
+import NormalRegular from '@texts/NormalRegular';
+import SectionTitle from '@texts/SectionTitle';
+import SmallRegular from '@texts/SmallRegular';
+import dayjs from 'dayjs';
 import React, { useMemo } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import { IGameShort } from '../../../domain/entities/gameEntities';
 import GamePoster from '../../atoms/GamePoster';
-import globalStyles from '../../themes/globalStyles';
-import NormalRegular from '../../atoms/Texts/NormalRegular';
-import dayjs from 'dayjs';
-import SectionTitle from '../../atoms/Texts/SectionTitle';
-import colors from '../../themes/colors';
-import SmallRegular from '../../atoms/Texts/SmallRegular';
 import LabelList from '../../atoms/LabelList';
+import colors from '../../themes/colors';
+import globalStyles from '../../themes/globalStyles';
 
 type Props = {
 	data: IGameShort;
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		gap: 10,
 		paddingVertical: 10,
-		...globalStyles.paddingHorizontal,
+		...globalStyles.withPadding,
 	},
 	info: {
 		flex: 1,
@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
 
 const GameItemShort = ({ data, onPressGame }: Props) => {
 	const formatedReleaseDate = useMemo(
-		() => dayjs(data?.first_released_date).format('YYYY'),
-		[data?.first_released_date],
+		() => dayjs(data?.first_release_date).format('YYYY'),
+		[data?.first_release_date],
 	);
 
 	const renderPlatforms = () => {

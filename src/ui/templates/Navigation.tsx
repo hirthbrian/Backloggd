@@ -1,33 +1,39 @@
-import React from 'react';
-import { Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
 	createStaticNavigation,
 	StaticParamList,
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
+import { Image, StyleSheet } from 'react-native';
 
-import GameDetails from '../pages/GameDetails';
-import Home from '../pages/Home';
-import Search from '../pages/Search';
-import Profile from '../pages/Profile';
-import colors from '../themes/colors';
-import HomeIcon from '../atoms/Icons/HomeIcon';
-import SearchIcon from '../atoms/Icons/SearchIcon';
 import AccountFullIcon from '../atoms/Icons/AccountFullIcon';
 import AccountIcon from '../atoms/Icons/AccountIcon';
+import { BookFullIcon } from '../atoms/Icons/BookFullIcon';
+import { BookIcon } from '../atoms/Icons/BookIcon';
 import HomeFullIcon from '../atoms/Icons/HomeFullIcon';
-import SignUp from '../pages/account/SignUp';
+import HomeIcon from '../atoms/Icons/HomeIcon';
+import SearchIcon from '../atoms/Icons/SearchIcon';
 import SignIn from '../pages/account/SignIn';
-
-import MediaGallery from '../pages/MediaGallery';
+import SignUp from '../pages/account/SignUp';
 import FilteredGames from '../pages/FilteredGames';
+import GameDetailsScreen from '../pages/GameDetailsScreen';
+import Home from '../pages/Home';
+import MediaGallery from '../pages/MediaGallery';
+import Profile from '../pages/Profile';
+import Search from '../pages/Search';
+import colors from '../themes/colors';
 
-const logo = require('../../../assets/logo.png');
+const logo = require('../assets/images/logo.png');
 
-const HeaderTitle = () => (
-	<Image source={logo} style={{ width: 110, height: 25 }} />
-);
+const styles = StyleSheet.create({
+	headerImage: {
+		width: 110,
+		height: 25,
+	},
+});
+
+const HeaderTitle = () => <Image source={logo} style={styles.headerImage} />;
 
 const BottomTabStack = createBottomTabNavigator({
 	screens: {
@@ -48,11 +54,7 @@ const BottomTabStack = createBottomTabNavigator({
 			screen: Profile,
 			options: {
 				tabBarIcon: (props) =>
-					props.focused ? (
-						<AccountFullIcon {...props} />
-					) : (
-						<AccountIcon {...props} />
-					),
+					props.focused ? <BookFullIcon {...props} /> : <BookIcon {...props} />,
 			},
 		},
 	},
@@ -94,11 +96,21 @@ const AuthStack = createNativeStackNavigator({
 const RootStack = createNativeStackNavigator({
 	screens: {
 		Main: { screen: BottomTabStack, options: { headerTitle: HeaderTitle } },
-		GameDetails: {
-			screen: GameDetails,
+		GameDetailsScreen: {
+			screen: GameDetailsScreen,
+			options: {
+				headerTransparent: true,
+				headerStyle: {
+					backgroundColor: 'transparent',
+				},
+				headerTintColor: colors.white,
+			},
 		},
 		FilteredGames: {
 			screen: FilteredGames,
+			options: {
+				title: 'Games',
+			},
 		},
 		MediaGallery: {
 			screen: MediaGallery,
@@ -109,9 +121,14 @@ const RootStack = createNativeStackNavigator({
 					},
 				}),
 				gestureEnabled: false,
-				headerShown: false,
-				// animation: 'fade_from_bottom',
-				// animationDuration: 200,
+				headerTransparent: true,
+				headerStyle: {
+					backgroundColor: 'transparent',
+				},
+				title: '',
+				headerBackVisible: false,
+				animation: 'fade',
+				animationDuration: 200,
 			},
 		},
 	},
@@ -126,7 +143,7 @@ const RootStack = createNativeStackNavigator({
 	},
 });
 
-type RootStackParamList = StaticParamList<typeof BottomTabStack>;
+type RootStackParamList = StaticParamList<typeof RootStack & typeof AuthStack>;
 
 declare global {
 	namespace ReactNavigation {

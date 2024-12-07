@@ -1,34 +1,50 @@
+import NormalRegular from '@texts/NormalRegular';
+import SectionTitle from '@texts/SectionTitle';
 import React, { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
-import ActionSheet, {
-	SheetManager,
-	SheetProps,
-} from 'react-native-actions-sheet';
-import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+import { SheetManager, SheetProps } from 'react-native-actions-sheet';
+import { SvgProps } from 'react-native-svg';
+import { useQuery } from 'react-query';
 
-import globalStyles from '../../themes/globalStyles';
-import colors from '../../themes/colors';
-import { SheetIdEnum } from './sheets';
-import SectionTitle from '../../atoms/Texts/SectionTitle';
-import PrimaryButton from '../../atoms/PrimaryButton';
+import { StatusEnum } from '../../../domain/enum/StatusEnum';
+import getLog from '../../../infrastructure/fetch/log/getLog';
+import { triggerHaptic } from '../../../infrastructure/lib/hapticFeedback';
+import deleteLog from '../../../infrastructure/mutation/log/deleteLog';
 import insertLog from '../../../infrastructure/mutation/log/insertLog';
+import { BacklogIcon } from '../../atoms/Icons/BacklogIcon';
+import { DeleteIcon } from '../../atoms/Icons/DeleteIcon';
 import { GamepadIcon } from '../../atoms/Icons/GamepadIcon';
 import { PlayIcon } from '../../atoms/Icons/PlayIcon';
-import { BacklogIcon } from '../../atoms/Icons/BacklogIcon';
-import NormalRegular from '../../atoms/Texts/NormalRegular';
-import { StatusEnum } from '../../../domain/enum/StatusEnum';
-import { SvgProps } from 'react-native-svg';
-import { DeleteIcon } from '../../atoms/Icons/DeleteIcon';
+import PrimaryButton from '../../atoms/PrimaryButton';
 import SecondaryButton from '../../atoms/SecondaryButton';
-import deleteLog from '../../../infrastructure/mutation/log/deleteLog';
-import { useQuery } from 'react-query';
-import getLog from '../../../infrastructure/fetch/log/getLog';
+import colors from '../../themes/colors';
+import ActionSheetBase from './ActionSheetBase';
+import { SheetIdEnum } from './sheets';
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: colors.background,
-		paddingVertical: 20,
-		...globalStyles.paddingHorizontal,
+		gap: 20,
+	},
+	statusContainer: {
+		gap: 15,
+		flexDirection: 'row',
+	},
+	statusItem: {
+		flex: 1,
+		backgroundColor: colors.background_light,
+		borderRadius: 8,
+		borderWidth: 1,
+		alignItems: 'center',
+		paddingVertical: 10,
+		gap: 5,
+	},
+	buttonContainer: {
+		gap: 10,
+		flexDirection: 'row',
+		alignItems: 'center',
+	},
+	logButton: {
+		flex: 1,
 	},
 });
 
@@ -39,10 +55,6 @@ const LogGameSheet = ({ payload }: SheetProps<SheetIdEnum.LOG_GAME>) => {
 	const query = useQuery(['getLog', id], () => getLog(id));
 
 	const [statusSelected, setStatusSelected] = useState<Array<StatusEnum>>([]);
-
-	useEffect(() => {
-		ReactNativeHapticFeedback.trigger('impactLight');
-	}, []);
 
 	useEffect(() => {
 		const test = [];
@@ -80,22 +92,23 @@ const LogGameSheet = ({ payload }: SheetProps<SheetIdEnum.LOG_GAME>) => {
 		return (
 			<Pressable
 				onPress={() => {
+					triggerHaptic();
 					setStatusSelected(
 						isSelected
 							? statusSelected.filter((s) => s !== status)
 							: [...statusSelected, status],
 					);
 				}}
-				style={{
-					flex: 1,
-					backgroundColor: colors.background_light,
-					borderRadius: 8,
-					borderWidth: 1,
-					borderColor: isSelected ? colors.primary : colors.background_light,
-					alignItems: 'center',
-					paddingVertical: 10,
-					gap: 5,
-				}}
+				style={[
+					styles.statusItem,
+					[
+						{
+							borderColor: isSelected
+								? colors.primary
+								: colors.background_light,
+						},
+					],
+				]}
 			>
 				<Icon color={isSelected ? colors.primary : colors.text} />
 				<NormalRegular color={isSelected ? colors.primary : colors.text}>
@@ -106,35 +119,22 @@ const LogGameSheet = ({ payload }: SheetProps<SheetIdEnum.LOG_GAME>) => {
 	};
 
 	return (
-		<ActionSheet containerStyle={styles.container}>
-			<View style={{ gap: 20 }}>
-				<SectionTitle color={colors.white} textAlign="center">
-					{name}
-				</SectionTitle>
-				<View
-					style={{
-						flexDirection: 'row',
-						gap: 15,
-					}}
-				>
-					{renderStatus('Completed', GamepadIcon, StatusEnum.COMPLETED)}
-					{renderStatus('Playing', PlayIcon, StatusEnum.PLAYING)}
-					{renderStatus('Backlog', BacklogIcon, StatusEnum.BACKLOG)}
-				</View>
-				<View
-					style={{
-						flexDirection: 'row',
-						gap: 10,
-						alignItems: 'center',
-					}}
-				>
-					<SecondaryButton LeftIcon={DeleteIcon} onPress={onDeleteLog} />
-					<View style={{ flex: 1 }}>
-						<PrimaryButton title="Create Log" onPress={onCreateLog} />
-					</View>
+		<ActionSheetBase containerStyle={styles.container}>
+			<SectionTitle color={colors.white} textAlign="center">
+				{name}
+			</SectionTitle>
+			<View style={styles.statusContainer}>
+				{renderStatus('Completed', GamepadIcon, StatusEnum.COMPLETED)}
+				{renderStatus('Playing', PlayIcon, StatusEnum.PLAYING)}
+				{renderStatus('Backlog', BacklogIcon, StatusEnum.BACKLOG)}
+			</View>
+			<View style={styles.buttonContainer}>
+				<SecondaryButton LeftIcon={DeleteIcon} onPress={onDeleteLog} />
+				<View style={styles.logButton}>
+					<PrimaryButton title="Create Log" onPress={onCreateLog} />
 				</View>
 			</View>
-		</ActionSheet>
+		</ActionSheetBase>
 	);
 };
 

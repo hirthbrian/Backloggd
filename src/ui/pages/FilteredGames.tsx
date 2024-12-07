@@ -1,35 +1,74 @@
-import React, { useMemo } from 'react';
-import { RefreshControl, ScrollView, StyleSheet, View } from 'react-native';
-
-import GameListColumns from '../organisms/Game/GameListColumns';
+import { StaticScreenProps, useNavigation } from '@react-navigation/native';
+import React, { useEffect, useMemo } from 'react';
+import {
+	Pressable,
+	RefreshControl,
+	ScrollView,
+	StyleSheet,
+	View,
+} from 'react-native';
+import { SheetManager } from 'react-native-actions-sheet';
 import { useQuery } from 'react-query';
+
+import getGamesCustomFilter from '../../infrastructure/fetch/game/getGamesWithFilter';
+import FilterIcon from '../atoms/Icons/FilterIcon';
+import SortByIcon from '../atoms/Icons/SortByIcon';
+import { SheetIdEnum } from '../organisms/ActionSheet/sheets';
+import GameListColumns from '../organisms/Game/GameListColumns';
 import ErrorPage from '../templates/ErrorPage';
 import colors from '../themes/colors';
-import getGamesCustomFilter from '../../infrastructure/fetch/game/getGamesWithFilter';
-import { StaticScreenProps } from '@react-navigation/native';
 
 type Props = StaticScreenProps<{
-	filters: {
-		sortByRating?: boolean;
-	};
+	sortByRating?: boolean;
+	collectionId?: number;
 }>;
 
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 	},
+	headerRightContainer: {
+		gap: 10,
+		flexDirection: 'row',
+	},
 });
 
-const MOST_RATED = 'where total_rating_count > 100;sort rating_count desc;';
+const MOST_RATED = () =>
+	'where total_rating_count > 100;sort rating_count desc;';
+
+const BY_COLLECTION = (collectionId: number) =>
+	`where collections = ${collectionId};sort rating_count desc;`;
 
 const FilteredGames = ({ route }: Props) => {
+	const navigation = useNavigation();
+
+	const headerRight = () => {
+		return (
+			<View style={styles.headerRightContainer}>
+				<Pressable onPress={() => SheetManager.show(SheetIdEnum.FILTER_GAME)}>
+					<FilterIcon color={colors.primary} />
+				</Pressable>
+				<Pressable onPress={() => SheetManager.show(SheetIdEnum.SORT_BY_GAME)}>
+					<SortByIcon color={colors.primary} />
+				</Pressable>
+			</View>
+		);
+	};
+
+	useEffect(() => {
+		navigation.setOptions({ headerRight });
+	}, [navigation]);
+
 	const filters = useMemo(() => {
 		let requestString = '';
-		if (route.params.filters.sortByRating) {
-			requestString += MOST_RATED;
+		if (route.params.sortByRating) {
+			requestString += MOST_RATED();
+		}
+		if (route.params.collectionId) {
+			requestString += BY_COLLECTION(route.params.collectionId);
 		}
 		return requestString;
-	}, [route.params.filters]);
+	}, [route.params]);
 
 	const query = useQuery(['filteredGames', filters], () =>
 		getGamesCustomFilter(filters),

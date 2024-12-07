@@ -1,9 +1,9 @@
+import NormalRegular from '@texts/NormalRegular';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import NormalRegular from '../../atoms/Texts/NormalRegular';
-import colors from '../../themes/colors';
 import { IPlatform } from '../../../domain/entities/platformEntities ';
+import colors from '../../themes/colors';
 
 type Props = {
 	data: Array<IPlatform>;
@@ -21,14 +21,14 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		paddingHorizontal: 4,
 		borderRadius: 4,
-		borderColor: colors.text,
-		borderWidth: StyleSheet.hairlineWidth,
+		borderColor: colors.text_secondary,
+		borderWidth: 1,
 	},
-	image: {
-		height: 15,
-		width: 15,
-		backgroundColor: 'red',
-	},
+	// image: {
+	// 	height: 15,
+	// 	width: 15,
+	// 	backgroundColor: 'red',
+	// },
 });
 
 const PlatformList = ({ data }: Props) => {

@@ -1,7 +1,8 @@
+import NormalSemiBold from '@texts/NormalSemiBold';
 import React from 'react';
-import { StyleSheet, Pressable, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
+
 import colors from '../themes/colors';
-import NormalSemiBold from './Texts/NormalSemiBold';
 
 type Props = {
 	title: string;
