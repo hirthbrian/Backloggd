@@ -25,16 +25,12 @@ export default function Search() {
 		setQuery(text);
 	};
 
-	if (response.data) {
-		return (
-			<View style={styles.container}>
-				<View style={styles.search}>
-					<SearchBar onSubmit={onSearch} />
-				</View>
-				<GameListShort data={response?.data} />
+	return (
+		<View style={styles.container}>
+			<View style={styles.search}>
+				<SearchBar onSubmit={onSearch} />
 			</View>
-		);
-	}
-
-	return null;
+			{response.data && <GameListShort data={response?.data} />}
+		</View>
+	);
 }

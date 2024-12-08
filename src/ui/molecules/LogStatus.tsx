@@ -45,18 +45,18 @@ const LogStatus = ({ gameId }: Props) => {
 	});
 
 	useEffect(() => {
-		const test = [];
+		const newStatus = [];
 		if (query?.data) {
 			if (query?.data.playing) {
-				test.push(StatusEnum.PLAYING);
+				newStatus.push(StatusEnum.PLAYING);
 			}
 			if (query?.data.completed) {
-				test.push(StatusEnum.COMPLETED);
+				newStatus.push(StatusEnum.COMPLETED);
 			}
 			if (query?.data.backlog) {
-				test.push(StatusEnum.BACKLOG);
+				newStatus.push(StatusEnum.BACKLOG);
 			}
-			setStatusSelected(test);
+			setStatusSelected(newStatus);
 		}
 	}, [query?.data]);
 

@@ -35,36 +35,32 @@ const Profile = () => {
 		return <ErrorPage />;
 	}
 
-	if (query.data) {
-		return (
-			<View style={styles.container}>
-				<SegmentedControl
-					onChange={setSelectedIndex}
-					selectedIndex={selectedIndex}
-					values={['Completed', 'Playing', 'Backlog']}
-				/>
-				<ScrollView
-					contentContainerStyle={styles.scrollViewContainer}
-					refreshControl={
-						<RefreshControl
-							colors={[colors.text]}
-							tintColor={colors.text}
-							refreshing={query.isRefetching}
-							onRefresh={query.refetch}
-						/>
-					}
-				>
-					{query?.isLoading ? (
-						<LoadingPage />
-					) : (
-						<GameListColumns data={query.data} />
-					)}
-				</ScrollView>
-			</View>
-		);
-	}
-
-	return null;
+	return (
+		<View style={styles.container}>
+			<SegmentedControl
+				onChange={setSelectedIndex}
+				selectedIndex={selectedIndex}
+				values={['Completed', 'Playing', 'Backlog']}
+			/>
+			<ScrollView
+				contentContainerStyle={styles.scrollViewContainer}
+				refreshControl={
+					<RefreshControl
+						colors={[colors.text]}
+						tintColor={colors.text}
+						refreshing={query.isRefetching}
+						onRefresh={query.refetch}
+					/>
+				}
+			>
+				{query?.isLoading || !query.data ? (
+					<LoadingPage />
+				) : (
+					<GameListColumns data={query.data} />
+				)}
+			</ScrollView>
+		</View>
+	);
 };
 
 export default Profile;

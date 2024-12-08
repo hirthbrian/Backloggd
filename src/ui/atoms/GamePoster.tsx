@@ -45,7 +45,7 @@ function GamePoster({
 	cover,
 	disableLongPress,
 	id,
-	imageSize = 'logo_med',
+	imageSize = 'cover_big',
 	name,
 	onPress,
 	width = 100,

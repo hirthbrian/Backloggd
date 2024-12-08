@@ -20,6 +20,7 @@ import Divider from '../../atoms/Divider';
 import GamePoster from '../../atoms/GamePoster';
 import LabelList from '../../atoms/LabelList';
 import BackgroundCover from '../../molecules/BackgroundCover';
+import GameRating from '../../molecules/Game/GameRating';
 import ScreenshotCarousel from '../../molecules/Game/ScreenshotCarousel';
 import LogStatus from '../../molecules/LogStatus';
 import colors from '../../themes/colors';
@@ -48,6 +49,10 @@ const styles = StyleSheet.create({
 	},
 	summary: {
 		paddingTop: 20,
+		...globalStyles.withPadding,
+	},
+	rating: {
+		gap: 10,
 		...globalStyles.withPadding,
 	},
 	platformList: {
@@ -239,7 +244,8 @@ const GameDetails = ({ data }: Props) => {
 				<NormalRegular numberOfLines={10}>{data?.summary}</NormalRegular>
 			</View>
 			<Divider />
-			<View style={globalStyles.withPadding}>
+			<View style={styles.rating}>
+				<GameRating gameId={data.id} />
 				<LogStatus gameId={data.id} />
 			</View>
 			<Divider />
