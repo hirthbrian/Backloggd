@@ -2,7 +2,7 @@ import NormalRegular from '@texts/NormalRegular';
 import SectionTitle from '@texts/SectionTitle';
 import React, { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
-import { SheetManager, SheetProps } from 'react-native-actions-sheet';
+import { SheetManager, useSheetPayload } from 'react-native-actions-sheet';
 import { SvgProps } from 'react-native-svg';
 import { useQuery } from 'react-query';
 
@@ -48,9 +48,8 @@ const styles = StyleSheet.create({
 	},
 });
 
-const LogGameSheet = ({ payload }: SheetProps<SheetIdEnum.LOG_GAME>) => {
-	const id = payload.id;
-	const name = payload.name;
+const LogGameSheet = () => {
+	const { id, name } = useSheetPayload(SheetIdEnum.LOG_GAME);
 
 	const query = useQuery(['getLog', id], () => getLog(id));
 

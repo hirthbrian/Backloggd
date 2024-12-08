@@ -20,6 +20,7 @@ import Divider from '../../atoms/Divider';
 import GamePoster from '../../atoms/GamePoster';
 import LabelList from '../../atoms/LabelList';
 import BackgroundCover from '../../molecules/BackgroundCover';
+import GameRating from '../../molecules/Game/GameRating';
 import ScreenshotCarousel from '../../molecules/Game/ScreenshotCarousel';
 import LogStatus from '../../molecules/LogStatus';
 import colors from '../../themes/colors';
@@ -48,6 +49,10 @@ const styles = StyleSheet.create({
 	},
 	summary: {
 		paddingTop: 20,
+		...globalStyles.withPadding,
+	},
+	rating: {
+		gap: 10,
 		...globalStyles.withPadding,
 	},
 	platformList: {
@@ -107,7 +112,10 @@ const GameDetails = ({ data }: Props) => {
 	]);
 
 	const formatedReleaseDate = useMemo(
-		() => dayjs.unix(data.first_release_date).format('MMM D, YYYY'),
+		() =>
+			data.first_release_date
+				? dayjs.unix(data.first_release_date).format('MMM D, YYYY')
+				: '¯\\_(ツ)_/¯',
 		[data?.first_release_date],
 	);
 
@@ -129,17 +137,20 @@ const GameDetails = ({ data }: Props) => {
 	};
 
 	const renderCompanies = () => {
-		return (
-			<NormalRegular>
-				{'by '}
-				<LabelList
-					highlightColor={colors.text_highlight}
-					labels={data?.involved_companies
-						?.filter((c) => c.developer)
-						?.map((c) => c.company.name)}
-				/>
-			</NormalRegular>
-		);
+		if (data.involved_companies) {
+			return (
+				<NormalRegular>
+					{'by '}
+					<LabelList
+						highlightColor={colors.text_highlight}
+						labels={data.involved_companies
+							?.filter((c) => c.developer)
+							?.map((c) => c.company.name)}
+					/>
+				</NormalRegular>
+			);
+		}
+		return null;
 	};
 
 	const renderHeader = () => {
@@ -233,7 +244,8 @@ const GameDetails = ({ data }: Props) => {
 				<NormalRegular numberOfLines={10}>{data?.summary}</NormalRegular>
 			</View>
 			<Divider />
-			<View style={globalStyles.withPadding}>
+			<View style={styles.rating}>
+				<GameRating gameId={data.id} />
 				<LogStatus gameId={data.id} />
 			</View>
 			<Divider />

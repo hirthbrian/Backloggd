@@ -42,6 +42,11 @@ const styles = StyleSheet.create({
 		borderRadius: 6,
 		backgroundColor: colors.background + '4A',
 	},
+	indicatorDot: {
+		width: 5,
+		height: 5,
+		borderRadius: 5,
+	},
 });
 
 const ScreenshotCarousel = ({ data, onPress }: Props) => {
@@ -78,13 +83,13 @@ const ScreenshotCarousel = ({ data, onPress }: Props) => {
 				{data?.map((d, index) => (
 					<View
 						key={d.id}
-						style={{
-							width: 5,
-							height: 5,
-							borderRadius: 5,
-							backgroundColor:
-								index === currentIndex ? colors.white : colors.text,
-						}}
+						style={[
+							styles.indicatorDot,
+							{
+								backgroundColor:
+									index === currentIndex ? colors.white : colors.text,
+							},
+						]}
 					/>
 				))}
 			</View>

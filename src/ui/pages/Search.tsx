@@ -30,7 +30,7 @@ export default function Search() {
 			<View style={styles.search}>
 				<SearchBar onSubmit={onSearch} />
 			</View>
-			<GameListShort data={response?.data} />
+			{response.data && <GameListShort data={response?.data} />}
 		</View>
 	);
 }

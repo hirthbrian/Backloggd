@@ -8,7 +8,11 @@ const getLog = (gameId: number) => {
 		.select()
 		.eq('game_id', gameId)
 		.eq('user_id', userId)
-		.then(({ data }) => data[0]);
+		.then(({ data }) => {
+			if (data) {
+				return data[0];
+			}
+		});
 };
 
 export default getLog;

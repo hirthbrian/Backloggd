@@ -7,7 +7,7 @@ import colors from '../themes/colors';
 
 type Props = {
 	highlightColor?: string;
-	labels: Array<string> | undefined;
+	labels: Array<string>;
 };
 
 const styles = StyleSheet.create({
@@ -17,14 +17,18 @@ const styles = StyleSheet.create({
 });
 
 const LabelList = ({ highlightColor, labels }: Props) => {
-	return labels?.map((label, i) => (
-		<NormalRegular key={label + i}>
-			<NormalSemiBold color={highlightColor} style={styles.label}>
-				{label}
-			</NormalSemiBold>
-			{i < labels.length - 1 && <Text>{', '}</Text>}
-		</NormalRegular>
-	));
+	return (
+		<Text>
+			{labels?.map((label, i) => (
+				<NormalRegular key={label + i}>
+					<NormalSemiBold color={highlightColor} style={styles.label}>
+						{label}
+					</NormalSemiBold>
+					{i < labels.length - 1 && <Text>{', '}</Text>}
+				</NormalRegular>
+			))}
+		</Text>
+	);
 };
 
 export default LabelList;

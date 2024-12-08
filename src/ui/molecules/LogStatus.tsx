@@ -45,29 +45,29 @@ const LogStatus = ({ gameId }: Props) => {
 	});
 
 	useEffect(() => {
-		const test = [];
+		const newStatus = [];
 		if (query?.data) {
 			if (query?.data.playing) {
-				test.push(StatusEnum.PLAYING);
+				newStatus.push(StatusEnum.PLAYING);
 			}
 			if (query?.data.completed) {
-				test.push(StatusEnum.COMPLETED);
+				newStatus.push(StatusEnum.COMPLETED);
 			}
 			if (query?.data.backlog) {
-				test.push(StatusEnum.BACKLOG);
+				newStatus.push(StatusEnum.BACKLOG);
 			}
-			setStatusSelected(test);
+			setStatusSelected(newStatus);
 		}
 	}, [query?.data]);
 
 	const onPressItem = (isSelected: boolean, status: StatusEnum) => {
 		triggerHaptic();
-		const sttaaats = isSelected
+		const newStats = isSelected
 			? statusSelected.filter((s) => s !== status)
 			: [...statusSelected, status];
 
-		setStatusSelected(sttaaats);
-		mutation.mutate({ id: gameId, status: sttaaats });
+		setStatusSelected(newStats);
+		mutation.mutate({ id: gameId, status: newStats });
 	};
 
 	const renderStatus = (

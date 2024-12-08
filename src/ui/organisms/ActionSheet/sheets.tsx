@@ -16,14 +16,14 @@ registerSheet(SheetIdEnum.SORT_BY_GAME, SortByGameSheet);
 
 declare module 'react-native-actions-sheet' {
 	interface Sheets {
-		[SheetIdEnum.FILTER_GAME]: SheetDefinition<{}>;
+		[SheetIdEnum.FILTER_GAME]: SheetDefinition;
 		[SheetIdEnum.LOG_GAME]: SheetDefinition<{
 			payload: {
 				id: number;
 				name: string;
 			};
 		}>;
-		[SheetIdEnum.SORT_BY_GAME]: SheetDefinition<{}>;
+		[SheetIdEnum.SORT_BY_GAME]: SheetDefinition;
 	}
 }
 
