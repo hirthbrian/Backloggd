@@ -1,3 +1,4 @@
+import { IImage } from '@entities/commonEntities';
 import SmallRegular from '@texts/SmallRegular';
 import React from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
@@ -8,7 +9,6 @@ import Animated, {
 	withTiming,
 } from 'react-native-reanimated';
 
-import { IImage } from '../../domain/entities/commonEntities';
 import { getImageUrl, ImageSizeType } from '../../infrastructure/utils';
 import { SheetIdEnum } from '../organisms/ActionSheet/sheets';
 import colors from '../themes/colors';
@@ -92,19 +92,24 @@ function GamePoster({
 		opacity: withTiming(opacity.value, { duration: 200 }),
 	}));
 
-	const renderImage = () => (
-		<Animated.Image
-			source={{ uri: getImageUrl(cover.image_id, imageSize) }}
-			style={[
-				styles.image,
-				animatedStyles,
-				{
-					width,
-					height: width * RATIO,
-				},
-			]}
-		/>
-	);
+	const renderImage = () => {
+		if (cover) {
+			return (
+				<Animated.Image
+					source={{ uri: getImageUrl(cover.image_id, imageSize) }}
+					style={[
+						styles.image,
+						animatedStyles,
+						{
+							width,
+							height: width * RATIO,
+						},
+					]}
+				/>
+			);
+		}
+		return null;
+	};
 
 	return (
 		<Pressable

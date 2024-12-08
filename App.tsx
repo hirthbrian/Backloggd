@@ -1,5 +1,6 @@
 import './src/ui/organisms/ActionSheet/sheets';
 
+import { UserContext } from '@contexts/UserContext';
 import { IUser } from '@entities/userEntities';
 import { Session } from '@supabase/supabase-js';
 import React, { useEffect, useState } from 'react';
@@ -8,7 +9,6 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import { UserContext } from './src/infrastructure/contexts/UserContext';
 import { supabase } from './src/infrastructure/lib/supabase';
 import LoadingPage from './src/ui/templates/LoadingPage';
 import { AuthNavigation, Navigation } from './src/ui/templates/Navigation';

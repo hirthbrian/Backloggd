@@ -1,10 +1,10 @@
+import { IGameShort } from '@entities/gameEntities';
 import { useNavigation } from '@react-navigation/native';
 import NormalRegular from '@texts/NormalRegular';
 import SectionTitle from '@texts/SectionTitle';
 import React, { useMemo } from 'react';
 import { FlatList, StyleSheet, useWindowDimensions, View } from 'react-native';
 
-import { IGameShort } from '../../../domain/entities/gameEntities';
 import GamePoster from '../../atoms/GamePoster';
 import colors from '../../themes/colors';
 import globalStyles from '../../themes/globalStyles';

@@ -7,8 +7,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { Image, StyleSheet } from 'react-native';
 
-import AccountFullIcon from '../atoms/Icons/AccountFullIcon';
-import AccountIcon from '../atoms/Icons/AccountIcon';
 import { BookFullIcon } from '../atoms/Icons/BookFullIcon';
 import { BookIcon } from '../atoms/Icons/BookIcon';
 import HomeFullIcon from '../atoms/Icons/HomeFullIcon';

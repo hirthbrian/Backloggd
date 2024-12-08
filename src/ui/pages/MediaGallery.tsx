@@ -1,8 +1,8 @@
+import { IImage } from '@entities/commonEntities';
 import { StaticScreenProps, useNavigation } from '@react-navigation/native';
 import React, { useMemo } from 'react';
 import Gallery from 'react-native-awesome-gallery';
 
-import { IImage } from '../../domain/entities/commonEntities';
 import { getImageUrl } from '../../infrastructure/utils';
 
 type Props = StaticScreenProps<{

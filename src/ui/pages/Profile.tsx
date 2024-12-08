@@ -15,6 +15,9 @@ const styles = StyleSheet.create({
 		flex: 1,
 		paddingTop: 10,
 	},
+	scrollViewContainer: {
+		flex: 1,
+	},
 });
 
 const VALUES = [StatusEnum.COMPLETED, StatusEnum.PLAYING, StatusEnum.BACKLOG];
@@ -40,7 +43,7 @@ const Profile = () => {
 				values={['Completed', 'Playing', 'Backlog']}
 			/>
 			<ScrollView
-				contentContainerStyle={{ flex: 1 }}
+				contentContainerStyle={styles.scrollViewContainer}
 				refreshControl={
 					<RefreshControl
 						colors={[colors.text]}

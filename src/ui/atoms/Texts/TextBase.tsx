@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import type { ColorValue, TextStyle } from 'react-native';
 import { Text } from 'react-native';
 
@@ -23,6 +23,11 @@ function TextBase({
 	textAlign = 'auto',
 	uppercase,
 }: TextBaseProps) {
+	const textTransform = useMemo(
+		() => (uppercase ? 'uppercase' : undefined),
+		[uppercase],
+	);
+
 	return (
 		<Text
 			numberOfLines={numberOfLines}
@@ -31,7 +36,7 @@ function TextBase({
 				{
 					color: color || colors.text,
 					textAlign,
-					textTransform: uppercase ? 'uppercase' : undefined,
+					textTransform,
 				},
 				style,
 			]}

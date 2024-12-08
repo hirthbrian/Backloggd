@@ -21,7 +21,9 @@ const getLoggedGames = async (
 		query = query.eq('backlog', true);
 	}
 
-	const ids = await query.then(({ data }) => data?.map((d) => d.game_id));
+	const ids = (await query.then(({ data }) =>
+		data?.map((d) => d.game_id),
+	)) as Array<number>;
 
 	if (ids?.length === 0) {
 		return [];
