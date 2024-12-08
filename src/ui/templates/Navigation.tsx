@@ -14,7 +14,7 @@ import HomeIcon from '../atoms/Icons/HomeIcon';
 import SearchIcon from '../atoms/Icons/SearchIcon';
 import SignIn from '../pages/account/SignIn';
 import SignUp from '../pages/account/SignUp';
-import FilteredGames from '../pages/FilteredGames';
+import FilteredGamesScreen from '../pages/FilteredGamesScreen';
 import GameDetailsScreen from '../pages/GameDetailsScreen';
 import Home from '../pages/Home';
 import MediaGallery from '../pages/MediaGallery';
@@ -105,7 +105,7 @@ const RootStack = createNativeStackNavigator({
 			},
 		},
 		FilteredGames: {
-			screen: FilteredGames,
+			screen: FilteredGamesScreen,
 			options: {
 				title: 'Games',
 			},
@@ -113,11 +113,6 @@ const RootStack = createNativeStackNavigator({
 		MediaGallery: {
 			screen: MediaGallery,
 			options: {
-				cardStyleInterpolator: ({ current }) => ({
-					cardStyle: {
-						opacity: current.progress,
-					},
-				}),
 				gestureEnabled: false,
 				headerTransparent: true,
 				headerStyle: {

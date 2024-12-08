@@ -62,12 +62,12 @@ const LogStatus = ({ gameId }: Props) => {
 
 	const onPressItem = (isSelected: boolean, status: StatusEnum) => {
 		triggerHaptic();
-		const sttaaats = isSelected
+		const newStats = isSelected
 			? statusSelected.filter((s) => s !== status)
 			: [...statusSelected, status];
 
-		setStatusSelected(sttaaats);
-		mutation.mutate({ id: gameId, status: sttaaats });
+		setStatusSelected(newStats);
+		mutation.mutate({ id: gameId, status: newStats });
 	};
 
 	const renderStatus = (

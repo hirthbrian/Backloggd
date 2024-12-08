@@ -107,7 +107,10 @@ const GameDetails = ({ data }: Props) => {
 	]);
 
 	const formatedReleaseDate = useMemo(
-		() => dayjs.unix(data.first_release_date).format('MMM D, YYYY'),
+		() =>
+			data.first_release_date
+				? dayjs.unix(data.first_release_date).format('MMM D, YYYY')
+				: '¯\\_(ツ)_/¯',
 		[data?.first_release_date],
 	);
 
@@ -129,17 +132,20 @@ const GameDetails = ({ data }: Props) => {
 	};
 
 	const renderCompanies = () => {
-		return (
-			<NormalRegular>
-				{'by '}
-				<LabelList
-					highlightColor={colors.text_highlight}
-					labels={data?.involved_companies
-						?.filter((c) => c.developer)
-						?.map((c) => c.company.name)}
-				/>
-			</NormalRegular>
-		);
+		if (data.involved_companies) {
+			return (
+				<NormalRegular>
+					{'by '}
+					<LabelList
+						highlightColor={colors.text_highlight}
+						labels={data.involved_companies
+							?.filter((c) => c.developer)
+							?.map((c) => c.company.name)}
+					/>
+				</NormalRegular>
+			);
+		}
+		return null;
 	};
 
 	const renderHeader = () => {
